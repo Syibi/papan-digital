@@ -8,7 +8,12 @@
               <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
               <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
-            <div class="carousel-inner">
+            <div class="carousel-inner"
+              style="
+                box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45);
+                border-radius: 0.5rem;
+              "
+            >
               <div class="carousel-item active" style="width: 100%; height:79vh">
                 <img src="../assets/img/elements/2.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">

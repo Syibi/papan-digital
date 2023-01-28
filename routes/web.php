@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin/beranda');
 });
+Route::get('/info', function () {
+    return view('admin/info');
+});
+Route::get('/struktur-desa', function () {
+    return view('admin/struktur-desa');
+});
+Route::get('/proker-desa', function () {
+    return view('admin/proker-desa');
+});
