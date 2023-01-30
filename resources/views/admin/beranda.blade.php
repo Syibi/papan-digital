@@ -15,26 +15,27 @@
               "
             >
               <div class="carousel-item active" style="width: 100%; height:79vh">
-                <img src="../assets/img/elements/2.jpg" class="d-block w-100" alt="...">
+                <img src="../assets/img/avatars/1.png" class="d-block w-100" alt="..." style="object-fit: cover; height:79vh">
                 <div class="carousel-caption d-none d-md-block">
                   <h3>First slide label</h3>
                   <p>Some representative placeholder content for the first slide.</p>
                 </div>
               </div>
               <div class="carousel-item"  style="width: 100%; height:79vh">
-                <img src="../assets/img/elements/3.jpg" class="d-block w-100" alt="...">
+                <img src="../assets/img/avatars/6.png" class="d-block w-100" alt="..." style="object-fit: cover; height:79vh">
                 <div class="carousel-caption d-none d-md-block">
                   <h3>Second slide label</h5>
                   <p>Some representative placeholder content for the second slide.</p>
                 </div>
               </div>
               <div class="carousel-item" style="width: 100%; height:79vh">
-                <img src="../assets/img/elements/4.jpg" class="d-block w-100" alt="...">
+                <img src="../assets/img/avatars/5.png" class="d-block w-100" alt="..." style="object-fit: cover; height:79vh">
                 <div class="carousel-caption d-none d-md-block">
                   <h2>Third slide label</h2>
                   <p>Some representative placeholder content for the third slide.</p>
                 </div>
               </div>
+
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -45,5 +46,16 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
+        {{-- Button Edit Beranda --}}
+        <a href="/edit-beranda" type="button" class="btn btn-lg rounded-pill btn-icon btn-primary" 
+        style="
+              position: fixed;
+              right: 5%;
+              bottom:10%;
+              display:block;
+              z-index:10;
+              ">
+          <i class='bx bxs-pencil' style="margin-top: 9pt; font-size:1.5rem"></i>
+        </a>
     </div>
 @endsection

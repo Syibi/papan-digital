@@ -25,3 +25,6 @@ Route::get('/struktur-desa', function () {
 Route::get('/proker-desa', function () {
     return view('admin/proker-desa');
 });
+Route::get('/edit-beranda', function () {
+    return view('admin/edit-beranda');
+});
