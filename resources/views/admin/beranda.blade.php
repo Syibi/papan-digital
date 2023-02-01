@@ -14,28 +14,15 @@
                 border-radius: 0.5rem;
               "
             >
-              <div class="carousel-item active" style="width: 100%; height:79vh">
-                <img src="../assets/img/avatars/1.png" class="d-block w-100" alt="..." style="object-fit: cover; height:79vh">
+            @foreach ($slide as $key => $item)
+              <div class="carousel-item {{ $key == 1 ? 'active':''}}" style="width: 100%; height:79vh">
+                <img src="{{ asset("upload/slide/".$item->gambar)}}" class="d-block w-100" alt="..." style="object-fit: cover; height:79vh">
                 <div class="carousel-caption d-none d-md-block">
-                  <h3>First slide label</h3>
-                  <p>Some representative placeholder content for the first slide.</p>
+                  <h3>{{ $item->judul }}</h3>
+                  <p>{{ $item->deskripsi }}</p>
                 </div>
               </div>
-              <div class="carousel-item"  style="width: 100%; height:79vh">
-                <img src="../assets/img/avatars/6.png" class="d-block w-100" alt="..." style="object-fit: cover; height:79vh">
-                <div class="carousel-caption d-none d-md-block">
-                  <h3>Second slide label</h5>
-                  <p>Some representative placeholder content for the second slide.</p>
-                </div>
-              </div>
-              <div class="carousel-item" style="width: 100%; height:79vh">
-                <img src="../assets/img/avatars/5.png" class="d-block w-100" alt="..." style="object-fit: cover; height:79vh">
-                <div class="carousel-caption d-none d-md-block">
-                  <h2>Third slide label</h2>
-                  <p>Some representative placeholder content for the third slide.</p>
-                </div>
-              </div>
-
+            @endforeach
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
