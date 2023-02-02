@@ -9,7 +9,7 @@ class SlideController extends Controller
 {
     public function index()
     {
-        $slide = Slide::where('id', '1')->get();
+        $slide = Slide::where('status', '1')->get();
         return view('admin.beranda', compact('slide'));
     }
     public function edit()
@@ -22,7 +22,8 @@ class SlideController extends Controller
         $slide = new Slide;
         $slide->judul = $request->input('judul');
         $slide->deskripsi = $request->input('deskripsi');
-        $slide->status = $request->input('status');
+        $status = $request->input('status')==true? '1' : '0';
+        $slide->status = $status;
         if ($request->hasFile('gambar')) {
             $file = $request->file('gambar');
             $extension = $file->getClientOriginalExtension();
