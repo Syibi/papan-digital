@@ -6,7 +6,10 @@ use Illuminate\Support\Facades\Route;
 // Slide Controller
 Route::get('/', [SlideController:: class, 'index']);
 Route::get('/edit-beranda', [SlideController:: class, 'edit']);
-Route::post('/tambah-beranda', [SlideController:: class, 'tambah']);
+Route::post('/edit-beranda/add', [SlideController:: class, 'add']);
+Route::put('/edit-beranda/{slide}/update', [SlideController:: class, 'update']);
+Route::get('/edit-beranda/{slide}/delete', [SlideController:: class, 'delete']);
+
 
 Route::get('/info', function () {
     return view('admin/info');

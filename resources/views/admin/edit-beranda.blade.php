@@ -35,7 +35,7 @@
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th>ID</th>
+                      <th>No</th>
                       <th>Judul</th>
                       <th>Deskripsi</th>
                       <th>Status</th>
@@ -45,23 +45,24 @@
                     </tr>
                   </thead>
                   <tbody class="table-border-bottom-0">
-                    @foreach ($slide as $item)
+                   @php ($no = 1)
+                   @foreach ($slide as $item)
                         <tr>
-                          <td>{{ $item->id }}</td>
-                          <td>{{ $item->judul }}</td>
-                          <td>{{ $item->deskripsi }}</td>
-                          <td>{{ $item->status == '1' ? 'Aktif' : 'Non Aktif' }}</td>
-                          <td>
-                            <img src="{{ asset("upload/slide/".$item->gambar)}}" width="70px" height="70px" alt="image">
-                          </td>
-                          <td>
+                            <td>{{ $no ++}}</td>
+                            <td>{{ $item->judul }}</td>
+                            <td>{{ $item->deskripsi }}</td>
+                            <td>{{ $item->status == '1' ? 'Aktif' : 'Non Aktif' }}</td>
+                            <td>
+                              <img src="{{ asset("upload/slide/".$item->gambar)}}" width="120px" height="70px" alt="image">
+                            </td>
+                        <td>
                             <div class="demo-inline-spacing">
                               <button type="button" data-bs-toggle="modal" data-bs-target="#edit-slide{{$item->id}}" class="btn btn-icon btn-warning">
                                 <span class="bx bx-edit-alt"></span>
                               </button>
-                              <button type="button" class="btn btn-icon btn-danger">
+                              <a href="{{ url('edit-beranda/' .$item->id. '/delete') }}" type="button" class="btn btn-icon btn-danger">
                                 <span class="bx bx-trash"></span>
-                              </button>
+                              </a>
                             </div>
                           </td>
                         </tr>
@@ -81,7 +82,7 @@
               Jelly-o jelly beans icing pastry cake cake lemon drops. Muffin muffin pie tiramisu halvah
               cotton candy liquorice caramels.
             </p>
-            <form action="{{url('/tambah-beranda')}}" method="post" enctype="multipart/form-data">
+            <form action="{{url('/edit-beranda/add')}}" method="post" enctype="multipart/form-data">
               @csrf  
               <div class="row">
                 <div class="col">
@@ -120,50 +121,54 @@
     </div>
 
     @foreach ($slide as $item)
-    <!-- Modal -->
+    <!-- Modal Edit Slide -->
     <div class="modal fade" id="edit-slide{{$item->id}}" tabindex="-1" style="display: none;" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="modalCenterTitle">Slide ke-{{$item->id}}</h4>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col mb-1">
-                <label for="nameWithTitle" class="form-label">Judul</label>
-                <input type="text" id="nameWithTitle" class="form-control" value="{{$item->judul}}">
-              </div>
+        <form action="{{url ('edit-beranda/'.$item->id.'/update') }}" method="post" enctype="multipart/form-data" id="editModal_{{$item->id}}">
+          @csrf
+          @method('PUT');
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="modalCenterTitle">Slide ke-{{$item->id}}</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="form-group mt-2">
-              <label for="deskripsi" class="form-label">Deskripsi</label>
-              <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3">{{$item->deskripsi}}</textarea>
-            </div>
-            <div class="row g-3">
-              <div class="col-8 mb-0">
-                <div class="form-group mt-3">
-                  <label for="gambar" class="form-label">Default file input example</label>
-                  <input class="form-control" name="gambar" type="file" id="gambar" value="{{$item->gambar}}">
+            <div class="modal-body">
+              <div class="row">
+                <div class="col mb-1">
+                  <label for="nameWithTitle" class="form-label">Judul</label>
+                  <input type="text" name="judul" id="judul" class="form-control" value="{{$item->judul}}">
                 </div>
               </div>
-              <div class="col-4 mt-5">
-                <div class="form-check form-switch mt-4">
-                  <label class="form-check-label">Aktifkan Slide</label>
-                  <input class="form-check-input" type="checkbox" id="status" name="status" {{ $item->status == '1' ? 'checked' : '' }}>
+              <div class="form-group mt-2">
+                <label for="deskripsi" class="form-label">Deskripsi</label>
+                <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3">{{$item->deskripsi}}</textarea>
+              </div>
+              <div class="row g-3">
+                <div class="col-8 mb-0">
+                  <div class="form-group mt-3">
+                    <label for="gambar" class="form-label">File Gambar</label>
+                    <input class="form-control" name="gambar" type="file" id="gambar" value="{{$item->gambar}}">
+                  </div>
+                </div>
+                <div class="col-4 mt-5">
+                  <div class="form-check form-switch mt-4">
+                    <label class="form-check-label">Aktifkan Slide</label>
+                    <input class="form-check-input" type="checkbox" id="status" name="status" {{ $item->status == '1' ? 'checked' : '' }}>
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <img src="{{ asset("upload/slide/".$item->gambar)}}" width="120px" height="70px" alt="image">
                 </div>
               </div>
-              <div class="col-auto">
-                <img src="{{ asset("upload/slide/".$item->gambar)}}" width="70px" height="70px" alt="image">
-              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="cancel" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                Batal
+              </button>
+              <button type="submit" class="btn btn-primary" form="editModal_{{$item->id}}">Simpan Perubahan</button>
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
     @endforeach

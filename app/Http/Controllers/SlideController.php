@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Slide;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class SlideController extends Controller
 {
@@ -17,21 +18,63 @@ class SlideController extends Controller
         $slide = Slide::all();
         return view('admin.edit-beranda', compact('slide'));
     }
-    public function tambah(Request $request)
+    public function add(Request $request)
     {
-        $slide = new Slide;
-        $slide->judul = $request->input('judul');
-        $slide->deskripsi = $request->input('deskripsi');
-        $status = $request->input('status')==true? '1' : '0';
-        $slide->status = $status;
+        $this->validate($request, [
+            'judul' => 'required|min:3',
+            'deskripsi' => 'required|min:5',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
         if ($request->hasFile('gambar')) {
             $file = $request->file('gambar');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
+            $filename = $file->getClientOriginalName();
             $file->move('upload/slide', $filename);
-            $slide->gambar = $filename;
         }
-        $slide->save();
+        Slide::create([
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+            'status' => $request->input('status')==true? '1' : '0',
+            'gambar' => $filename
+        ]);
+
         return redirect()->back()->with('status', 'Slide Berhasil ditambah');
+    }
+    public function update(Request $request, Slide $slide)
+    {
+        if ($request->hasFile('gambar')) {
+            $destination = $slide->gambar;
+            if (File::exists($destination)) {
+                File::delete($destination);
+            }
+            $file = $request->file('gambar');
+            $filename = $file->getClientOriginalName();
+            $file->move('upload/slide', $filename);
+            $slide->update([
+                'gambar' => $filename
+            ]);
+        }
+
+        $slide->update([
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+            'status' => $request->input('status')==true? '1' : '0',
+        ]);
+
+        return redirect()->back()->with('status', 'Slide Berhasil diupdate');
+    }
+
+    public function delete(Slide $slide)
+    {
+        // dd($slide->gambar);
+        if ($slide->count() > 0) {
+            $destination = $slide->gambar;
+            if (File::exists($destination)) {
+                File::delete($destination);
+            }
+            $slide->delete();
+            return redirect()->back()->with('status', 'Slide Berhasil dihapus');
+        }
+        return redirect()->back()->with('status', 'Maaf, data gagal dihapus');
     }
 }

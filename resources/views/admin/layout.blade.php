@@ -182,7 +182,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar">
-                      <img src="../assets/img/avatars/logo.png" alt class="w-px-40 h-auto" />
+                      <img src="../assets/img/avatars/logo-desa.png" alt class="w-px-31 h-auto" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
