@@ -66,9 +66,9 @@ class SlideController extends Controller
 
     public function delete(Slide $slide)
     {
-        // dd($slide->gambar);
+        // 
         if ($slide->count() > 0) {
-            $destination = $slide->gambar;
+            $destination = public_path('\upload\slide\\') .$slide->gambar;
             if (File::exists($destination)) {
                 File::delete($destination);
             }
