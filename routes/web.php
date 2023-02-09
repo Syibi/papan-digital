@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\SlideController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SlideController;
+use App\Http\Controllers\GrafikController;
 
 // Slide Controller
 Route::get('/', [SlideController:: class, 'index']);
@@ -10,10 +11,8 @@ Route::post('/edit-beranda/add', [SlideController:: class, 'add']);
 Route::put('/edit-beranda/{slide}/update', [SlideController:: class, 'update']);
 Route::get('/edit-beranda/{slide}/delete', [SlideController:: class, 'delete']);
 
-
-Route::get('/info', function () {
-    return view('admin/info');
-});
+// Grafik Controller
+Route::get('/info', [GrafikController:: class, 'index']);
 
 Route::get('/struktur-desa', function () {
     return view('admin/struktur-desa');

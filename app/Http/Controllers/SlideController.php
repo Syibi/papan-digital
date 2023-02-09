@@ -43,7 +43,7 @@ class SlideController extends Controller
     public function update(Request $request, Slide $slide)
     {
         if ($request->hasFile('gambar')) {
-            $destination = $slide->gambar;
+            $destination = public_path('\upload\slide\\') .$slide->gambar;
             if (File::exists($destination)) {
                 File::delete($destination);
             }
