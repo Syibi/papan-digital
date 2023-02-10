@@ -37,51 +37,57 @@
       </ul>
       <div class="tab-content">
         <div class="tab-pane fade active show" id="navs-top-profil" role="tabpanel">
-              <img src="../assets/img/avatars/logo-desa.png" width="9%" class="mb-2 mx-auto"/>
-          <form id="formAccountSettings" method="POST" onsubmit="return false">
-            <div class="row">
-              <div class="mb-3 col-md-6">
-                <label for="firstName" class="form-label">First Name</label>
-                <input class="form-control" type="text" id="firstName" name="firstName" value="John" autofocus="">
+            <img src="../assets/img/avatars/logo-desa.png" width="9%" class="mt-2 mb-2 mx-auto d-block"/>
+            <div class="divider">
+              <div class="divider-text">Profil Desa</div>
+            </div>
+          <form action="{{url('/info/updateprofil')}}" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT');
+            <div class="row mx-3 justify-content-evenly">
+              <div class="mb-1 col-5">
+                <label for="nama_desa" class="form-label">Nama Desa</label>
+                <input class="form-control-plaintext" type="text" id="profil" name="nama_desa" readonly="true" value="{{ $profil["nama_desa"] }}">
               </div>
-              <div class="mb-3 col-md-6">
-                <label for="lastName" class="form-label">Last Name</label>
-                <input class="form-control" type="text" name="lastName" id="lastName" value="Doe">
+              <div class="mb-1 col-5">
+                <label for="kode_pos" class="form-label">Nomer Kode Pos</label>
+                <input class="form-control-plaintext" type="text" id="profil" name="kode_pos" readonly="true" 
+                value="{{ $profil["kode_pos"]}}">
               </div>
-              <div class="mb-3 col-md-6">
-                <label for="email" class="form-label">E-mail</label>
-                <input class="form-control" type="text" id="email" name="email" value="john.doe@example.com" placeholder="john.doe@example.com">
+              <div class="mb-1 col-5">
+                <label for="tahun_pembentukan" class="form-label">Tahun Pembentukan</label>
+                <input class="form-control-plaintext" type="text" id="profil" name="tahun_pembentukan" readonly="true" value="{{ $profil["tahun_pembentukan"]}}" >
               </div>
-              <div class="mb-3 col-md-6">
-                <label for="organization" class="form-label">Organization</label>
-                <input type="text" class="form-control" id="organization" name="organization" value="ThemeSelection">
+              <div class="mb-1 col-5">
+                <label for="kecamatan" class="form-label">Kecamatan</label>
+                <input class="form-control-plaintext" type="text" id="profil" name="kecamatan" readonly="true" 
+                value="{{ $profil["kecamatan"] }}">
               </div>
-              <div class="mb-3 col-md-6">
-                <label class="form-label" for="phoneNumber">Phone Number</label>
-                <div class="input-group input-group-merge">
-                  <span class="input-group-text">US (+1)</span>
-                  <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="202 555 0111">
-                </div>
+              <div class="mb-1 col-5">
+                <label for="dasar_hukum" class="form_label">Dasar Hukum Pembentukan</label>
+                <input class="form-control-plaintext" type="text" id="profil" name="dasar_hukum" readonly="true" 
+                value="{{ $profil["dasar_hukum"] }}">
               </div>
-              <div class="mb-3 col-md-6">
-                <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+              <div class="mb-1 col-5">
+                <label for="kabupaten" class="form-label">Kabupaten/Kota</label>
+                <input class="form-control-plaintext" type="text" id="profil" name="kabupaten" readonly="true" 
+                value="{{ $profil["kabupaten"] }}">
               </div>
-              <div class="mb-3 col-md-6">
-                <label class="form-label" for="phoneNumber">Phone Number</label>
-                <div class="input-group input-group-merge">
-                  <span class="input-group-text">US (+1)</span>
-                  <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="202 555 0111">
-                </div>
+              <div class="mb-1 col-5">
+                <label for="kode_wilayah" class="form-label">Nomor Kode Wilayah</label>
+                <input class="form-control-plaintext" type="text" id="profil" name="kode_wilayah" readonly="true" 
+                value="{{ $profil["kode_wilayah"] }}">
               </div>
-              <div class="mb-3 col-md-6">
-                <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+              <div class="mb-1 col-5">
+                <label for="provinsi" class="form-label">Provinsi</label>
+                <input class="form-control-plaintext" type="text" id="profil" name="provinsi" readonly="true" 
+                value="{{ $profil["provinsi"] }}">
               </div>
             </div>
-            <div class="mt-2 ">
-              <button type="submit" class="btn btn-primary me-2">Save changes</button>
-              <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+            <div class="mt-2 float-end">
+                <button type="button" class="btn btn-primary me-2" value="edit" id="edit" onclick="active()">Edit</button>
+                <button type="button" class="btn btn-outline-secondary" value="cancel" onclick="nonactive()" id="cancel" >Cancel</button>
+                <button type="submit" class="btn btn-primary me-2" value="save" onclick="nonactive()" id="save" >Save Changes</button>
             </div>
           </form>
         </div>
@@ -143,4 +149,37 @@
       </div>
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    function active(){
+      var a = document.querySelectorAll('[id = profil]');
+      a.forEach(element => {
+        element.className = "form-control";
+        element.removeAttribute("readonly");
+      });
+    }
+    function nonactive() {
+      var a = document.querySelectorAll('[id = profil]');
+      a.forEach(element => {
+        element.className = "form-control-plaintext";
+        element.setAttribute("readonly", true)
+      });
+    }
+    $("#cancel, #save").hide();
+    $('#edit').click(function() {
+        $(this).hide();
+        $('#save, #cancel').show();
+      });
+
+    $('#cancel').click(function() {
+      $('#edit').show();
+      $('#save, #cancel').hide();
+    });
+      
+    $('#save').click(function() {
+      $(this).hide();
+      $('#cancel').hide();
+      $('#edit').show();
+    });
+  </script>
 @endsection

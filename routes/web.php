@@ -13,6 +13,8 @@ Route::get('/edit-beranda/{slide}/delete', [SlideController:: class, 'delete']);
 
 // Grafik Controller
 Route::get('/info', [GrafikController:: class, 'index']);
+Route::put('/info/updateprofil', [GrafikController:: class, 'updateProfil']);
+
 
 Route::get('/struktur-desa', function () {
     return view('admin/struktur-desa');
