@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('container')
-  <div class="container-xxl flex-grow-1 my-3">
+  <div class="container-xxl flex-grow-1 mt-3">
     <div class="nav-align-top mb-4">
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
@@ -37,13 +37,13 @@
       </ul>
       <div class="tab-content">
         <div class="tab-pane fade active show" id="navs-top-profil" role="tabpanel">
-            <img src="../assets/img/avatars/logo-desa.png" width="9%" class="mt-2 mb-2 mx-auto d-block"/>
+            <img src="../assets/img/avatars/logo-desa.png" width="9%" class="mt-2 mx-auto d-block"/>
             <div class="divider">
               <div class="divider-text">Profil Desa</div>
             </div>
           <form action="{{url('/info/updateprofil')}}" method="post" enctype="multipart/form-data">
             @csrf
-            @method('PUT');
+            @method('PUT')
             <div class="row mx-3 justify-content-evenly">
               <div class="mb-1 col-5">
                 <label for="nama_desa" class="form-label">Nama Desa</label>
@@ -92,15 +92,83 @@
           </form>
         </div>
         <div class="tab-pane fade" id="navs-top-umum" role="tabpanel">
-          <p>
-            Donut dragée jelly pie halvah. Danish gingerbread bonbon cookie wafer candy oat cake ice
-            cream. Gummies halvah tootsie roll muffin biscuit icing dessert gingerbread. Pastry ice cream
-            cheesecake fruitcake.
-          </p>
-          <p class="mb-0">
-            Jelly-o jelly beans icing pastry cake cake lemon drops. Muffin muffin pie tiramisu halvah
-            cotton candy liquorice caramels.
-          </p>
+          <form action="{{url('/info/updateprofil')}}" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div class="row justify-content-evenly">
+              <div class="mb-1 col-12">
+                <label for="kode_wilayah" class="form-label">Topologi Desa</label>
+                <textarea class="form-control my-2" type="text" value="Sneat" id="html5-text-input" rows="2"></textarea>
+              </div>
+              <div class="mb-1 col-6">
+                <label for="kode_wilayah" class="form-label">Tingkat Perkembangan Desa</label>
+                <input class="form-control mx-4" type="text" id="profil" name="kode_wilayah">
+              </div>
+              <div class="mb-1 col-6">
+                <label for="provinsi" class="form-label">Luas Wilayah</label>
+                <input class="form-control mx-4" type="text" id="profil" name="provinsi">
+              </div>
+              <div>
+                <label for="kode_pos" class="form-label">Batas Wilayah</label>
+                <div class="mb-2 mx-2 row">
+                  <label for="html5-text-input" class="col-sm-1 my-2">Sebelah Utara</label>
+                  <div class="col-5">
+                    <textarea class="form-control my-2" type="text" value="Sneat" id="html5-text-input" rows="2"></textarea>
+                  </div>
+                  <label for="html5-text-input" class="col-sm-1 my-2">Sebelah Selatan</label>
+                  <div class="col-5">
+                    <textarea class="form-control my-2" type="text" value="Sneat" id="html5-text-input" rows="2"></textarea>
+                  </div>
+                  <label for="html5-text-input" class="col-sm-1 my-2">Sebelah Barat</label>
+                  <div class="col-5">
+                    <textarea class="form-control my-2" type="text" value="Sneat" id="html5-text-input" rows="2"></textarea>
+                  </div>
+                  <label for="html5-text-input" class="col-sm-1 my-2">Sebelah Timur</label>
+                  <div class="col-5">
+                    <textarea class="form-control my-2" type="text" value="Sneat" id="html5-text-input" rows="2"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label for="kode_pos" class="form-label">Orbitrasi</label>
+                <div class="mb-3 mx-2 row">
+                  <label for="html5-text-input" class="col-sm-2 my-3">Kecamatan</label>
+                  <div class="col-4">
+                    <div class="input-group">
+                      <input class="form-control my-1" type="text" value="Sneat" id="html5-text-input">
+                      <span class="input-group-text my-1">Km</span>
+                    </div>
+                  </div>
+                  <label for="html5-text-input" class="col-sm-2 my-3">Kota</label>
+                  <div class="col-4">
+                    <div class="input-group">
+                      <input class="form-control my-1" type="text" value="Sneat" id="html5-text-input">
+                      <span class="input-group-text my-1">Km</span>
+                    </div>
+                  </div>
+                  <label for="html5-text-input" class="col-sm-2 my-3">Kabupaten</label>
+                  <div class="col-4">
+                    <div class="input-group">
+                      <input class="form-control my-1" type="text" value="Sneat" id="html5-text-input">
+                      <span class="input-group-text my-1">Km</span>
+                    </div>
+                  </div>
+                  <label for="html5-text-input" class="col-sm-2 my-3">Provinsi</label>
+                  <div class="col-4">
+                    <div class="input-group">
+                      <input class="form-control my-1" type="text" value="Sneat" id="html5-text-input">
+                      <span class="input-group-text my-1">Km</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-2 float-end">
+                <button type="button" class="btn btn-primary me-2" value="edit" id="edit" onclick="active()">Edit</button>
+                <button type="button" class="btn btn-outline-secondary" value="cancel" onclick="nonactive()" id="cancel" >Cancel</button>
+                <button type="submit" class="btn btn-primary me-2" value="save" onclick="nonactive()" id="save" >Save Changes</button>
+            </div>
+          </form>
         </div>
         <div class="tab-pane fade" id="navs-top-penduduk" role="tabpanel">
           <p>
