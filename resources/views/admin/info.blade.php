@@ -6,32 +6,32 @@
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
           <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#navs-top-profil" aria-controls="navs-top-home" aria-selected="true">
-            Profil Desa
+            <strong>Profil Desa</strong>
           </button>
         </li>
         <li class="nav-item">
           <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#navs-top-umum" aria-controls="navs-top-profile" aria-selected="false">
-            Data Umum
+            <strong>Data Umum</strong>
           </button>
         </li>
         <li class="nav-item">
           <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#navs-top-penduduk" aria-controls="navs-top-messages" aria-selected="false">
-            Data Penduduk 
+            <strong>Data Penduduk</strong> 
           </button>
         </li>
         <li class="nav-item">
           <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#navs-top-pekerjaan" aria-controls="navs-top-messages" aria-selected="false">
-            Data Pekerjaan
+            <strong>Data Pekerjaan</strong>
           </button>
         </li>
         <li class="nav-item">
           <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#navs-top-pendidikan" aria-controls="navs-top-messages" aria-selected="false">
-            Data Pendidikan
+            <strong>Data Pendidikan</strong>
           </button>
         </li>
         <li class="nav-item">
           <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#navs-top-sarana" aria-controls="navs-top-messages" aria-selected="false">
-            Data Sarana Prasarana
+            <strong>Data Sarana Prasarana</strong>
           </button>
         </li>
       </ul>
@@ -46,40 +46,40 @@
             @method('PUT')
             <div class="row mx-3 justify-content-evenly">
               <div class="mb-1 col-5">
-                <label for="nama_desa" class="form-label">Nama Desa</label>
+                <label for="nama_desa" class="form-label"><strong>Nama Desa</strong></label>
                 <input class="form-control-plaintext" type="text" id="profil" name="nama_desa" readonly="true" value="{{ $profil["nama_desa"] }}">
               </div>
               <div class="mb-1 col-5">
-                <label for="kode_pos" class="form-label">Nomer Kode Pos</label>
+                <label for="kode_pos" class="form-label"><strong>Nomer Kode Pos</strong></label>
                 <input class="form-control-plaintext" type="text" id="profil" name="kode_pos" readonly="true" 
                 value="{{ $profil["kode_pos"]}}">
               </div>
               <div class="mb-1 col-5">
-                <label for="tahun_pembentukan" class="form-label">Tahun Pembentukan</label>
+                <label for="tahun_pembentukan" class="form-label"><strong>Tahun Pembentukan</strong></label>
                 <input class="form-control-plaintext" type="text" id="profil" name="tahun_pembentukan" readonly="true" value="{{ $profil["tahun_pembentukan"]}}" >
               </div>
               <div class="mb-1 col-5">
-                <label for="kecamatan" class="form-label">Kecamatan</label>
+                <label for="kecamatan" class="form-label"><strong>Kecamatan</strong></label>
                 <input class="form-control-plaintext" type="text" id="profil" name="kecamatan" readonly="true" 
                 value="{{ $profil["kecamatan"] }}">
               </div>
               <div class="mb-1 col-5">
-                <label for="dasar_hukum" class="form_label">Dasar Hukum Pembentukan</label>
+                <label for="dasar_hukum" class="form_label"><strong>Dasar Hukum Pembentukan</strong></label>
                 <input class="form-control-plaintext" type="text" id="profil" name="dasar_hukum" readonly="true" 
                 value="{{ $profil["dasar_hukum"] }}">
               </div>
               <div class="mb-1 col-5">
-                <label for="kabupaten" class="form-label">Kabupaten/Kota</label>
+                <label for="kabupaten" class="form-label"><strong>Kabupaten/Kota</strong></label>
                 <input class="form-control-plaintext" type="text" id="profil" name="kabupaten" readonly="true" 
                 value="{{ $profil["kabupaten"] }}">
               </div>
               <div class="mb-1 col-5">
-                <label for="kode_wilayah" class="form-label">Nomor Kode Wilayah</label>
+                <label for="kode_wilayah" class="form-label"><strong>Nomor Kode Wilayah</strong></label>
                 <input class="form-control-plaintext" type="text" id="profil" name="kode_wilayah" readonly="true" 
                 value="{{ $profil["kode_wilayah"] }}">
               </div>
               <div class="mb-1 col-5">
-                <label for="provinsi" class="form-label">Provinsi</label>
+                <label for="provinsi" class="form-label"><strong>Provinsi</strong></label>
                 <input class="form-control-plaintext" type="text" id="profil" name="provinsi" readonly="true" 
                 value="{{ $profil["provinsi"] }}">
               </div>
@@ -95,22 +95,25 @@
           <form action="{{url('/info/updateprofil')}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <div class="row justify-content-evenly">
+            <div class="row justify-content-evenly mx-2">
               <div class="mb-1 col-12">
-                <label for="kode_wilayah" class="form-label">Topologi Desa</label>
+                <label for="kode_wilayah" class="form-label"><strong>Topologi Desa</strong></label>
                 <textarea class="form-control my-2" type="text" value="Sneat" id="html5-text-input" rows="2"></textarea>
               </div>
               <div class="mb-1 col-6">
-                <label for="kode_wilayah" class="form-label">Tingkat Perkembangan Desa</label>
-                <input class="form-control mx-4" type="text" id="profil" name="kode_wilayah">
+                <label for="kode_wilayah" class="form-label"><strong>Tingkat Perkembangan Desa</strong></label>
+                <input class="form-control" type="text" id="profil" name="kode_wilayah">
               </div>
               <div class="mb-1 col-6">
-                <label for="provinsi" class="form-label">Luas Wilayah</label>
-                <input class="form-control mx-4" type="text" id="profil" name="provinsi">
+                <label for="provinsi" class="form-label"><strong>Luas Wilayah</strong></label>
+                <div class="input-group">
+                  <input class="form-control my-1" type="text" id="html5-text-input">
+                  <span class="input-group-text my-1">Hektar</span>
+                </div>
               </div>
               <div>
-                <label for="kode_pos" class="form-label">Batas Wilayah</label>
-                <div class="mb-2 mx-2 row">
+                <label for="kode_pos" class="form-label"><strong>Batas Wilayah</strong></label>
+                <div class="mb-2 row">
                   <label for="html5-text-input" class="col-sm-1 my-2">Sebelah Utara</label>
                   <div class="col-5">
                     <textarea class="form-control my-2" type="text" value="Sneat" id="html5-text-input" rows="2"></textarea>
@@ -130,40 +133,40 @@
                 </div>
               </div>
               <div>
-                <label for="kode_pos" class="form-label">Orbitrasi</label>
-                <div class="mb-3 mx-2 row">
+                <label for="kode_pos" class="form-label"><strong>Orbitrasi</strong></label>
+                <div class="mb-3 row">
                   <label for="html5-text-input" class="col-sm-2 my-3">Kecamatan</label>
                   <div class="col-4">
                     <div class="input-group">
-                      <input class="form-control my-1" type="text" value="Sneat" id="html5-text-input">
+                      <input class="form-control my-1" type="text" id="html5-text-input">
                       <span class="input-group-text my-1">Km</span>
                     </div>
                   </div>
                   <label for="html5-text-input" class="col-sm-2 my-3">Kota</label>
                   <div class="col-4">
                     <div class="input-group">
-                      <input class="form-control my-1" type="text" value="Sneat" id="html5-text-input">
+                      <input class="form-control my-1" type="text" id="html5-text-input">
                       <span class="input-group-text my-1">Km</span>
                     </div>
                   </div>
                   <label for="html5-text-input" class="col-sm-2 my-3">Kabupaten</label>
                   <div class="col-4">
                     <div class="input-group">
-                      <input class="form-control my-1" type="text" value="Sneat" id="html5-text-input">
+                      <input class="form-control my-1" type="text" id="html5-text-input">
                       <span class="input-group-text my-1">Km</span>
                     </div>
                   </div>
                   <label for="html5-text-input" class="col-sm-2 my-3">Provinsi</label>
                   <div class="col-4">
                     <div class="input-group">
-                      <input class="form-control my-1" type="text" value="Sneat" id="html5-text-input">
+                      <input class="form-control my-1" type="text" id="html5-text-input">
                       <span class="input-group-text my-1">Km</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="mt-2 float-end">
+            <div class="mt-2 mx-2 float-end">
                 <button type="button" class="btn btn-primary me-2" value="edit" id="edit" onclick="active()">Edit</button>
                 <button type="button" class="btn btn-outline-secondary" value="cancel" onclick="nonactive()" id="cancel" >Cancel</button>
                 <button type="submit" class="btn btn-primary me-2" value="save" onclick="nonactive()" id="save" >Save Changes</button>
