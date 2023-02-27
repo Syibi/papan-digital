@@ -35,7 +35,7 @@
             </button>
           </div>
         {{-- Button Edit Beranda --}}
-        <a href="/edit-beranda" type="button" class="btn btn-lg rounded-pill btn-icon btn-primary" 
+      <a href="/edit-beranda" type="button" class="btn btn-lg rounded-pill btn-icon btn-primary" 
         style="
               position: fixed;
               right: 5%;
@@ -44,6 +44,6 @@
               z-index:10;
               ">
           <i class='bx bxs-pencil' style="margin-top: 9pt; font-size:1.5rem"></i>
-        </a>
+      </a>
     </div>
 @endsection

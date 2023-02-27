@@ -13,7 +13,12 @@ class GrafikController extends Controller
     public function index()
     {
         $profil = Profil_Desa::where('id', '1')->first();
-        return view('admin.info', ['profil' => $profil]);
+        $umum = Data_Umum::where('id', '1')->first();
+        return view('admin.info', 
+        [
+            'profil' => $profil,
+            'umum' => $umum
+        ]);
     }
 
     public function addProfil(Request $request)

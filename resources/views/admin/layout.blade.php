@@ -36,7 +36,7 @@
     <script src="../assets/js/config.js"></script>
   </head>
 
-  <body>
+  <body onload=display_ct();>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -171,8 +171,8 @@
               <!-- Search -->
               <div class="navbar-nav align-items-center">
                 <div class="nav-item d-flex align-items-center">
-                  <i class="bx bx-search fs-4 lh-0"></i>
-                  <input type="text" class="form-control border-0 shadow-none" placeholder="Search..." aria-label="Search..." />
+                  <i class='bx bx-time-five' ></i>
+                  <h5 class="me-2 my-auto" style="margin-left: 15px"><strong><span id='ct' ></span></strong></h5>
                 </div>
               </div>
               <!-- /Search -->
@@ -295,5 +295,25 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script type="text/javascript"> 
+      function display_c(){
+      var refresh=1000; // Refresh rate in milli seconds
+      mytime=setTimeout('display_ct()',refresh)
+      }
+      
+      function display_ct() {
+      var x = new Date()
+      var hour=x.getHours();
+      var minute=x.getMinutes();
+      var second=x.getSeconds();
+      if(hour <10 ){hour='0'+hour;}
+      if(minute <10 ) {minute='0' + minute; }
+      if(second<10){second='0' + second;}
+      var x3 = hour+':'+minute+':'+second
+      document.getElementById('ct').innerHTML = x3;
+      display_c();
+       }
+      </script>
   </body>
 </html>

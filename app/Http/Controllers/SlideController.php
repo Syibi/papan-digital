@@ -11,7 +11,7 @@ class SlideController extends Controller
     public function index()
     {
         $slide = Slide::where('status', '1')->get();
-        return view('admin.beranda', compact('slide'));
+        return view('admin.beranda-new', compact('slide'));
     }
     public function edit()
     {
@@ -23,11 +23,10 @@ class SlideController extends Controller
         $this->validate($request, [
             'judul' => 'required|min:3',
             'deskripsi' => 'required|min:5',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
             $filename = $file->getClientOriginalName();
             $file->move('upload/slide', $filename);
         }
@@ -35,23 +34,24 @@ class SlideController extends Controller
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
             'status' => $request->input('status')==true? '1' : '0',
-            'gambar' => $filename
+            'tipe' => $request->input('tipe')=="video"? '1' : '0',
+            'file' => $filename
         ]);
 
         return redirect()->back()->with('status', 'Slide Berhasil ditambah');
     }
     public function update(Request $request, Slide $slide)
     {
-        if ($request->hasFile('gambar')) {
-            $destination = public_path('\upload\slide\\') .$slide->gambar;
+        if ($request->hasFile('file')) {
+            $destination = public_path('\upload\slide\\') .$slide->file;
             if (File::exists($destination)) {
                 File::delete($destination);
             }
-            $file = $request->file('gambar');
+            $file = $request->file('file');
             $filename = $file->getClientOriginalName();
             $file->move('upload/slide', $filename);
             $slide->update([
-                'gambar' => $filename
+                'file' => $filename
             ]);
         }
 
@@ -59,6 +59,7 @@ class SlideController extends Controller
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
             'status' => $request->input('status')==true? '1' : '0',
+            'tipe' => $request->input('tipe')=="video"? '1' : '0',
         ]);
 
         return redirect()->back()->with('status', 'Slide Berhasil diupdate');
@@ -68,7 +69,7 @@ class SlideController extends Controller
     {
         // 
         if ($slide->count() > 0) {
-            $destination = public_path('\upload\slide\\') .$slide->gambar;
+            $destination = public_path('\upload\slide\\') .$slide->file;
             if (File::exists($destination)) {
                 File::delete($destination);
             }

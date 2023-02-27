@@ -13,6 +13,7 @@ class Slide extends Model
         'judul',
         'deskripsi',
         'status',
-        'gambar'
+        'file',
+        'tipe'
     ];
 }

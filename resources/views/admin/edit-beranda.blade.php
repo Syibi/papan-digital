@@ -39,7 +39,8 @@
                       <th>Judul</th>
                       <th>Deskripsi</th>
                       <th>Status</th>
-                      <th>Gambar</th>
+                      <th>Tipe</th>
+                      <th>File</th>
                       <th>Aksi</th>
                       {{-- <th>Actions</th> --}}
                     </tr>
@@ -52,8 +53,9 @@
                             <td>{{ $item->judul }}</td>
                             <td>{{ $item->deskripsi }}</td>
                             <td>{{ $item->status == '1' ? 'Aktif' : 'Non Aktif' }}</td>
+                            <td>{{ $item->tipe == '0' ? 'Gambar' : 'Video' }}</td>
                             <td>
-                              <img src="{{ asset("upload/slide/".$item->gambar)}}" width="120px" height="70px" alt="image">
+                              <img src="{{ asset("upload/slide/".$item->file)}}" width="120px" height="70px" alt="image">
                             </td>
                         <td>
                             <div class="demo-inline-spacing">
@@ -84,7 +86,7 @@
             </p>
             <form action="{{url('/edit-beranda/add')}}" method="post" enctype="multipart/form-data">
               @csrf  
-              <div class="row">
+              <div class="row mt-3">
                 <div class="col">
                   <div class="form-group mt-3">
                     <label for="judul" class="form-label">Judul</label>
@@ -97,8 +99,21 @@
                 </div>
                 <div class="col">
                   <div class="form-group mt-3">
-                    <label for="gambar" class="form-label">Default file input example</label>
-                    <input class="form-control" name="gambar" type="file" id="gambar">
+                    <label for="gambar" class="form-label">Tipe File</label>
+                    <div class="col-md">
+                      <div class="form-check form-check-inline mt-3">
+                        <input class="form-check-input" type="radio" name="tipe" id="inlineRadio1" value="gambar">
+                        <label class="form-check-label" for="inlineRadio1">Gambar</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tipe" id="inlineRadio2" value="video">
+                        <label class="form-check-label" for="inlineRadio2">Video</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group mt-3">
+                    <label for="gambar" class="form-label">Upload File</label>
+                    <input class="form-control" name="file" type="file" id="file">
                   </div>
                   <div class="form-check form-switch mt-3">
                     <label class="form-check-label">Aktifkan Slide</label>
@@ -120,6 +135,7 @@
       </div>
     </div>
 
+    @php ($no = 1)   
     @foreach ($slide as $item)
     <!-- Modal Edit Slide -->
     <div class="modal fade" id="edit-slide{{$item->id}}" tabindex="-1" style="display: none;" aria-hidden="true">
@@ -129,7 +145,7 @@
           @method('PUT');
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title" id="modalCenterTitle">Slide ke-{{$item->id}}</h4>
+              <h4 class="modal-title" id="modalCenterTitle">Slide ke-{{ $no ++}}</h4>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -144,20 +160,39 @@
                 <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3">{{$item->deskripsi}}</textarea>
               </div>
               <div class="row g-3">
-                <div class="col-8 mb-0">
+                <div class="col-7 mb-0">
                   <div class="form-group mt-3">
-                    <label for="gambar" class="form-label">File Gambar</label>
-                    <input class="form-control" name="gambar" type="file" id="gambar" value="{{$item->gambar}}">
+                    <label for="gambar" class="form-label">Tipe File</label>
+                    <div class="col-md">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tipe" id="inlineRadio1" value="gambar" 
+                        {{ $item->tipe == 0 ? 'checked' : ''}}>
+                        <label class="form-check-label" for="inlineRadio1">Gambar</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tipe" id="inlineRadio2" value="video" 
+                        {{ $item->tipe == 1 ? 'checked' : ''}}>
+                        <label class="form-check-label" for="inlineRadio2">Video</label>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="col-4 mt-5">
-                  <div class="form-check form-switch mt-4">
+                <div class="col-5 mt-5">
+                  <div class="form-check form-switch mt-3">
                     <label class="form-check-label">Aktifkan Slide</label>
                     <input class="form-check-input" type="checkbox" id="status" name="status" {{ $item->status == '1' ? 'checked' : '' }}>
                   </div>
                 </div>
-                <div class="col-auto">
-                  <img src="{{ asset("upload/slide/".$item->gambar)}}" width="120px" height="70px" alt="image">
+              </div>
+              <div class="row g-3">
+                <div class="col-8 mb-0">
+                  <div class="form-group mt-3">
+                    <label for="gambar" class="form-label">File Gambar</label>
+                    <input class="form-control" name="gambar" type="file" id="gambar" value="{{$item->file}}">
+                  </div>
+                </div>
+                <div class="col-4 mt-5">
+                  <img src="{{ asset("upload/slide/".$item->file)}}" width="120px" height="70px" alt="image">
                 </div>
               </div>
             </div>

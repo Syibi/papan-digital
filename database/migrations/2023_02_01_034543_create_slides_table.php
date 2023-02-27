@@ -17,7 +17,8 @@ class CreateSlidesTable extends Migration
             $table->id();
             $table->string("judul");
             $table->mediumText("deskripsi");
-            $table->string("gambar");
+            $table->string("file");
+            $table->tinyInteger("tipe")->default('0')->comment('1=video, 0=gambar');
             $table->tinyInteger("status")->default('0')->comment('1=hidden, 0=visible');
             $table->timestamps();
         });
