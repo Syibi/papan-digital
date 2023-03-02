@@ -1,27 +1,32 @@
 <?php
 
+use App\Http\Controllers\DesaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SlideController;
-use App\Http\Controllers\GrafikController;
+use App\Http\Controllers\InfoController;
 
-// Slide Controller
+// Controller Beranda
 Route::get('/', [SlideController:: class, 'index']);
 Route::get('/edit-beranda', [SlideController:: class, 'edit']);
 Route::post('/edit-beranda/add', [SlideController:: class, 'add']);
 Route::put('/edit-beranda/{slide}/update', [SlideController:: class, 'update']);
 Route::get('/edit-beranda/{slide}/delete', [SlideController:: class, 'delete']);
 
-// Grafik Controller
-Route::get('/info', [GrafikController:: class, 'index']);
-Route::put('/info/updateprofil', [GrafikController:: class, 'updateProfil']);
-Route::put('/info/addprofil', [GrafikController:: class, 'addProfil']);
-Route::put('/info/updateumum', [GrafikController:: class, 'updateUmum']);
-Route::put('/info/addumum', [GrafikController:: class, 'addUmum']);
+// Controller Informasi Desa
+Route::get('/profil', [InfoController:: class, 'profil']);
+Route::put('/profil/addprofil', [InfoController:: class, 'addProfil']);
+Route::put('/profil/updateprofil', [InfoController:: class, 'updateProfil']);
 
+Route::get('/umum', [InfoController:: class, 'umum']);
+Route::put('/umum/addumum', [InfoController:: class, 'addUmum']);
+Route::put('/umum/updateumum', [InfoController:: class, 'updateUmum']);
+Route::put('/umum/addpenduduk', [InfoController:: class, 'addPenduduk']);
+Route::put('/umum/updatependuduk', [InfoController:: class, 'updatePenduduk']);
+Route::put('/umum/addpendidikan', [InfoController:: class, 'addPendidikan']);
+Route::put('/umum/updatependidikan', [InfoController:: class, 'updatePendidikan']);
 
-Route::get('/struktur-desa', function () {
-    return view('admin/struktur-desa');
-});
+// Controller Struktur Organisasi Desa
+Route::get('/struktur-desa', [DesaController::class, 'strukturDesa']);
 
 Route::get('/proker-desa', function () {
     return view('admin/proker-desa');

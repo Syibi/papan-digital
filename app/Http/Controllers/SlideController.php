@@ -11,12 +11,14 @@ class SlideController extends Controller
     public function index()
     {
         $slide = Slide::where('status', '1')->get();
-        return view('admin.beranda-new', compact('slide'));
+        $title = "Beranda";
+        return view('admin.beranda-new', compact('slide', 'title'));
     }
     public function edit()
     {
         $slide = Slide::all();
-        return view('admin.edit-beranda', compact('slide'));
+        $title = "Beranda";
+        return view('admin.edit-beranda', compact('slide', 'title'));
     }
     public function add(Request $request)
     {
@@ -54,20 +56,17 @@ class SlideController extends Controller
                 'file' => $filename
             ]);
         }
-
         $slide->update([
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
             'status' => $request->input('status')==true? '1' : '0',
             'tipe' => $request->input('tipe')=="video"? '1' : '0',
+            'file' => $filename
         ]);
-
         return redirect()->back()->with('status', 'Slide Berhasil diupdate');
     }
-
     public function delete(Slide $slide)
     {
-        // 
         if ($slide->count() > 0) {
             $destination = public_path('\upload\slide\\') .$slide->file;
             if (File::exists($destination)) {

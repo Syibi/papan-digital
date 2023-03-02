@@ -2,89 +2,45 @@
 
 @section('container')
     <div class="container-xxl flex-grow-1 my-3">
-        <div class="container">
-            <h1 class="level-1 rectangle">CEO</h1>
-            <ol class="level-2-wrapper">
-              <li>
-                <h2 class="level-2 rectangle">Director A</h2>
-                <ol class="level-3-wrapper">
-                  <li>
-                    <h3 class="level-3 rectangle">Manager A</h3>
-                    <ol class="level-4-wrapper">
-                      <li>
-                        <h4 class="level-4 rectangle">Person A</h4>
-                      </li>
-                      <li>
-                        <h4 class="level-4 rectangle">Person B</h4>
-                      </li>
-                      <li>
-                        <h4 class="level-4 rectangle">Person C</h4>
-                      </li>
-                      <li>
-                        <h4 class="level-4 rectangle">Person D</h4>
-                      </li>
-                    </ol>
-                  </li>
-                  <li>
-                    <h3 class="level-3 rectangle">Manager B</h3>
-                    <ol class="level-4-wrapper">
-                      <li>
-                        <h4 class="level-4 rectangle">Person A</h4>
-                      </li>
-                      <li>
-                        <h4 class="level-4 rectangle">Person B</h4>
-                      </li>
-                      <li>
-                        <h4 class="level-4 rectangle">Person C</h4>
-                      </li>
-                      <li>
-                        <h4 class="level-4 rectangle">Person D</h4>
-                      </li>
-                    </ol>
-                  </li>
-                </ol>
-              </li>
-              <li>
-                <h2 class="level-2 rectangle">Director B</h2>
-                <ol class="level-3-wrapper">
-                  <li>
-                    <h3 class="level-3 rectangle">Manager C</h3>
-                    <ol class="level-4-wrapper">
-                      <li>
-                        <h4 class="level-4 rectangle">Person A</h4>
-                      </li>
-                      <li>
-                        <h4 class="level-4 rectangle">Person B</h4>
-                      </li>
-                      <li>
-                        <h4 class="level-4 rectangle">Person C</h4>
-                      </li>
-                      <li>
-                        <h4 class="level-4 rectangle">Person D</h4>
-                      </li>
-                    </ol>
-                  </li>
-                  <li>
-                    <h3 class="level-3 rectangle">Manager D</h3>
-                    <ol class="level-4-wrapper">
-                      <li>
-                        <h4 class="level-4 rectangle">Person A</h4>
-                      </li>
-                      <li>
-                        <h4 class="level-4 rectangle">Person B</h4>
-                      </li>
-                      <li>
-                        <h4 class="level-4 rectangle">Person C</h4>
-                      </li>
-                      <li>
-                        <h4 class="level-4 rectangle">Person D</h4>
-                      </li>
-                    </ol>
-                  </li>
-                </ol>
-              </li>
-            </ol>
-          </div>
-          
+        <div id="chart_div"></div>
     </div>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            packages: ["orgchart"]
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Name');
+            data.addColumn('string', 'Manager');
+            data.addColumn('string', 'ToolTip');
+
+            // For each orgchart box, provide the name, manager, and tooltip to show.
+            data.addRows([
+                [{
+                        'v': 'Mike',
+                        'f': 'Mike<div style="color:red; font-style:italic">President</div>'
+                    },
+                    '', 'The President'
+                ],
+                [{
+                        'v': 'Jim',
+                        'f': 'Jim<div style="color:red; font-style:italic">Vice President</div>'
+                    },
+                    'Mike', 'VP'
+                ],
+                ['Alice', 'Mike', ''],
+                ['Bob', 'Jim', 'Bob Sponge'],
+                ['Carol', 'Bob', '']
+            ]);
+
+            // Create the chart.
+            var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+            // Draw the chart, setting the allowHtml option to true for the tooltips.
+            chart.draw(data, {
+                'allowHtml': true
+            });
+        }
+    </script>
 @endsection

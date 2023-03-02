@@ -188,7 +188,7 @@
                 <div class="col-8 mb-0">
                   <div class="form-group mt-3">
                     <label for="gambar" class="form-label">File Gambar</label>
-                    <input class="form-control" name="gambar" type="file" id="gambar" value="{{$item->file}}">
+                    <input class="form-control" name="file" type="file" id="file" value="{{$item->file}}">
                   </div>
                 </div>
                 <div class="col-4 mt-5">

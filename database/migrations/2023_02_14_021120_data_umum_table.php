@@ -37,6 +37,6 @@ class DataUmumTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('data_umum');
     }
 }
