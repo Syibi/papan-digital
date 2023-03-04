@@ -40,6 +40,7 @@
     <script src="../assets/vendor/js/helpers.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="../assets/js/config.js"></script>
+
     <style>
         .bg-menu-theme .menu-inner>.menu-item.active>.menu-link {
             color: white;
@@ -300,6 +301,7 @@
                     @yield('container')
                 </div>
 
+                <!-- Footer -->
                 <!-- Footer -->
                 <footer class="content-footer footer bg-footer-theme">
                     <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">

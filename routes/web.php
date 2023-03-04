@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\DesaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\DesaController;
 
 // Controller Beranda
 Route::get('/', [SlideController:: class, 'index']);
@@ -25,9 +25,14 @@ Route::put('/umum/updatependuduk', [InfoController:: class, 'updatePenduduk']);
 Route::put('/umum/addpendidikan', [InfoController:: class, 'addPendidikan']);
 Route::put('/umum/updatependidikan', [InfoController:: class, 'updatePendidikan']);
 
-// Controller Struktur Organisasi Desa
-Route::get('/struktur-desa', [DesaController::class, 'strukturDesa']);
+// Controller Struktur Organisasi Desa 
+Route::get('/struktur-desa', [DesaController:: class, 'index']);
+Route::post('/struktur-desa/add', [DesaController:: class, 'add']);
+Route::put('/edit-beranda/{slide}/update', [SlideController:: class, 'update']);
+Route::get('/struktur-desa/{profil}/delete', [DesaController:: class, 'delete']);
+
 
 Route::get('/proker-desa', function () {
-    return view('admin/proker-desa');
+    $title = "Proker Desa";
+    return view('admin/proker-desa', compact("title"));
 });

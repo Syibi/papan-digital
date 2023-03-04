@@ -15,7 +15,10 @@ class StrukturDesa extends Migration
     {
         Schema::create('struktur_desa', function (Blueprint $table) {
             $table->id();
-            $table->integer('pid')->nullable();
+            $table->string("nama");
+            $table->string("jabatan");
+            $table->string("atasan");
+            $table->string("link");
             $table->timestamps();
         });
     }
