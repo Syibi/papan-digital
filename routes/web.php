@@ -36,3 +36,8 @@ Route::get('/proker-desa', function () {
     $title = "Proker Desa";
     return view('admin/proker-desa', compact("title"));
 });
+
+Route::get('/galeri-desa', function () {
+    $title = "Galeri Desa";
+    return view('admin/galeri', compact("title"));
+});
