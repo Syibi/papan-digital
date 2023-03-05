@@ -61,7 +61,6 @@ class SlideController extends Controller
             'deskripsi' => $request->deskripsi,
             'status' => $request->input('status')==true? '1' : '0',
             'tipe' => $request->input('tipe')=="video"? '1' : '0',
-            'file' => $filename
         ]);
         return redirect()->back()->with('status', 'Slide Berhasil diupdate');
     }

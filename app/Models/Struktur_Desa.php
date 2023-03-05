@@ -13,6 +13,7 @@ class Struktur_Desa extends Model
         'nama',
         'jabatan',
         'atasan',
-        'link'
+        'link',
+        'file'
     ];
 }

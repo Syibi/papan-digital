@@ -19,6 +19,7 @@ class StrukturDesa extends Migration
             $table->string("jabatan");
             $table->string("atasan");
             $table->string("link");
+            $table->string("file");
             $table->timestamps();
         });
     }

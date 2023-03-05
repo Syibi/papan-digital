@@ -46,6 +46,107 @@
             color: white;
             background-color: #f77223 !important;
         }
+
+        .google-visualization-orgchart-node {
+            width: 0;
+            border: none !important;
+            background: #f77223 !important;
+            -webkit-border-radius: 10px !important;
+            -webkit-box-shadow: rgb(0 0 0 / 14%) 3px 3px 3px !important;
+        }
+
+        .google-visualization-orgchart-lineleft {
+            border-left: 2px solid #696cff !important;
+        }
+
+        .google-visualization-orgchart-lineright {
+            border-right: 2px solid #696cff !important;
+        }
+
+        .google-visualization-orgchart-linebottom {
+            border-bottom: 2px solid #696cff !important;
+        }
+
+        .fir-clickcircle {
+            height: 80px;
+            width: 80px;
+            border-radius: 100px;
+            cursor: pointer;
+        }
+
+        .fir-image-figure {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+            text-decoration: none;
+        }
+
+        /* .fir-image-figure .caption,
+        .fir-image-figure figcaption {
+            padding-left: 15px;
+        } */
+
+        html.wf-active .fir-image-figure .fig-author-figure-title {
+            font-family: var(--fir-font-header);
+            font-size: 16px;
+        }
+
+        .fir-image-figure .fig-author-figure-title {
+            color: white;
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            white-space: nowrap;
+        }
+
+        .fig-author-figure-desc {
+            color: white;
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: 300;
+            font-size: 12px;
+        }
+
+        .fir-imageover {
+            position: relative;
+            display: flex;
+        }
+
+        .fir-imageover-color {
+            height: 80px;
+            width: 80px;
+            position: absolute;
+            background: var(--fir-blue-twitter-alpha);
+            background-image: none;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: background .3s ease-in-out;
+            animation: fadeInFadeOut 2s infinite;
+            top: 0;
+            left: 0;
+        }
+
+        .fir-imageover-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: fadeInFadeOut 2s infinite;
+        }
+
+        @keyframes fadeInFadeOut {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 

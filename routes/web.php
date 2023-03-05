@@ -28,7 +28,7 @@ Route::put('/umum/updatependidikan', [InfoController:: class, 'updatePendidikan'
 // Controller Struktur Organisasi Desa 
 Route::get('/struktur-desa', [DesaController:: class, 'index']);
 Route::post('/struktur-desa/add', [DesaController:: class, 'add']);
-Route::put('/edit-beranda/{slide}/update', [SlideController:: class, 'update']);
+Route::put('/struktur-desa/{profil}/update', [DesaController:: class, 'update']);
 Route::get('/struktur-desa/{profil}/delete', [DesaController:: class, 'delete']);
 
 

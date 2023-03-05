@@ -61,12 +61,12 @@
                                         <td>
                                             <div class="demo-inline-spacing">
                                                 <button type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#edit-slide{{ $item->id }}"
+                                                    data-bs-target="#edit-profil{{ $item->id }}"
                                                     class="btn btn-icon btn-warning">
                                                     <span class="bx bx-edit-alt"></span>
                                                 </button>
-                                                <a href="{{ url('struktur-desa/' . $item->id . '/delete') }}" type="button"
-                                                    class="btn btn-icon btn-danger">
+                                                <a href="{{ url('/struktur-desa/' . $item->id . '/delete') }}"
+                                                    type="button" class="btn btn-icon btn-danger">
                                                     <span class="bx bx-trash"></span>
                                                 </a>
                                             </div>
@@ -109,6 +109,10 @@
                                     <input type="text" class="form-control" name="link" id="link"
                                         placeholder="Masukkan link" aria-describedby="link">
                                 </div>
+                                <div class="form-group mt-3">
+                                    <label for="gambar" class="form-label">File Gambar</label>
+                                    <input class="form-control" name="file" type="file" id="file">
+                                </div>
                                 <div class="form-group mt-3 pt-4">
                                     <div class="modal-footer">
                                         <button type="cancel" class="btn btn-outline-secondary" data-bs-dismiss="modal">
@@ -124,6 +128,67 @@
             </div>
         </div>
     </div>
+    @php($no = 1)
+    @foreach ($data as $item)
+        <!-- Modal Edit Slide -->
+        <div class="modal fade" id="edit-profil{{ $item->id }}" tabindex="-1" style="display: none;"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <form action="{{ url('struktur-desa/' . $item->id . '/update') }}" method="post"
+                    enctype="multipart/form-data" id="editModal_{{ $item->id }}">
+                    @csrf
+                    @method('PUT');
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="modalCenterTitle">Slide ke-{{ $no++ }}</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col mb-2">
+                                    <label for="nama" class="form-label">Nama</label>
+                                    <input type="text" name="nama" id="nama" class="form-control"
+                                        value="{{ $item->nama }}">
+                                </div>
+                            </div>
+                            <div class="row g-2 mb-2">
+                                <div class="col mb-0">
+                                    <label for="nama" class="form-label">Jabatan</label>
+                                    <input type="text" name="jabatan" id="jabatan" class="form-control"
+                                        value="{{ $item->jabatan }}">
+                                </div>
+                                <div class="col mb-0">
+                                    <label for="nama" class="form-label">Penanggung Jawab</label>
+                                    <input type="text" name="atasan" id="atasan" class="form-control"
+                                        value="{{ $item->atasan }}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-3">
+                                    <label for="nama" class="form-label">Link</label>
+                                    <input type="text" name="link" id="link" class="form-control"
+                                        value="{{ $item->link }}">
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="gambar" class="form-label">File Gambar</label>
+                                <input class="form-control" name="file" type="file" id="file"
+                                    value="{{ $item->file }}">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="cancel" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                Batal
+                            </button>
+                            <button type="submit" class="btn btn-primary" form="editModal_{{ $item->id }}">Simpan
+                                Perubahan</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    @endforeach
     <script type="text/javascript">
         google.charts.load('current', {
             packages: ["orgchart"]
@@ -135,41 +200,14 @@
             data.addColumn('string', 'Nama');
             data.addColumn('string', 'Atasan');
             data.addColumn('string', 'ToolTip');
-
-            // For each orgchart box, provide the name, manager, and tooltip to show.
-            // data.addRows([
-            //     [{
-            //             'v': 'Mike',
-            //             'f': 'Mike<div style="color:red; font-style:italic">President</div>'
-            //         },
-            //         '', 'The President'
-            //     ],
-            //     [{
-            //             'v': 'Jim',
-            //             'f': 'Jim<div style="color:red; font-style:italic">Vice President</div>'
-            //         },
-            //         'Mike', 'VP'
-            //     ],
-            //     ['Alice', 'Mike', ''],
-            //     ['Bob', 'Jim', 'Bob Sponge'],
-            //     ['Carol', 'Bob', ''],
-            //     [{
-            //             'v': 'Syifaul',
-            //             'f': 'Syifaul<button onclick=test() style="color:red; font-style:italic">Vice President</button>'
-            //         },
-            //         'Jim', 'VP'
-            //     ],
-            // ]);
-
             let desa = {!! json_encode($grafik) !!};
             data.addRows(desa);
-
-
             // Create the chart.
             var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
             // Draw the chart, setting the allowHtml option to true for the tooltips.
             chart.draw(data, {
-                'allowHtml': true
+                'allowHtml': true,
+                'allowCollapse': true
             });
         }
 
