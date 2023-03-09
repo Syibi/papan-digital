@@ -12,7 +12,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/avatars/logo-desa.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -112,7 +112,6 @@
             height: 80px;
             width: 80px;
             position: absolute;
-            background: var(--fir-blue-twitter-alpha);
             background-image: none;
             border-radius: 100px;
             cursor: pointer;
@@ -127,6 +126,10 @@
             top: 0;
             left: 0;
             animation: fadeInFadeOut 2s infinite;
+        }
+
+        .hidden {
+            display: none !important;
         }
 
         @keyframes fadeInFadeOut {
@@ -165,6 +168,16 @@
             height: 90px;
             margin-top: 15px;
         }
+
+        .img-thumbnail {
+            transition: 0.25s;
+            transition-timing-function: ease-out;
+            box-shadow: 5px 10px #88888815;
+        }
+
+        .img-thumbnail:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 
@@ -198,7 +211,7 @@
                     <!-- Dashboard -->
                     <li class="menu-item {{ $title === 'Beranda' ? 'active' : '' }}">
                         <a href="/" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <i class='menu-icon tf-icons bx bxs-dashboard'></i>
                             <div data-i18n="Analytics">Beranda</div>
                         </a>
                     </li>
@@ -206,7 +219,7 @@
                         class="menu-item 
                         {{ $title === 'Profil Desa' || $title === 'Data Umum' || $title === 'Data Kewenangan' ? 'active' : '' }}">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                            <i class="menu-icon tf-icons bx bx-pie-chart-alt-2"></i>
                             <div data-i18n="Authentications">Informasi Desa</div>
                         </a>
                         <ul class="menu-sub">
@@ -244,7 +257,7 @@
                     </li>
                     <li class="menu-item {{ $title === 'Galeri Desa' ? 'active' : '' }}">
                         <a href="/galeri-desa" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                            <i class="menu-icon tf-icons bx bx-image"></i>
                             <div data-i18n="Galery">Galeri Desa</div>
                         </a>
                     </li>
@@ -253,13 +266,13 @@
                     </li>
                     <li class="menu-item {{ $title === 'Struktur Desa' ? 'active' : '' }}">
                         <a href="/struktur-desa" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                            <i class="menu-icon tf-icons bx bx-network-chart"></i>
                             <div data-i18n="Account Settings">Struktur Organisasi</div>
                         </a>
                     </li>
                     <li class="menu-item {{ $title === 'Proker Desa' ? 'active' : '' }}">
                         <a href="/proker-desa" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                            <i class="menu-icon tf-icons bx bx-collection"></i>
                             <div data-i18n="Authentications">Program Kerja</div>
                         </a>
                     </li>
@@ -269,25 +282,15 @@
                     <!-- Cards -->
                     <li class="menu-item">
                         <a href="cards-basic.html" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <i class="menu-icon tf-icons bx bx-network-chart"></i>
                             <div data-i18n="Basic">Struktur Organisasi</div>
                         </a>
                     </li>
                     <!-- User interface -->
                     <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-box"></i>
+                            <i class="menu-icon tf-icons bx bx-collection"></i>
                             <div data-i18n="User interface">Program Kerja</div>
-                        </a>
-                    </li>
-
-                    <!-- Forms & Tables -->
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Pengaturan</span></li>
-                    <!-- Forms -->
-                    <li class="menu-item">
-                        <a href="javascript:void(0);" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-detail"></i>
-                            <div data-i18n="Form Elements">Akun Admin</div>
                         </a>
                     </li>
                 </ul>

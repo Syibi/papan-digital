@@ -4,15 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Models\Slide;
 use Illuminate\Http\Request;
+use App\Models\Data_Penduduk;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Illuminate\Support\Facades\File;
 
 class SlideController extends Controller
 {
     public function index()
     {
+
         $slide = Slide::where('status', '1')->get();
         $title = "Beranda";
-        return view('admin.beranda-new', compact('slide', 'title'));
+
+        // Grafik Penduduk
+        $penduduk = Data_Penduduk::where('id', '1')->first();
+        $lk = (int)$penduduk['laki-laki'];
+        $pr = (int)$penduduk['perempuan'];
+        $md = (int)$penduduk['muda'];
+        $dw = (int)$penduduk['dewasa'];
+        $tu = (int)$penduduk['tua'];
+
+        $chart_jk = (new LarapexChart)
+        ->setDataset([$lk, $pr])
+        ->setLabels(['Laki-laki', 'Perempuan']);
+
+        $chart_usia = (new LarapexChart)
+        ->setDataset([$md, $dw, $tu])
+        ->setLabels(['Usia 0-15', 'Usia 15-65', 'Usia 65 Tahun keatas']);
+
+
+        return view('admin.beranda', compact('slide', 'title', 'chart_jk', 'chart_usia'));
     }
     public function edit()
     {
