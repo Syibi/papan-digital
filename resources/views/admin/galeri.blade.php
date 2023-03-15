@@ -21,9 +21,10 @@
                 <div class="tab-pane fade show active" id="navs-top-galeri" role="tabpanel">
                     <div class="row text-center text-lg-start">
                         @foreach ($galeri as $key => $item)
-                            <div class="col-lg-3 col-md-4 col-6 mb-4">
+                            <div class="col-lg-3 col-md-4 col-6 mb-3">
                                 <span style="position: relative">
-                                    <button id="delete-btn" type="button" class="btn btn-icon btn-danger"
+                                    <a href="{{ url('galeri-desa/' . $item->id . '/delete') }}" id="delete-btn"
+                                        type="button" class="btn btn-icon btn-danger hidden"
                                         style="
                                     display: inline-block;
                                     position: absolute;
@@ -31,9 +32,9 @@
                                     top: 50%;
                                     left: 50%;
                                     z-index: 1000;
-                                ">
-                                        <span class="tf-icons bx bx-trash"></span></button>
-                                    <a href="#" class="d-block h-100" data-bs-toggle="modal"
+                                    ">
+                                        <span class="tf-icons bx bx-trash" style="margin-top: 9px"></span></a>
+                                    <a href="#" class="d-block mb-4 h-100" data-bs-toggle="modal"
                                         data-bs-target="#modalCenter">
                                         @if ($item->tipe == 0)
                                             <img class="img-fluid img-thumbnail"
@@ -52,6 +53,9 @@
                                 </span>
                             </div>
                         @endforeach
+                    </div>
+                    <div class="mt-4 d-flex justify-content-center">
+                        {!! $galeri->links() !!}
                     </div>
                 </div>
                 <div class="tab-pane fade" id="navs-top-tambah" role="tabpanel">
@@ -103,44 +107,54 @@
 
     <!-- Modal -->
     <div class="modal fade" id="modalCenter" tabindex="-1" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document" style="height: auto">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalCenterTitle">Dokumentasi Kegiatan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        style="background-color: #ff3e1d; color:white"></button>
                 </div>
-                <div class="modal-body">
-                    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div class="modal-body" style="padding-top: 0">
+                    <div id="carouselExample" class="carousel carousel-dark slide" data-bs-ride="true"
+                        style="height:75vh">
                         <div class="carousel-indicators">
-                            @foreach ($galeri as $key => $item)
+                            @foreach ($allGaleri as $key => $item)
                                 <button type="button" data-bs-target="#carouselExampleCaptions"
                                     data-bs-slide-to="{{ $key }}" class="{{ $key == 0 ? 'active' : '' }}"
                                     aria-current="true" aria-label="{{ $key + 1 }}">
                                 </button>
                             @endforeach
                         </div>
-                        <div class="carousel-inner" style="box-shadow: none; border-radius:0; ">
-                            @foreach ($galeri as $key => $item)
+                        <div class="carousel-inner" style="box-shadow: none; border-radius:0; height:62vh">
+                            @foreach ($allGaleri as $key => $item)
                                 <div class="carousel-item {{ $key == 1 ? 'active' : '' }}" style="width: 100%;">
                                     @if ($item->tipe == 0)
                                         {{-- Slide Gambar --}}
                                         <img src="{{ asset('upload/galeri/' . $item->file) }}" class="d-block w-100"
                                             alt="..."
-                                            style="object-fit: fill;
-                                              height:47vh;
-                                              border-radius: 0 0.5rem 0.5rem 0;
-                                              box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45);">
+                                            style="
+                                            object-fit: contain;
+                                            min-width: 100%; 
+                                            min-height: 100%;
+                                            width: auto; 
+                                            height: auto; 
+                                            box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45);">
                                     @else
                                         {{-- Slide Video --}}
-                                        <video class="img-fluid" autoplay loop muted
-                                            style="border-radius: 0 0.5rem 0.5rem 0;
-                                              box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45);">
+                                        <video class="img-fluid" autoplay loop
+                                            style="
+                                            position: absolute; 
+                                            min-width: 100%; 
+                                            min-height: 120%;
+                                            width: auto; 
+                                            height: auto; 
+                                            background-size: cover;
+                                            box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45);">
                                             <source src={{ asset('upload/galeri/' . $item->file) }}
                                                 class="d-block w-100 h-100" type="video/mp4" />
                                         </video>
                                     @endif
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <p style="margin-bottom: 0">{{ $item->caption }}</p>
+                                    <div class="carousel-caption d-none d-md-block" style="position: fixed; bottom:90px">
+                                        <h4 style="margin-bottom: 0"><strong>{{ $item->caption }}</strong></h4>
                                     </div>
                                 </div>
                             @endforeach
@@ -164,7 +178,7 @@
         style="
                   position: fixed;
                   right: 5%;
-                  bottom:10%;
+                  bottom:5%;
                   display:block;
                   z-index:1000;
                   ">

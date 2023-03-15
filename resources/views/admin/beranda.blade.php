@@ -110,7 +110,7 @@
             style="
               position: fixed;
               right: 5%;
-              bottom:10%;
+              bottom:5%;
               display:block;
               z-index:10;
               ">

@@ -5,6 +5,7 @@ use App\Http\Controllers\DesaController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\ProkerController;
 
 // Route Beranda
 Route::get('/', [SlideController:: class, 'index']);
@@ -35,9 +36,11 @@ Route::get('/struktur-desa/{profil}/delete', [DesaController:: class, 'delete'])
 // Route Galeri Desa
 Route::get('/galeri-desa', [GaleriController:: class, 'index']);
 Route::post('/galeri-desa/add', [GaleriController:: class, 'add']);
+Route::get('/galeri-desa/{galeri}/delete', [GaleriController:: class, 'delete']);
 
-Route::get('/proker-desa', function () {
-    $title = "Proker Desa";
-    return view('admin/proker-desa', compact("title"));
-});
+// Route Proker Desa
+Route::get('/proker-desa', [ProkerController:: class, 'index']);
+Route::post('/proker-desa/add-kategori', [ProkerController:: class, 'addKategori']);
+Route::get('/proker-desa/{kategori}/delete', [ProkerController:: class, 'deleteKategori']);
+Route::post('/proker-desa/add-proker', [ProkerController:: class, 'addProker']);
 

@@ -397,6 +397,12 @@
                 </nav>
                 <!-- / Navbar -->
                 <div class="content-wrapper">
+                    @if (session('status'))
+                        <h6 class="alert alert-success alert-dismissible" role="alert"
+                            style="margin-right: 5%; margin-left:5%">
+                            {{ session('status') }}<button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button></h6>
+                    @endif
                     @yield('container')
                 </div>
 
