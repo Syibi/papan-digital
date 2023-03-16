@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Data_Penduduk;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Illuminate\Support\Facades\File;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SlideController extends Controller
 {
@@ -27,17 +28,15 @@ class SlideController extends Controller
         $chart_jk = (new LarapexChart)
         ->setDataset([$lk, $pr])
         ->setLabels(['Laki-laki', 'Perempuan']);
-
         $chart_usia = (new LarapexChart)
         ->setDataset([$md, $dw, $tu])
         ->setLabels(['Usia 0-15', 'Usia 15-65', 'Usia 65 Tahun keatas']);
-
 
         return view('admin.beranda', compact('slide', 'title', 'chart_jk', 'chart_usia'));
     }
     public function edit()
     {
-        $slide = Slide::all();
+        $slide = Slide::paginate(5);
         $title = "Beranda";
         return view('admin.edit-beranda', compact('slide', 'title'));
     }
@@ -60,8 +59,9 @@ class SlideController extends Controller
             'tipe' => $request->input('tipe')=="video"? '1' : '0',
             'file' => $filename
         ]);
-
-        return redirect()->back()->with('status', 'Slide Berhasil ditambah');
+        
+        Alert::success('Selamat', 'Slide berhasil ditambah');
+        return redirect()->back();
     }
     public function update(Request $request, Slide $slide)
     {
@@ -83,7 +83,8 @@ class SlideController extends Controller
             'status' => $request->input('status')==true? '1' : '0',
             'tipe' => $request->input('tipe')=="video"? '1' : '0',
         ]);
-        return redirect()->back()->with('status', 'Slide Berhasil diupdate');
+        Alert::success('Selamat', 'Slide Berhasil diupdate');
+        return redirect()->back();
     }
     public function delete(Slide $slide)
     {
@@ -93,8 +94,10 @@ class SlideController extends Controller
                 File::delete($destination);
             }
             $slide->delete();
-            return redirect()->back()->with('status', 'Slide Berhasil dihapus');
+            Alert::success('Selamat', 'Slide berhasil dihapus');
+            return redirect()->back();
         }
-        return redirect()->back()->with('status', 'Maaf, data gagal dihapus');
+        Alert::error('Maaf', 'Slide gagal dihapus, silahkan coba lagi');
+        return redirect()->back();
     }
 }

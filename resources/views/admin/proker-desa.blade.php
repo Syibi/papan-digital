@@ -49,7 +49,8 @@
                                                                 src="{{ asset('upload/proker/' . $itemProker->file) }}"
                                                                 alt="Card image">
                                                         </a>
-                                                        <p class="card-text mt-2"><small class="text-muted">Update</small>
+                                                        <p class="card-text mt-2"><small class="text-muted">Update :
+                                                                {{ $itemProker->updated_at }}</small>
                                                         </p>
                                                     </div>
                                                     <div class="col-md-8">
@@ -79,34 +80,14 @@
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
-                                                            <div class="modal-footer mt-3" style="margin-bottom: 0">
-                                                                <a href="{{ url('edit-beranda/' . $item->id . '/delete') }}"
+                                                            <div class="modal-footer mt-3"
+                                                                style="
+                                                                padding: 0.25rem 0rem 0.25rem">
+                                                                <a href="{{ url('proker-desa/' . $itemProker->id . '/delete-proker') }}"
                                                                     type="button" class="btn btn-sm btn-outline-danger">
                                                                     <span class="bx bx-trash"></span> Hapus Proker
                                                                 </a>
-                                                                <button type="button" data-bs-toggle="modal"
-                                                                    data-bs-target="#edit-slide{{ $item->id }}"
-                                                                    class="btn btn-sm btn-outline-warning">
-                                                                    <span class="tf-icons bx bx-edit-alt"></span> Edit
-                                                                    Proker
-                                                                </button>
                                                             </div>
-                                                            {{-- <div class="row justify-content-end mt-3">
-                                                                <div class="col-3 mx-0">
-                                                                    <button type="button" data-bs-toggle="modal"
-                                                                        data-bs-target="#edit-slide{{ $item->id }}"
-                                                                        class="btn btn-sm btn-warning">
-                                                                        <span class="tf-icons bx bx-edit-alt"></span> Edit
-                                                                        Proker
-                                                                    </button>
-                                                                </div>
-                                                                <div class="col-3 mx-0">
-                                                                    <a href="{{ url('edit-beranda/' . $item->id . '/delete') }}"
-                                                                        type="button" class="btn btn-sm btn-danger">
-                                                                        <span class="bx bx-trash"></span> Hapus Proker
-                                                                    </a>
-                                                                </div>
-                                                            </div> --}}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -145,7 +126,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama kategori Proker</th>
-                                    <th>Jumlah Proker</th>
+                                    {{-- <th>Jumlah Proker</th> --}}
                                     <th>Aksi</th>
                                     {{-- <th>Actions</th> --}}
                                 </tr>
@@ -156,7 +137,6 @@
                                     <tr>
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $item->kategori }}</td>
-                                        <td>0</td>
                                         <td>
                                             <div class="demo-inline-spacing">
                                                 <a href="{{ url('proker-desa/' . $item->id . '/delete') }}" type="button"

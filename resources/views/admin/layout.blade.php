@@ -182,6 +182,7 @@
 </head>
 
 <body onload=display_ct();>
+    @include('sweetalert::alert')
     <!-- Layout wrapper -->
     <div id="loading">
         <img id="loading-image" src="../assets/img/Hourglass.gif" alt="Loading..." />
@@ -231,26 +232,6 @@
                             <li class="menu-item {{ $title === 'Data Umum' ? 'active' : '' }}">
                                 <a href="/umum" class="menu-link">
                                     <div data-i18n="Notifications">Data Umum</div>
-                                </a>
-                            </li>
-                            <li class="menu-item {{ $title === 'Data Kewenangan' ? 'active' : '' }}">
-                                <a href="pages-account-settings-connections.html" class="menu-link">
-                                    <div data-i18n="Connections">Data Kewenangan</div>
-                                </a>
-                            </li>
-                            <li class="menu-item {{ $title === 'Data Keuangan' ? 'active' : '' }}">
-                                <a href="pages-account-settings-connections.html" class="menu-link">
-                                    <div data-i18n="Connections">Data Keuangan</div>
-                                </a>
-                            </li>
-                            <li class="menu-item {{ $title === 'Data Kelembagaan' ? 'active' : '' }}">
-                                <a href="pages-account-settings-connections.html" class="menu-link">
-                                    <div data-i18n="Connections">Data Kelembagaan</div>
-                                </a>
-                            </li>
-                            <li class="menu-item {{ $title === 'Trantib dan Bencana' ? 'active' : '' }}">
-                                <a href="pages-account-settings-connections.html" class="menu-link">
-                                    <div data-i18n="Connections">Trantib dan Bencana</div>
                                 </a>
                             </li>
                         </ul>
@@ -397,12 +378,6 @@
                 </nav>
                 <!-- / Navbar -->
                 <div class="content-wrapper">
-                    @if (session('status'))
-                        <h6 class="alert alert-success alert-dismissible" role="alert"
-                            style="margin-right: 5%; margin-left:5%">
-                            {{ session('status') }}<button type="button" class="btn-close" data-bs-dismiss="alert"
-                                aria-label="Close"></button></h6>
-                    @endif
                     @yield('container')
                 </div>
 

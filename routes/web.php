@@ -43,4 +43,5 @@ Route::get('/proker-desa', [ProkerController:: class, 'index']);
 Route::post('/proker-desa/add-kategori', [ProkerController:: class, 'addKategori']);
 Route::get('/proker-desa/{kategori}/delete', [ProkerController:: class, 'deleteKategori']);
 Route::post('/proker-desa/add-proker', [ProkerController:: class, 'addProker']);
+Route::get('/proker-desa/{proker}/delete-proker', [ProkerController:: class, 'deleteProker']);
 

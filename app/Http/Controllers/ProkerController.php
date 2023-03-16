@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kategori_Desa;
 use App\Models\Proker_Desa;
 use Illuminate\Http\Request;
+use App\Models\Kategori_Desa;
+use Illuminate\Support\Facades\File;
 
 class ProkerController extends Controller
 {
@@ -12,6 +13,15 @@ class ProkerController extends Controller
     {
         $kategori = Kategori_Desa::all();
         $proker = Proker_Desa::all();
+        // $jmlProker = [];
+        // foreach ($kategori as $item){
+        //     foreach ($proker as $key=>$itemProker){
+        //         if ($itemProker->kategori == $item->kategori){
+        //             $jmlProker += [$itemProker->program];
+        //         }
+        //     }
+        // }
+        // return $jmlProker;
         $title = "Proker Desa";
         return view('admin.proker-desa', compact('title', 'kategori', 'proker'));
     }
@@ -66,5 +76,10 @@ class ProkerController extends Controller
         ]);
 
         return redirect()->back()->with('status', 'Slide Berhasil ditambah');
+    }
+    public function deleteProker(Proker_Desa $proker)
+    {
+        $proker->delete();
+        return redirect()->back()->with('status', 'Slide Berhasil dihapus');
     }
 }
