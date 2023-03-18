@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Struktur_Desa;
-use App\Models\Proker_Desa;
-use App\Models\Kategori_Desa;
+use App\Models\Struktur_Pkk;
+use App\Models\Proker_Pkk;
+use App\Models\Kategori_Pkk;
 use Illuminate\Support\Facades\File;
-class DesaController extends Controller
-{
 
+class PkkController extends Controller
+{
     // Function Struktur Desa
     public function struktur()
     {
-        $data = Struktur_Desa::all();
+        $data = Struktur_Pkk::all();
         $jabatan = [];
         $sorted = [];
         $grafik = array();
@@ -43,8 +43,8 @@ class DesaController extends Controller
             $sorted = array_values($sorted);
 
         }
-        $title = "Struktur Desa";
-        return view('admin.struktur-desa', compact('title', 'data', 'sorted' , 'grafik'));
+        $title = "Struktur PKK";
+        return view('admin.struktur-pkk', compact('title', 'data', 'sorted' , 'grafik'));
     }
     public function addStruktur(Request $request)
     {
@@ -54,7 +54,7 @@ class DesaController extends Controller
             $file->move('upload/profil', $filename);
         }
 
-        Struktur_Desa::create([
+        Struktur_Pkk::create([
             'nama' => $request->nama,
             'jabatan' => $request->jabatan,
             'atasan' => $request->atasan,
@@ -64,7 +64,7 @@ class DesaController extends Controller
 
         return redirect()->back()->with('status', 'Slide Berhasil ditambah');
     }
-    public function updateStruktur(Request $request, Struktur_Desa $profil)
+    public function updateStruktur(Request $request, Struktur_Pkk $profil)
     {
         if ($request->hasFile('file')) {
             $destination = public_path('\upload\profil\\') .$profil->file;
@@ -87,7 +87,7 @@ class DesaController extends Controller
         ]);
         return redirect()->back()->with('status', 'Slide Berhasil diupdate');
     }
-    public function deleteStruktur(Struktur_Desa $profil)
+    public function deleteStruktur(Struktur_Pkk $profil)
     {
         if ($profil->count() > 0) {
             $destination = public_path('\upload\profil\\') .$profil->file;
@@ -103,22 +103,22 @@ class DesaController extends Controller
     // Function Proker Desa
     public function proker()
     {
-        $kategori = Kategori_Desa::all();
-        $proker = Proker_Desa::all();
-        $title = "Proker Desa";
-        return view('admin.proker-desa', compact('title', 'kategori', 'proker'));
+        $kategori = Kategori_Pkk::all();
+        $proker = Proker_Pkk::all();
+        $title = "Proker PKK";
+        return view('admin.proker-pkk', compact('title', 'kategori', 'proker'));
     }
     public function addKategori(Request $request)
     {
         $this->validate($request, [
             'kategori' => 'required|min:5',
         ]);
-        Kategori_Desa::create([
+        Kategori_Pkk::create([
             'kategori' => $request->kategori,
         ]);
         return redirect()->back()->with('status', 'Slide Berhasil ditambah');
     }
-    public function deleteKategori(Kategori_Desa $kategori)
+    public function deleteKategori(Kategori_Pkk $kategori)
     {
         if ($kategori->count() > 0) {
             $kategori->delete();
@@ -143,7 +143,7 @@ class DesaController extends Controller
             $file->move('upload/proker', $filename);
         }
 
-        Proker_Desa::create([
+        Proker_Pkk::create([
             'program' => $request->program,
             'kegiatan' => $request->kegiatan,
             'kategori' => $request->kategori,
@@ -157,7 +157,7 @@ class DesaController extends Controller
 
         return redirect()->back()->with('status', 'Slide Berhasil ditambah');
     }
-    public function deleteProker(Proker_Desa $proker)
+    public function deleteProker(Proker_Pkk $proker)
     {
         $proker->delete();
         return redirect()->back()->with('status', 'Slide Berhasil dihapus');

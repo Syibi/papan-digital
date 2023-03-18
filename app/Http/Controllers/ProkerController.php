@@ -9,19 +9,10 @@ use Illuminate\Support\Facades\File;
 
 class ProkerController extends Controller
 {
-    public function index()
+    public function proker()
     {
         $kategori = Kategori_Desa::all();
         $proker = Proker_Desa::all();
-        // $jmlProker = [];
-        // foreach ($kategori as $item){
-        //     foreach ($proker as $key=>$itemProker){
-        //         if ($itemProker->kategori == $item->kategori){
-        //             $jmlProker += [$itemProker->program];
-        //         }
-        //     }
-        // }
-        // return $jmlProker;
         $title = "Proker Desa";
         return view('admin.proker-desa', compact('title', 'kategori', 'proker'));
     }

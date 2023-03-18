@@ -1,11 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PkkController;
 use App\Http\Controllers\DesaController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\GaleriController;
-use App\Http\Controllers\ProkerController;
+
+
+// ==========================
+// Route Admin Papan Digital
+// ==========================
 
 // Route Beranda
 Route::get('/', [SlideController:: class, 'index']);
@@ -27,21 +32,34 @@ Route::put('/umum/updatependuduk', [InfoController:: class, 'updatePenduduk']);
 Route::put('/umum/addpendidikan', [InfoController:: class, 'addPendidikan']);
 Route::put('/umum/updatependidikan', [InfoController:: class, 'updatePendidikan']);
 
-// Route Struktur Organisasi Desa 
-Route::get('/struktur-desa', [DesaController:: class, 'index']);
-Route::post('/struktur-desa/add', [DesaController:: class, 'add']);
-Route::put('/struktur-desa/{profil}/update', [DesaController:: class, 'update']);
-Route::get('/struktur-desa/{profil}/delete', [DesaController:: class, 'delete']);
-
 // Route Galeri Desa
 Route::get('/galeri-desa', [GaleriController:: class, 'index']);
 Route::post('/galeri-desa/add', [GaleriController:: class, 'add']);
 Route::get('/galeri-desa/{galeri}/delete', [GaleriController:: class, 'delete']);
 
+// Route Struktur Organisasi Desa 
+Route::get('/struktur-desa', [DesaController:: class, 'struktur']);
+Route::post('/struktur-desa/add', [DesaController:: class, 'addStruktur']);
+Route::put('/struktur-desa/{profil}/update', [DesaController:: class, 'updateStruktur']);
+Route::get('/struktur-desa/{profil}/delete', [DesaController:: class, 'deleteStruktur']);
+
 // Route Proker Desa
-Route::get('/proker-desa', [ProkerController:: class, 'index']);
-Route::post('/proker-desa/add-kategori', [ProkerController:: class, 'addKategori']);
-Route::get('/proker-desa/{kategori}/delete', [ProkerController:: class, 'deleteKategori']);
-Route::post('/proker-desa/add-proker', [ProkerController:: class, 'addProker']);
-Route::get('/proker-desa/{proker}/delete-proker', [ProkerController:: class, 'deleteProker']);
+Route::get('/proker-desa', [DesaController:: class, 'proker']);
+Route::post('/proker-desa/add-kategori', [DesaController:: class, 'addKategori']);
+Route::get('/proker-desa/{kategori}/delete', [DesaController:: class, 'deleteKategori']);
+Route::post('/proker-desa/add-proker', [DesaController:: class, 'addProker']);
+Route::get('/proker-desa/{proker}/delete-proker', [DesaController:: class, 'deleteProker']);
+
+// Route Struktur Organisasi PKK
+Route::get('/struktur-pkk', [PkkController:: class, 'struktur']);
+Route::post('/struktur-pkk/add', [PkkController:: class, 'addStruktur']);
+Route::put('/struktur-pkk/{profil}/update', [PkkController:: class, 'updateStruktur']);
+Route::get('/struktur-pkk/{profil}/delete', [PkkController:: class, 'deleteStruktur']);
+
+// Route Proker PKK
+Route::get('/proker-pkk', [PkkController:: class, 'proker']);
+Route::post('/proker-pkk/add-kategori', [PkkController:: class, 'addKategori']);
+Route::get('/proker-pkk/{kategori}/delete', [PkkController:: class, 'deleteKategori']);
+Route::post('/proker-pkk/add-proker', [PkkController:: class, 'addProker']);
+Route::get('/proker-pkk/{proker}/delete-proker', [PkkController:: class, 'deleteProker']);
 

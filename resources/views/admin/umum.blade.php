@@ -44,19 +44,19 @@
                         <div class="row justify-content-evenly mx-2">
                             <div class="mb-1 col-12">
                                 <label for="topologi_desa" class="form-label"><strong>Topologi Desa</strong></label>
-                                <textarea class="form-control my-2" type="text" id="topologi_desa" name="topologi_desa" rows="2">{{ $umum['topologi_desa'] }}</textarea>
+                                <textarea class="form-control my-2" type="text" id="data_umum" name="topologi_desa" rows="2" readonly>{{ $umum['topologi_desa'] }}</textarea>
                             </div>
                             <div class="mb-1 col-6">
                                 <label for="tingkat_perkembangan" class="form-label"><strong>Tingkat Perkembangan
                                         Desa</strong></label>
-                                <input class="form-control" type="text" id="tingkat_perkembangan"
-                                    name="tingkat_perkembangan" value="{{ $umum['tingkat_perkembangan'] }}">
+                                <input class="form-control" type="text" id="data_umum" name="tingkat_perkembangan"
+                                    value="{{ $umum['tingkat_perkembangan'] }}" readonly>
                             </div>
                             <div class="mb-1 col-6">
                                 <label for="luas_wilayah" class="form-label"><strong>Luas Wilayah</strong></label>
                                 <div class="input-group">
-                                    <input class="form-control my-1" name="luas_wilayah" type="text" id="luas_wilayah"
-                                        value="{{ $umum['luas_wilayah'] }}">
+                                    <input class="form-control my-1" name="luas_wilayah" type="text" id="data_umum"
+                                        value="{{ $umum['luas_wilayah'] }}" readonly>
                                     <span class="input-group-text my-1">Hektar</span>
                                 </div>
                             </div>
@@ -65,22 +65,21 @@
                                 <div class="mb-2 row">
                                     <label for="batas_wilayah_utara" class="col-sm-1 my-2">Sebelah Utara</label>
                                     <div class="col-5">
-                                        <textarea class="form-control my-2" type="text" id="batas_wilayah_utara" name="batas_wilayah_utara" rows="2">{{ $umum['batas_wilayah_utara'] }}</textarea>
+                                        <textarea class="form-control my-2" type="text" id="data_umum" name="batas_wilayah_utara" rows="2" readonly>{{ $umum['batas_wilayah_utara'] }}</textarea>
                                     </div>
                                     <label for="batas_wilayah_selatan" class="col-sm-1 my-2">Sebelah Selatan</label>
                                     <div class="col-5">
-                                        <textarea class="form-control my-2" type="text" id="batas_wilayah_selatan" name="batas_wilayah_selatan"
-                                            rows="2">{{ $umum['batas_wilayah_selatan'] }}</textarea>
+                                        <textarea class="form-control my-2" type="text" id="data_umum" name="batas_wilayah_selatan" rows="2" readonly>{{ $umum['batas_wilayah_selatan'] }}</textarea>
                                     </div>
                                     <label for="batas_wilayah_barat" class="col-sm-1 my-2">Sebelah Barat</label>
                                     <div class="col-5">
-                                        <textarea class="form-control my-2" type="text" id="batas_wilayah_barat" name="batas_wilayah_barat"
-                                            rows="2">{{ $umum['batas_wilayah_barat'] }}</textarea>
+                                        <textarea class="form-control my-2" type="text" id="data_umum" name="batas_wilayah_barat" rows="2"
+                                            readonly>{{ $umum['batas_wilayah_barat'] }}</textarea>
                                     </div>
                                     <label for="batas_wilayah_timur" class="col-sm-1 my-2">Sebelah Timur</label>
                                     <div class="col-5">
-                                        <textarea class="form-control my-2" type="text" id="batas_wilayah_timur" name="batas_wilayah_timur"
-                                            rows="2">{{ $umum['batas_wilayah_timur'] }}</textarea>
+                                        <textarea class="form-control my-2" type="text" id="data_umum" name="batas_wilayah_timur" rows="2"
+                                            readonly>{{ $umum['batas_wilayah_timur'] }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -90,32 +89,35 @@
                                     <label for="orbitrasi_kecamatan" class="col-sm-2 my-3">Kecamatan</label>
                                     <div class="col-4">
                                         <div class="input-group">
-                                            <input class="form-control my-1" type="text" id="orbitrasi_kecamatan"
-                                                name="orbitrasi_kecamatan" value="{{ $umum['orbitrasi_kecamatan'] }}">
+                                            <input class="form-control my-1" type="text" id="data_umum"
+                                                name="orbitrasi_kecamatan" value="{{ $umum['orbitrasi_kecamatan'] }}"
+                                                readonly>
                                             <span class="input-group-text my-1">Km</span>
                                         </div>
                                     </div>
                                     <label for="orbitrasi_kota" class="col-sm-2 my-3">Kota</label>
                                     <div class="col-4">
                                         <div class="input-group">
-                                            <input class="form-control my-1" type="text" id="orbitrasi_kota"
-                                                name="orbitrasi_kota" value="{{ $umum['orbitrasi_kota'] }}">
+                                            <input class="form-control my-1" type="text" id="data_umum"
+                                                name="orbitrasi_kota" value="{{ $umum['orbitrasi_kota'] }}" readonly>
                                             <span class="input-group-text my-1">Km</span>
                                         </div>
                                     </div>
                                     <label for="orbitrasi_kabupaten" class="col-sm-2 my-3">Kabupaten</label>
                                     <div class="col-4">
                                         <div class="input-group">
-                                            <input class="form-control my-1" type="text" id="orbitrasi_kabupaten"
-                                                name="orbitrasi_kabupaten" value="{{ $umum['orbitrasi_kabupaten'] }}">
+                                            <input class="form-control my-1" type="text" id="data_umum"
+                                                name="orbitrasi_kabupaten" value="{{ $umum['orbitrasi_kabupaten'] }}"
+                                                readonly>
                                             <span class="input-group-text my-1">Km</span>
                                         </div>
                                     </div>
                                     <label for="orbitrasi_provinsi" class="col-sm-2 my-3">Provinsi</label>
                                     <div class="col-4">
                                         <div class="input-group">
-                                            <input class="form-control my-1" type="text" id="orbitrasi_provinsi"
-                                                name="orbitrasi_provinsi" value="{{ $umum['orbitrasi_provinsi'] }}">
+                                            <input class="form-control my-1" type="text" id="data_umum"
+                                                name="orbitrasi_provinsi" value="{{ $umum['orbitrasi_provinsi'] }}"
+                                                readonly>
                                             <span class="input-group-text my-1">Km</span>
                                         </div>
                                     </div>
@@ -124,11 +126,11 @@
                         </div>
                         <div class="mt-2 mx-2 float-end">
                             <button type="button" form="form_umum" class="btn btn-primary me-2" value="edit"
-                                id="edit-umum" onclick="active()">Edit</button>
+                                id="edit-umum" onclick="active('[id=data_umum]')">Edit</button>
                             <button type="button" class="btn btn-outline-secondary" value="cancel"
-                                onclick="nonactive()" id="cancel-umum">Cancel</button>
-                            <button type="submit" class="btn btn-primary me-2" value="save" onclick="nonactive()"
-                                id="save-umum">Save Changes</button>
+                                onclick="nonactive('[id=data_umum]')" id="cancel-umum">Cancel</button>
+                            <button type="submit" class="btn btn-primary me-2" value="save"
+                                onclick="nonactive('[id=data_umum]')" id="save-umum">Save Changes</button>
                         </div>
                     </form>
                 </div>
@@ -167,14 +169,28 @@
                         name="form_penduduk">
                         @csrf
                         @method('PUT')
-                        <label class="form-label ps-4 mt-2"><strong>Jumlah Kartu Keluarga</strong></label>
-                        <div class="container overflow-hidden text-center">
-                            <div class="col-sm-3">
-                                <div class="user-progress">
-                                    <div class="input-group">
-                                        <input class="form-control" name="jml_kk" type="text" id="jml_kk"
-                                            value="{{ $penduduk['jml_kk'] }}">
-                                        <span class="input-group-text">KK</span>
+                        <div class="row">
+                            <div class="col-4" style="padding-right: 0">
+                                <label class="form-label ps-4 mt-2"><strong>Jumlah Kartu Keluarga</strong></label>
+                                <div class="container overflow-hidden text-center">
+                                    <div class="user-progress">
+                                        <div class="input-group">
+                                            <input class="form-control" name="jml_kk" type="text" id="data_penduduk"
+                                                value="{{ $penduduk['jml_kk'] }}" readonly>
+                                            <span class="input-group-text">KK</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4" style="padding-left: 0">
+                                <label class="form-label ps-4 mt-2"><strong>Jumlah Kartu Keluarga</strong></label>
+                                <div class="container overflow-hidden text-center" style="padding-left: 0">
+                                    <div class="user-progress">
+                                        <div class="input-group">
+                                            <input class="form-control" name="jml_kk" type="text" id="data_penduduk"
+                                                value="{{ $penduduk['jml_kk'] }}" readonly>
+                                            <span class="input-group-text">KK</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +213,7 @@
                                             <div class="user-progress">
                                                 <div class="input-group">
                                                     <input class="form-control" name="laki_laki" type="text"
-                                                        id="laki_laki" value="{{ $penduduk['laki-laki'] }}">
+                                                        id="data_penduduk" value="{{ $penduduk['laki-laki'] }}" readonly>
                                                     <span class="input-group-text">Jiwa</span>
                                                 </div>
                                             </div>
@@ -216,7 +232,7 @@
                                             <div class="user-progress">
                                                 <div class="input-group">
                                                     <input class="form-control" name="perempuan" type="text"
-                                                        id="perempuan" value="{{ $penduduk['perempuan'] }}">
+                                                        id="data_penduduk" value="{{ $penduduk['perempuan'] }}" readonly>
                                                     <span class="input-group-text">Jiwa</span>
                                                 </div>
                                             </div>
@@ -245,7 +261,7 @@
                                             <div class="user-progress">
                                                 <div class="input-group">
                                                     <input class="form-control" name="muda" type="text"
-                                                        id="muda" value="{{ $penduduk['muda'] }}">
+                                                        id="data_penduduk" value="{{ $penduduk['muda'] }}" readonly>
                                                     <span class="input-group-text">Jiwa</span>
                                                 </div>
                                             </div>
@@ -264,7 +280,7 @@
                                             <div class="user-progress">
                                                 <div class="input-group">
                                                     <input class="form-control" name="dewasa" type="text"
-                                                        id="dewasa" value="{{ $penduduk['dewasa'] }}">
+                                                        id="data_penduduk" value="{{ $penduduk['dewasa'] }}" readonly>
                                                     <span class="input-group-text">Jiwa</span>
                                                 </div>
                                             </div>
@@ -283,7 +299,7 @@
                                             <div class="user-progress">
                                                 <div class="input-group">
                                                     <input class="form-control" name="tua" type="text"
-                                                        id="tua" value="{{ $penduduk['tua'] }}">
+                                                        id="data_penduduk" value="{{ $penduduk['tua'] }}" readonly>
                                                     <span class="input-group-text">Jiwa</span>
                                                 </div>
                                             </div>
@@ -297,11 +313,11 @@
                         </div>
                         <div class="mx-4 float-end">
                             <button type="button" form="form_penduduk" class="btn btn-primary me-2" value="edit"
-                                id="edit-penduduk" onclick="active()">Edit</button>
+                                id="edit-penduduk" onclick="active('[id=data_penduduk]')">Edit</button>
                             <button type="button" class="btn btn-outline-secondary" value="cancel"
-                                onclick="nonactive()" id="cancel-penduduk">Cancel</button>
-                            <button type="submit" class="btn btn-primary me-2" value="save" onclick="nonactive()"
-                                id="save-penduduk">Save Changes</button>
+                                onclick="nonactive('[id=data_penduduk]')" id="cancel-penduduk">Cancel</button>
+                            <button type="submit" class="btn btn-primary me-2" value="save"
+                                onclick="nonactive('[id=data_penduduk]')" id="save-penduduk">Save Changes</button>
                         </div>
                     </form>
                 </div>
@@ -332,7 +348,8 @@
                                                     <div class="user-progress">
                                                         <div class="input-group">
                                                             <input class="form-control" name="tk" type="text"
-                                                                id="tk" value="{{ $pendidikan['tk'] }}">
+                                                                id="data_pendidikan" value="{{ $pendidikan['tk'] }}"
+                                                                readonly>
                                                             <span class="input-group-text">Jiwa</span>
                                                         </div>
                                                     </div>
@@ -351,7 +368,8 @@
                                                     <div class="user-progress">
                                                         <div class="input-group">
                                                             <input class="form-control" name="sd" type="text"
-                                                                id="sd" value="{{ $pendidikan['sd'] }}">
+                                                                id="data_pendidikan" value="{{ $pendidikan['sd'] }}"
+                                                                readonly>
                                                             <span class="input-group-text">Jiwa</span>
                                                         </div>
                                                     </div>
@@ -370,7 +388,8 @@
                                                     <div class="user-progress">
                                                         <div class="input-group">
                                                             <input class="form-control" name="smp" type="text"
-                                                                id="smp" value="{{ $pendidikan['smp'] }}">
+                                                                id="data_pendidikan" value="{{ $pendidikan['smp'] }}"
+                                                                readonly>
                                                             <span class="input-group-text">Jiwa</span>
                                                         </div>
                                                     </div>
@@ -389,7 +408,8 @@
                                                     <div class="user-progress">
                                                         <div class="input-group">
                                                             <input class="form-control" name="sma" type="text"
-                                                                id="sma" value="{{ $pendidikan['sma'] }}">
+                                                                id="data_pendidikan" value="{{ $pendidikan['sma'] }}"
+                                                                readonly>
                                                             <span class="input-group-text">Jiwa</span>
                                                         </div>
                                                     </div>
@@ -410,7 +430,8 @@
                                                     <div class="user-progress">
                                                         <div class="input-group">
                                                             <input class="form-control" name="diploma" type="text"
-                                                                id="diploma" value="{{ $pendidikan['diploma'] }}">
+                                                                id="data_pendidikan" value="{{ $pendidikan['diploma'] }}"
+                                                                readonly>
                                                             <span class="input-group-text">Jiwa</span>
                                                         </div>
                                                     </div>
@@ -429,7 +450,8 @@
                                                     <div class="user-progress">
                                                         <div class="input-group">
                                                             <input class="form-control" name="sarjana" type="text"
-                                                                id="sarjana" value="{{ $pendidikan['sarjana'] }}">
+                                                                id="data_pendidikan" value="{{ $pendidikan['sarjana'] }}"
+                                                                readonly>
                                                             <span class="input-group-text">Jiwa</span>
                                                         </div>
                                                     </div>
@@ -448,8 +470,8 @@
                                                     <div class="user-progress">
                                                         <div class="input-group">
                                                             <input class="form-control" name="pascasarjana"
-                                                                type="text" id="pascasarjana"
-                                                                value="{{ $pendidikan['pascasarjana'] }}">
+                                                                type="text" id="data_pendidikan"
+                                                                value="{{ $pendidikan['pascasarjana'] }}" readonly>
                                                             <span class="input-group-text">Jiwa</span>
                                                         </div>
                                                     </div>
@@ -476,7 +498,8 @@
                                                     <div class="user-progress">
                                                         <div class="input-group">
                                                             <input class="form-control" name="pondok" type="text"
-                                                                id="pondok" value="{{ $pendidikan['pondok'] }}">
+                                                                id="data_pendidikan" value="{{ $pendidikan['pondok'] }}"
+                                                                readonly>
                                                             <span class="input-group-text">Jiwa</span>
                                                         </div>
                                                     </div>
@@ -491,7 +514,8 @@
                                                     <div class="user-progress">
                                                         <div class="input-group">
                                                             <input class="form-control" name="keagamaan" type="text"
-                                                                id="keagamaan" value="{{ $pendidikan['keagamaan'] }}">
+                                                                id="data_pendidikan"
+                                                                value="{{ $pendidikan['keagamaan'] }}" readonly>
                                                             <span class="input-group-text">Jiwa</span>
                                                         </div>
                                                     </div>
@@ -508,7 +532,8 @@
                                                     <div class="user-progress">
                                                         <div class="input-group">
                                                             <input class="form-control" name="slb" type="text"
-                                                                id="slb" value="{{ $pendidikan['slb'] }}">
+                                                                id="data_pendidikan" value="{{ $pendidikan['slb'] }}"
+                                                                readonly>
                                                             <span class="input-group-text">Jiwa</span>
                                                         </div>
                                                     </div>
@@ -523,7 +548,8 @@
                                                     <div class="user-progress">
                                                         <div class="input-group">
                                                             <input class="form-control" name="kursus" type="text"
-                                                                id="kursus" value="{{ $pendidikan['kursus'] }}">
+                                                                id="data_pendidikan" value="{{ $pendidikan['kursus'] }}"
+                                                                readonly>
                                                             <span class="input-group-text">Jiwa</span>
                                                         </div>
                                                     </div>
@@ -540,19 +566,24 @@
                                 <div class="user-progress">
                                     <div class="input-group">
                                         <input class="form-control" name="tidak_sekolah" type="text"
-                                            id="tidak_sekolah" value="{{ $pendidikan['tidak_sekolah'] }}">
+                                            id="data_pendidikan" value="{{ $pendidikan['tidak_sekolah'] }}" readonly>
                                         <span class="input-group-text">Jiwa</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="mt-3" style="margin-left: 27px">
+                            <small class="text-muted"><em>
+                                    Update : {{ $pendidikan['updated_at'] }}
+                                </em></small>
+                        </div>
                         <div class="mt-2 mx-4 float-end">
                             <button type="button" form="form_pendidikan" class="btn btn-primary me-2" value="edit"
-                                id="edit-pendidikan" onclick="active()">Edit</button>
+                                id="edit-pendidikan" onclick="active('[id=data_pendidikan]')">Edit</button>
                             <button type="button" class="btn btn-outline-secondary" value="cancel"
-                                onclick="nonactive()" id="cancel-pendidikan">Cancel</button>
-                            <button type="submit" class="btn btn-primary me-2" value="save" onclick="nonactive()"
-                                id="save-pendidikan">Save Changes</button>
+                                onclick="nonactive('[id=data_pendidikan]')" id="cancel-pendidikan">Cancel</button>
+                            <button type="submit" class="btn btn-primary me-2" value="save"
+                                onclick="nonactive('[id=data_pendidikan]')" id="save-pendidikan">Save Changes</button>
                         </div>
                     </form>
                 </div>
@@ -887,8 +918,8 @@
                     <div class="mt-2 mx-4 float-end">
                         <button type="button" form="form_umum" class="btn btn-primary me-2" value="edit"
                             id="edit-penduduk" onclick="active()">Edit</button>
-                        <button type="button" class="btn btn-outline-secondary" value="cancel" onclick="nonactive()"
-                            id="cancel-penduduk">Cancel</button>
+                        <button type="button" class="btn btn-outline-secondary" value="cancel"
+                            onclick="nonactive()" id="cancel-penduduk">Cancel</button>
                         <button type="submit" class="btn btn-primary me-2" value="save" onclick="nonactive()"
                             id="save-penduduk">Save Changes</button>
                     </div>
@@ -1241,18 +1272,16 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
-        function active() {
-            var a = document.querySelectorAll('[id = profil]');
+        function active(idInput) {
+            var a = document.querySelectorAll(idInput);
             a.forEach(element => {
-                element.className = "form-control";
                 element.removeAttribute("readonly");
             });
         }
 
-        function nonactive() {
-            var a = document.querySelectorAll('[id = profil]');
+        function nonactive(idInput) {
+            var a = document.querySelectorAll(idInput);
             a.forEach(element => {
-                element.className = "form-control-plaintext";
                 element.setAttribute("readonly", true)
             });
         }

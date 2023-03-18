@@ -77,6 +77,7 @@
         .fir-image-figure {
             margin: 0;
             display: flex;
+            padding: 0 !important;
             align-items: center;
             margin-bottom: 40px;
             position: relative;
@@ -261,15 +262,15 @@
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Perangkat PKK</span>
                     </li>
                     <!-- Cards -->
-                    <li class="menu-item">
-                        <a href="cards-basic.html" class="menu-link">
+                    <li class="menu-item {{ $title === 'Struktur PKK' ? 'active' : '' }}">
+                        <a href="/struktur-pkk" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-network-chart"></i>
                             <div data-i18n="Basic">Struktur Organisasi</div>
                         </a>
                     </li>
                     <!-- User interface -->
-                    <li class="menu-item">
-                        <a href="javascript:void(0)" class="menu-link">
+                    <li class="menu-item {{ $title === 'Proker PKK' ? 'active' : '' }}">
+                        <a href="/proker-pkk" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-collection"></i>
                             <div data-i18n="User interface">Program Kerja</div>
                         </a>
