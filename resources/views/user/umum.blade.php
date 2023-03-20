@@ -133,9 +133,6 @@
                         <div class="col-sm-6">
                             <div class="card-title mb-0">
                                 <h3 class="m-0 me-2">Jumlah Penduduk</h3>
-                                <small class="text-muted"><em>
-                                        Update : {{ $penduduk['updated_at'] }}
-                                    </em></small>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -151,7 +148,7 @@
                                 <div class="col-3">
                                     <div class="d-flex flex-column align-items-center gap-1">
                                         <h2 class="mb-1">{{ $penduduk['jml_kk'] }}</h2>
-                                        <span>Jiwa</span>
+                                        <span>KK</span>
                                     </div>
                                 </div>
                             </div>
@@ -175,13 +172,13 @@
                                 </div>
                             </div>
                             <div class="col-4" style="padding-left: 0">
-                                <label class="form-label ps-4 mt-2"><strong>Jumlah Kartu Keluarga</strong></label>
+                                <label class="form-label ps-4 mt-2"><strong>Jumlah Warga Miskin</strong></label>
                                 <div class="container overflow-hidden text-center" style="padding-left: 0">
                                     <div class="user-progress">
                                         <div class="input-group">
                                             <input class="form-control" name="jml_kk" type="text" id="data_penduduk"
                                                 value="{{ $penduduk['jml_kk'] }}" readonly>
-                                            <span class="input-group-text">KK</span>
+                                            <span class="input-group-text">Jiwa</span>
                                         </div>
                                     </div>
                                 </div>
@@ -301,6 +298,11 @@
                                 <div class="col-sm-5 my-auto">
                                     {!! $chart_usia->container() !!}
                                 </div>
+                            </div>
+                            <div class="d-flex">
+                                <small class="text-muted"><em>
+                                        Update : {{ $pendidikan['updated_at'] }}
+                                    </em></small>
                             </div>
                         </div>
                     </form>
@@ -560,14 +562,6 @@
                             <small class="text-muted"><em>
                                     Update : {{ $pendidikan['updated_at'] }}
                                 </em></small>
-                        </div>
-                        <div class="mt-2 mx-4 float-end">
-                            <button type="button" form="form_pendidikan" class="btn btn-primary me-2" value="edit"
-                                id="edit-pendidikan" onclick="active('[id=data_pendidikan]')">Edit</button>
-                            <button type="button" class="btn btn-outline-secondary" value="cancel"
-                                onclick="nonactive('[id=data_pendidikan]')" id="cancel-pendidikan">Cancel</button>
-                            <button type="submit" class="btn btn-primary me-2" value="save"
-                                onclick="nonactive('[id=data_pendidikan]')" id="save-pendidikan">Save Changes</button>
                         </div>
                     </form>
                 </div>
@@ -898,14 +892,6 @@
                                 </svg>
                             </div>
                         </div>
-                    </div>
-                    <div class="mt-2 mx-4 float-end">
-                        <button type="button" form="form_umum" class="btn btn-primary me-2" value="edit"
-                            id="edit-penduduk" onclick="active()">Edit</button>
-                        <button type="button" class="btn btn-outline-secondary" value="cancel"
-                            onclick="nonactive()" id="cancel-penduduk">Cancel</button>
-                        <button type="submit" class="btn btn-primary me-2" value="save" onclick="nonactive()"
-                            id="save-penduduk">Save Changes</button>
                     </div>
                 </div>
 

@@ -73,6 +73,7 @@
                         </div>
                     </div>
                     <div class="row px-2">
+
                         <div id="carouselExample" class="carousel slide" style="padding-right:22px">
                             <div class="carousel-inner" style="height: 62vh; border:none; box-shadow:none; border-radius:0">
                                 <div class="carousel-item active" style="object-fit: contain">

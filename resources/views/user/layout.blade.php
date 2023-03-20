@@ -277,12 +277,11 @@
                     </li>
                 </ul>
                 <div class="col-sm-3" style="margin-left: 2vw; margin-bottom:4vh">
-                    <audio id="myAudio" src="http://www.sousound.com/music/healing/healing_01.mp3" preload="auto"
-                        loop>
+                    <audio id="myAudio" src="http://papan_digital.test/../assets/music/music1.mp3" autoplay loop>
                     </audio>
                     <button id="menu-sound" type="button" class="btn btn-primary" data-bs-toggle="button"
                         autocomplete="off" aria-pressed="false" onClick="togglePlay()">
-                        <i class='bx bx-volume-mute'></i>
+                        <i class='bx bxs-volume-full'></i>
                     </button>
                 </div>
             </aside>
@@ -326,7 +325,7 @@
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar">
-                                                        <img src="../assets/img/avatars/1.png" alt
+                                                        <img src="../assets/img/avatars/user.png" alt
                                                             class="w-px-40 h-auto rounded-circle" />
                                                     </div>
                                                 </div>
