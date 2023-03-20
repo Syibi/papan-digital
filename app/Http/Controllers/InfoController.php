@@ -74,7 +74,7 @@ class InfoController extends Controller
 
         return view('admin.umum', compact('umum', 'title' , 'pendidikan', 'penduduk', 'chart_jk', 'chart_usia'));
     }
-
+    
     // fungsi add
     public function addUmum(Request $request)
     {

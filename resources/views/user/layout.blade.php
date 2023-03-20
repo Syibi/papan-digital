@@ -332,7 +332,7 @@
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <span class="fw-semibold d-block">Desa Tikusan</span>
-                                                    <small class="text-muted">Administrator</small>
+                                                    <small class="text-muted">User</small>
                                                 </div>
                                             </div>
                                         </a>
@@ -341,9 +341,9 @@
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="/action-logout">
+                                        <a class="dropdown-item" href="/login">
                                             <i class="bx bx-power-off me-2"></i>
-                                            <span class="align-middle">Keluar Akun</span>
+                                            <span class="align-middle">Masuk Administrator</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -367,7 +367,7 @@
                                 document.write(new Date().getFullYear());
                             </script>
                             , made with ❤️ by
-                            <a href="" target="_blank" class="footer-link fw-bolder">Syifaul Qolbi</a>
+                            <a href="" target="_blank" class="footer-link fw-bolder">Syifaul Qolbi Sy</a>
                         </div>
                     </div>
                 </footer>
