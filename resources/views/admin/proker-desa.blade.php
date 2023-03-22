@@ -83,7 +83,7 @@
                                                             <div class="modal-footer mt-3"
                                                                 style="
                                                                 padding: 0.25rem 0rem 0.25rem">
-                                                                <a href="{{ url('proker-desa/' . $itemProker->id . '/delete-proker') }}"
+                                                                <a href="{{ url('admin/proker-desa/' . $itemProker->id . '/delete-proker') }}"
                                                                     type="button" class="btn btn-sm btn-outline-danger">
                                                                     <span class="bx bx-trash"></span> Hapus Proker
                                                                 </a>
@@ -103,7 +103,8 @@
                 <div class="tab-pane fade" id="navs-tambah-kategori" role="tabpanel">
                     <h5>Tambah Kategori Proker</h5>
                     <div>
-                        <form action="{{ url('proker-desa/add-kategori') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('admin/proker-desa/add-kategori') }}" method="post"
+                            enctype="multipart/form-data">
                             @csrf
                             <label for="kategori" class="form-label">Nama Kategori</label>
                             <div class="row">
@@ -139,8 +140,9 @@
                                         <td>{{ $item->kategori }}</td>
                                         <td>
                                             <div class="demo-inline-spacing">
-                                                <a href="{{ url('proker-desa/' . $item->id . '/delete') }}" type="button"
-                                                    class="btn btn-icon btn-danger" style="margin-top: 0 !important">
+                                                <a href="{{ url('admin/proker-desa/' . $item->id . '/delete') }}"
+                                                    type="button" class="btn btn-icon btn-danger"
+                                                    style="margin-top: 0 !important">
                                                     <span class="bx bx-trash"></span>
                                                 </a>
                                             </div>
@@ -169,7 +171,8 @@
         <div class="modal fade" id="modal" tabindex="-1" style="display: none;" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
-                    <form action="{{ url('proker-desa/add-proker') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ url('admin/proker-desa/add-proker') }}" method="post"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalCenterTitle">Tambah Program Kerja</h5>

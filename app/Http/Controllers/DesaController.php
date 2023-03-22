@@ -7,6 +7,8 @@ use App\Models\Struktur_Desa;
 use App\Models\Proker_Desa;
 use App\Models\Kategori_Desa;
 use Illuminate\Support\Facades\File;
+use RealRashid\SweetAlert\Facades\Alert;
+
 class DesaController extends Controller
 {
 
@@ -24,18 +26,14 @@ class DesaController extends Controller
                     $atasan = $item2['nama'];
                 }
             }
-            $image = "upload/profil/".$item1['file'];
+            $image = "../upload/profil/".$item1['file'];
             $header = array('v' =>  $item1['nama'], 
                             'f' =>
-                            '<figure class="fir-image-figure">
-                            <a class="fir-imageover" rel="noopener">
+                            '<a class="fir-imageover" rel="noopener">
                                 <img class="fir-author-image fir-clickcircle" src="'.$image.'">
                             </a>
-                            <figcaption>
-                                <div class="fig-author-figure-title"><strong>'.$item1['nama'].'</strong></div>
-                                <div class="fig-author-figure-desc"><em>'.$item1['jabatan'].'</em></div>
-                            </figcaption>
-                            </figure>'
+                                <div style="color:white"><strong>'.$item1['nama'].'</strong></div>
+                                <div style="color:white"><em>'.$item1['jabatan'].'</em></div>'
                         );
             array_push($jabatan, $item1['jabatan']);
             array_push($grafik, [$header, $atasan, $item1['link']]);
@@ -59,10 +57,10 @@ class DesaController extends Controller
             'jabatan' => $request->jabatan,
             'atasan' => $request->atasan,
             'link' => $request->link,
-            'file' => $request->file
+            'file' => $filename
         ]);
-
-        return redirect()->back()->with('status', 'Slide Berhasil ditambah');
+        Alert::success('Selamat', 'Data berhasil ditambahkan');
+        return redirect()->back();
     }
     public function updateStruktur(Request $request, Struktur_Desa $profil)
     {
@@ -85,7 +83,8 @@ class DesaController extends Controller
             'atasan' => $request->atasan,
             'link' => $request->link,
         ]);
-        return redirect()->back()->with('status', 'Slide Berhasil diupdate');
+        Alert::success('Selamat', 'Data berhasil diperbarui');
+        return redirect()->back();
     }
     public function deleteStruktur(Struktur_Desa $profil)
     {
@@ -95,9 +94,11 @@ class DesaController extends Controller
                 File::delete($destination);
             }
             $profil->delete();
-            return redirect()->back()->with('status', 'Slide Berhasil dihapus');
+            Alert::success('Selamat', 'Data berhasil dihapus');
+            return redirect()->back();
         }
-        return redirect()->back()->with('status', 'Maaf, data gagal dihapus');
+        Alert::error('Maaf', 'Data gagal dihapus, silahkan coba lagi');
+        return redirect()->back();
     }
 
     // Function Proker Desa
@@ -116,15 +117,18 @@ class DesaController extends Controller
         Kategori_Desa::create([
             'kategori' => $request->kategori,
         ]);
-        return redirect()->back()->with('status', 'Slide Berhasil ditambah');
+        Alert::success('Selamat', 'Data berhasil ditambahkan');
+        return redirect()->back();
     }
     public function deleteKategori(Kategori_Desa $kategori)
     {
         if ($kategori->count() > 0) {
             $kategori->delete();
-            return redirect()->back()->with('status', 'Slide Berhasil dihapus');
+            Alert::success('Selamat', 'Kategori berhasil dihapus');
+            return redirect()->back();
         }
-        return redirect()->back()->with('status', 'Maaf, data gagal dihapus');
+        Alert::error('Maaf', 'Kategori gagal dihapus, silahkan coba lagi');
+        return redirect()->back();
     }
     public function addProker(Request $request)
     {
@@ -134,7 +138,6 @@ class DesaController extends Controller
             'kategori' => 'required|min:5',
             'pelaksanaan' => 'required|min:5',
             'sasaran' => 'required|min:5',
-            'sumber_dana' => 'required|min:5',
         ]);
 
         if ($request->hasFile('file')) {
@@ -154,12 +157,13 @@ class DesaController extends Controller
             'file' => $filename
 
         ]);
-
-        return redirect()->back()->with('status', 'Slide Berhasil ditambah');
+        Alert::success('Selamat', 'Data berhasil ditambahkan');
+        return redirect()->back();
     }
     public function deleteProker(Proker_Desa $proker)
     {
         $proker->delete();
-        return redirect()->back()->with('status', 'Slide Berhasil dihapus');
+        Alert::success('Selamat', 'Proker berhasil dihapus');
+        return redirect()->back();
     }
 }

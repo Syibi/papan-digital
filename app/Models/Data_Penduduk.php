@@ -11,6 +11,7 @@ class Data_Penduduk extends Model
     protected $table = "data_penduduk";
     protected $fillable =[
         'jml_kk',
+        'miskin',
         'laki-laki',
         'perempuan',
         'muda',

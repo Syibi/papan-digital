@@ -37,7 +37,6 @@
                                     <th>Nama</th>
                                     <th>Jabatan</th>
                                     <th>Penanggung Jawab</th>
-                                    <th>Link</th>
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
@@ -48,7 +47,6 @@
                                         <td>{{ $item->nama }}</td>
                                         <td>{{ $item->jabatan }}</td>
                                         <td>{{ $item->atasan }}</td>
-                                        <td>{{ $item->link }}</td>
                                         <td>
                                             <div class="demo-inline-spacing">
                                                 <button type="button" data-bs-toggle="modal"
@@ -56,7 +54,7 @@
                                                     class="btn btn-icon btn-warning">
                                                     <span class="bx bx-edit-alt"></span>
                                                 </button>
-                                                <a href="{{ url('/struktur-desa/' . $item->id . '/delete') }}"
+                                                <a href="{{ url('admin/struktur-desa/' . $item->id . '/delete') }}"
                                                     type="button" class="btn btn-icon btn-danger">
                                                     <span class="bx bx-trash"></span>
                                                 </a>
@@ -70,7 +68,7 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="navs-justified-tambah" role="tabpanel">
-                <form action="{{ url('/struktur-desa/add') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ url('admin/struktur-desa/add') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row mt-1">
                         <div class="col">
@@ -126,7 +124,7 @@
         <div class="modal fade" id="edit-profil{{ $item->id }}" tabindex="-1" style="display: none;"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
-                <form action="{{ url('struktur-desa/' . $item->id . '/update') }}" method="post"
+                <form action="{{ url('admin/struktur-desa/' . $item->id . '/update') }}" method="post"
                     enctype="multipart/form-data" id="editModal_{{ $item->id }}">
                     @csrf
                     @method('PUT');

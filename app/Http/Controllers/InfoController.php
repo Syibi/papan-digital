@@ -9,6 +9,7 @@ use App\Models\Data_Penduduk;
 use Illuminate\Http\Request;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Symfony\Component\HttpKernel\Profiler\Profile;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class InfoController extends Controller
 {
@@ -46,6 +47,7 @@ class InfoController extends Controller
             'kabupaten' => $request-> kabupaten,
             'provinsi' => $request-> provinsi,
         ]);
+        Alert::success('Selamat', 'Profil berhasil diperbarui');
         return redirect()->back();
     }
     
@@ -115,6 +117,7 @@ class InfoController extends Controller
     {
         Data_Penduduk::create([
             'jml_kk' => $request->jml_kk,
+            'miskin' => $request->miskin,
             'laki-laki' => $request->laki_laki,
             'perempuan' => $request->perempuan,
             'muda' => $request->muda,
@@ -141,6 +144,7 @@ class InfoController extends Controller
             'orbitrasi_kabupaten' => $request->orbitrasi_kabupaten,
             'orbitrasi_provinsi' => $request->orbitrasi_provinsi,
         ]);
+        Alert::success('Selamat', 'Data Umum berhasil diupdate');
         return redirect()->back();
     }
     public function updatePendidikan(Request $request, Data_Pendidikan $pendidikan)
@@ -160,6 +164,7 @@ class InfoController extends Controller
             'kursus' => $request->kursus,
             'tidak_sekolah' => $request->tidak_sekolah
         ]);
+        Alert::success('Selamat', 'Data Pedidikan berhasil diupdate');
         return redirect()->back();
     }
     public function updatePenduduk(Request $request, Data_Penduduk $penduduk)
@@ -167,12 +172,14 @@ class InfoController extends Controller
         $penduduk = Data_Penduduk::find(1);
         $penduduk->update([
             'jml_kk' => $request->jml_kk,
+            'miskin' => $request->miskin,
             'laki-laki' => $request->laki_laki,
             'perempuan' => $request->perempuan,
             'muda' => $request->muda,
             'dewasa' => $request->dewasa,
             'tua' => $request->tua,
         ]);
+        Alert::success('Selamat', 'Data Penduduk berhasil diupdate');
         return redirect()->back();
     }
 

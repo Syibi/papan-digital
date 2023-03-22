@@ -212,7 +212,7 @@
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
                     <li class="menu-item {{ $title === 'Beranda' ? 'active' : '' }}">
-                        <a href="/" class="menu-link">
+                        <a href="/admin/beranda" class="menu-link">
                             <i class='menu-icon tf-icons bx bxs-dashboard'></i>
                             <div data-i18n="Analytics">Beranda</div>
                         </a>
@@ -226,19 +226,19 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item {{ $title === 'Profil Desa' ? 'active' : '' }}">
-                                <a href="/profil" class="menu-link">
+                                <a href="/admin/profil" class="menu-link">
                                     <div data-i18n="Account">Profil Desa</div>
                                 </a>
                             </li>
                             <li class="menu-item {{ $title === 'Data Umum' ? 'active' : '' }}">
-                                <a href="/umum" class="menu-link">
+                                <a href="/admin/umum" class="menu-link">
                                     <div data-i18n="Notifications">Data Umum</div>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li class="menu-item {{ $title === 'Galeri Desa' ? 'active' : '' }}">
-                        <a href="/galeri-desa" class="menu-link">
+                        <a href="/admin/galeri-desa" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-image"></i>
                             <div data-i18n="Galery">Galeri Desa</div>
                         </a>
@@ -247,13 +247,13 @@
                         <span class="menu-header-text">Perangkat Desa</span>
                     </li>
                     <li class="menu-item {{ $title === 'Struktur Desa' ? 'active' : '' }}">
-                        <a href="/struktur-desa" class="menu-link">
+                        <a href="/admin/struktur-desa" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-network-chart"></i>
                             <div data-i18n="Account Settings">Struktur Organisasi</div>
                         </a>
                     </li>
                     <li class="menu-item {{ $title === 'Proker Desa' ? 'active' : '' }}">
-                        <a href="/proker-desa" class="menu-link">
+                        <a href="/admin/proker-desa" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-collection"></i>
                             <div data-i18n="Authentications">Program Kerja</div>
                         </a>
@@ -263,26 +263,25 @@
                     </li>
                     <!-- Cards -->
                     <li class="menu-item {{ $title === 'Struktur PKK' ? 'active' : '' }}">
-                        <a href="/struktur-pkk" class="menu-link">
+                        <a href="/admin/struktur-pkk" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-network-chart"></i>
                             <div data-i18n="Basic">Struktur Organisasi</div>
                         </a>
                     </li>
                     <!-- User interface -->
                     <li class="menu-item {{ $title === 'Proker PKK' ? 'active' : '' }}">
-                        <a href="/proker-pkk" class="menu-link">
+                        <a href="/admin/proker-pkk" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-collection"></i>
                             <div data-i18n="User interface">Program Kerja</div>
                         </a>
                     </li>
                 </ul>
                 <div class="col-sm-3" style="margin-left: 2vw; margin-bottom:4vh">
-                    <audio id="myAudio" src="http://www.sousound.com/music/healing/healing_01.mp3" preload="auto"
-                        loop>
+                    <audio id="myAudio" src="http://papan_digital.test/../assets/music/music1.mp3" autoplay loop>
                     </audio>
                     <button id="menu-sound" type="button" class="btn btn-primary" data-bs-toggle="button"
                         autocomplete="off" aria-pressed="false" onClick="togglePlay()">
-                        <i class='bx bx-volume-mute'></i>
+                        <i class='bx bxs-volume-full'></i>
                     </button>
                 </div>
             </aside>
@@ -326,7 +325,7 @@
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar">
-                                                        <img src="../assets/img/avatars/1.png" alt
+                                                        <img src="../assets/img/avatars/admin.png" alt
                                                             class="w-px-40 h-auto rounded-circle" />
                                                     </div>
                                                 </div>
@@ -404,6 +403,7 @@
     <script type="text/javascript">
         $(window).on('load', function() {
             $('#loading').hide();
+            myAudio.play();
         });
 
         // Time Script

@@ -7,13 +7,13 @@
                 <li class="nav-item">
                     <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
                         data-bs-target="#navs-top-galeri" aria-controls="navs-top-galeri" aria-selected="true">
-                        Galeri
+                        <strong>Galeri</strong>
                     </button>
                 </li>
                 <li class="nav-item">
                     <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
                         data-bs-target="#navs-top-tambah" aria-controls="navs-top-tambah" aria-selected="false">
-                        Tambah Dokumentasi
+                        <strong>Tambah Dokumentasi</strong>
                     </button>
                 </li>
             </ul>
@@ -23,7 +23,7 @@
                         @foreach ($galeri as $key => $item)
                             <div class="col-lg-3 col-md-4 col-6 mb-3">
                                 <span style="position: relative">
-                                    <a href="{{ url('galeri-desa/' . $item->id . '/delete') }}" id="delete-btn"
+                                    <a href="{{ url('admin/galeri-desa/' . $item->id . '/delete') }}" id="delete-btn"
                                         type="button" class="btn btn-icon btn-danger hidden"
                                         style="
                                     display: inline-block;
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="navs-top-tambah" role="tabpanel">
-                    <form action="{{ url('/galeri-desa/add') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ url('admin/galeri-desa/add') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row mt-3">
                             <div class="col">
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="form-group mt-3 pt-4">
                                     <div class="modal-footer">
-                                        <button type="cancel" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                        <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                             Batal
                                         </button>
                                         <button type="submit" class="btn btn-primary">Tambah Slide</button>

@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('user.layout')
 
 @section('container')
     <div class="container-xxl flex-grow-1 my-3">
@@ -31,7 +31,6 @@
                                     <th>Nama</th>
                                     <th>Jabatan</th>
                                     <th>Penanggung Jawab</th>
-                                    <th>Link</th>
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
@@ -42,7 +41,6 @@
                                         <td>{{ $item->nama }}</td>
                                         <td>{{ $item->jabatan }}</td>
                                         <td>{{ $item->atasan }}</td>
-                                        <td>{{ $item->link }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

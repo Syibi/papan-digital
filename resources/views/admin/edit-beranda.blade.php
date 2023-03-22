@@ -58,7 +58,7 @@
                                                         class="btn btn-icon btn-warning">
                                                         <span class="bx bx-edit-alt"></span>
                                                     </button>
-                                                    <a href="{{ url('edit-beranda/' . $item->id . '/delete') }}"
+                                                    <a href="{{ url('admin/edit-beranda/' . $item->id . '/delete') }}"
                                                         type="button" class="btn btn-icon btn-danger">
                                                         <span class="bx bx-trash"></span>
                                                     </a>
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="navs-top-profile" role="tabpanel">
-                    <form action="{{ url('/edit-beranda/add') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ url('admin/edit-beranda/add') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row mt-0">
                             <div class="col">
@@ -87,6 +87,9 @@
                                 <div class="form-group mt-3">
                                     <label for="deskripsi" class="form-label">Deskripsi</label>
                                     <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3"></textarea>
+                                    <div id="defaultFormControlHelp" class="form-text">
+                                        Masukkan Deskripsi Slide, jika tidak ada isi "-".
+                                    </div>
                                 </div>
                             </div>
                             <div class="col">
@@ -136,7 +139,7 @@
         <div class="modal fade" id="edit-slide{{ $item->id }}" tabindex="-1" style="display: none;"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
-                <form action="{{ url('edit-beranda/' . $item->id . '/update') }}" method="post"
+                <form action="{{ url('admin/edit-beranda/' . $item->id . '/update') }}" method="post"
                     enctype="multipart/form-data" id="editModal_{{ $item->id }}">
                     @csrf
                     @method('PUT');
@@ -212,7 +215,7 @@
             </div>
         </div>
         {{-- Button Edit Beranda --}}
-        <a href="/" type="button" class="btn btn-lg rounded-pill btn-icon btn-primary"
+        <a href="/admin/beranda" type="button" class="btn btn-lg rounded-pill btn-icon btn-primary"
             style="
               position: fixed;
               right: 5%;

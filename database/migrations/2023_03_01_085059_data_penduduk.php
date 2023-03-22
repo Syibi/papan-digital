@@ -12,6 +12,7 @@ class DataPenduduk extends Migration
         Schema::create('data_penduduk', function (Blueprint $table) {
             $table->id();
             $table->string("jml_kk");
+            $table->string("miskin");
             $table->string("laki-laki");
             $table->string("perempuan");
             $table->string("muda");

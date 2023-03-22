@@ -7,7 +7,7 @@
             <div class="divider">
                 <div class="divider-text">Profil Desa</div>
             </div>
-            <form action="{{ url('/profil/addprofil') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('admin/profil/updateprofil') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row mx-3 justify-content-evenly">
