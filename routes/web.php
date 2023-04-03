@@ -44,7 +44,6 @@ Route::get('/admin/edit-beranda/{slide}/delete', [SlideController:: class, 'dele
 Route::get('/admin/profil', [InfoController:: class, 'profil']);
 Route::put('/admin/profil/addprofil', [InfoController:: class, 'addProfil']);
 Route::put('/admin/profil/updateprofil', [InfoController:: class, 'updateProfil']);
-
 Route::get('/admin/umum', [InfoController:: class, 'umum']);
 Route::put('/admin/umum/addumum', [InfoController:: class, 'addUmum']);
 Route::put('/admin/umum/updateumum', [InfoController:: class, 'updateUmum']);
@@ -52,6 +51,10 @@ Route::put('/admin/umum/addpenduduk', [InfoController:: class, 'addPenduduk']);
 Route::put('/admin/umum/updatependuduk', [InfoController:: class, 'updatePenduduk']);
 Route::put('/admin/umum/addpendidikan', [InfoController:: class, 'addPendidikan']);
 Route::put('/admin/umum/updatependidikan', [InfoController:: class, 'updatePendidikan']);
+Route::put('/admin/umum/addpekerjaan', [InfoController:: class, 'addPekerjaan']);
+Route::put('/admin/umum/updatepekerjaan', [InfoController:: class, 'updatePekerjaan']);
+Route::put('/admin/umum/addsarpras', [InfoController:: class, 'addSarpras']);
+Route::put('/admin/umum/updatesarpras', [InfoController:: class, 'updateSarpras']);
 
 // Route Galeri Desa
 Route::get('/admin/galeri-desa', [GaleriController:: class, 'index']);

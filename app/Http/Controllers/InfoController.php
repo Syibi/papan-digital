@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Data_Pekerjaan;
 use App\Models\Profil_Desa;
 use App\Models\Data_Umum;
 use App\Models\Data_Pendidikan;
 use App\Models\Data_Penduduk;
+use App\Models\Data_Sarpras;
 use Illuminate\Http\Request;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Symfony\Component\HttpKernel\Profiler\Profile;
@@ -57,6 +59,8 @@ class InfoController extends Controller
         $umum = Data_Umum::where('id', '1')->first();
         $pendidikan = Data_Pendidikan::where('id', '1')->first();
         $penduduk = Data_Penduduk::where('id', '1')->first();
+        $pekerjaan = Data_Pekerjaan::where('id', '1')->first();
+        $sarpras = Data_Sarpras::where('id', '1')->first();
         $title = "Data Umum";
 
         // Fungsi chart 
@@ -74,7 +78,7 @@ class InfoController extends Controller
         ->setDataset([$md, $dw, $tu])
         ->setLabels(['Usia 0-15', 'Usia 15-65', 'Usia 65 Tahun keatas']);
 
-        return view('admin.umum', compact('umum', 'title' , 'pendidikan', 'penduduk', 'chart_jk', 'chart_usia'));
+        return view('admin.umum', compact('umum', 'title' , 'pendidikan', 'penduduk', 'chart_jk', 'chart_usia', 'pekerjaan', 'sarpras'));
     }
     
     // fungsi add
@@ -93,6 +97,7 @@ class InfoController extends Controller
             'orbitrasi_kabupaten' => $request->orbitrasi_kabupaten,
             'orbitrasi_provinsi' => $request->orbitrasi_provinsi,
         ]);
+        Alert::success('Selamat', 'Data Umum berhasil ditambahkan');
         return redirect()->back();
     }
     public function addPendidikan(Request $request)
@@ -111,6 +116,7 @@ class InfoController extends Controller
             'kursus' => $request->kursus,
             'tidak_sekolah' => $request->tidak_sekolah
         ]);
+        Alert::success('Selamat', 'Data Pendidikan berhasil ditambahkan');
         return redirect()->back();
     }
     public function addPenduduk(Request $request)
@@ -124,6 +130,57 @@ class InfoController extends Controller
             'dewasa' => $request->dewasa,
             'tua' => $request->tua,
         ]);
+        Alert::success('Selamat', 'Data Penduduk berhasil ditambahkan');
+        return redirect()->back();
+    }
+    public function addPekerjaan(Request $request)
+    {
+        Data_Pekerjaan::create([
+            'pns' => $request->pns,
+            'tni_polri' => $request->tni_polri,
+            'swasta' => $request->swasta,
+            'dagang' => $request->dagang,
+            'petani' => $request->petani,
+            'tukang' => $request->tukang,
+            'buruh' => $request->buruh,
+            'pensiunan' => $request->pensiunan,
+            'nelayan' => $request->nelayan,
+            'peternak' => $request->peternak,
+            'jasa' => $request->jasa,
+            'seni' => $request->seni,
+            'lainnya' => $request->lainnya,
+            'tidak_bekerja' => $request->tidak_bekerja,
+        ]);
+        Alert::success('Selamat', 'Data Pekerjaan berhasil ditambahkan');
+        return redirect()->back();
+    }
+    public function addSarpras(Request $request)
+    {
+        Data_Sarpras::create([
+            'kantor_desa' => $request->kantor_desa,
+            'puskesmas' => $request->puskesmas,
+            'poskesdes' => $request->poskesdes,
+            'posyandu' => $request -> posyandu,
+            'perpus' => $request -> perpus,
+            'gedung_paud' => $request -> gedung_paud,
+            'gedung_tk' => $request -> gedung_tk,
+            'gedung_sd' => $request -> gedung_sd,
+            'gedung_smp' => $request -> gedung_smp,
+            'gedung_sma' => $request -> gedung_sma,
+            'masjid' => $request -> masjid,
+            'musholla' => $request -> musholla,
+            'gereja' => $request -> gereja,
+            'pura' => $request -> pura,
+            'vihara' => $request -> vihara,
+            'kelenteng' => $request -> kelenteng,
+            'olahraga' => $request -> olahraga,
+            'kesenian' => $request -> kesenian,
+            'balai' => $request -> balai,
+            'sumur_desa' => $request -> sumur_desa,
+            'pasar_desa' => $request -> pasar_desa,
+            'lainnya' => $request -> lainnya
+        ]);
+        Alert::success('Selamat', 'Data Sarana Prasarana berhasil ditambahkan');
         return redirect()->back();
     }
 
@@ -180,6 +237,58 @@ class InfoController extends Controller
             'tua' => $request->tua,
         ]);
         Alert::success('Selamat', 'Data Penduduk berhasil diupdate');
+        return redirect()->back();
+    }
+    public function updatePekerjaan(Request $request, Data_Pekerjaan $pekerjaan)
+    {
+        $pekerjaan = Data_Pekerjaan::find(1);
+        $pekerjaan->update([
+            'pns' => $request->pns,
+            'tni_polri' => $request->tni_polri,
+            'swasta' => $request->swasta,
+            'dagang' => $request->dagang,
+            'petani' => $request->petani,
+            'tukang' => $request->tukang,
+            'buruh' => $request->buruh,
+            'pensiunan' => $request->pensiunan,
+            'nelayan' => $request->nelayan,
+            'peternak' => $request->peternak,
+            'jasa' => $request->jasa,
+            'seni' => $request->seni,
+            'lainnya' => $request->lainnya,
+            'tidak_bekerja' => $request->tidak_bekerja,
+        ]);
+        Alert::success('Selamat', 'Data Pekerjaan berhasil diupdate');
+        return redirect()->back();
+    }
+    public function updateSarpras(Request $request, Data_Sarpras $sarpras)
+    {
+        $sarpras = Data_Sarpras::find(1);
+        $sarpras->update([
+            'kantor_desa' => $request->kantor_desa,
+            'puskesmas' => $request->puskesmas,
+            'poskesdes' => $request->poskesdes,
+            'posyandu' => $request -> posyandu,
+            'perpus' => $request -> perpus,
+            'gedung_paud' => $request -> gedung_paud,
+            'gedung_tk' => $request -> gedung_tk,
+            'gedung_sd' => $request -> gedung_sd,
+            'gedung_smp' => $request -> gedung_smp,
+            'gedung_sma' => $request -> gedung_sma,
+            'masjid' => $request -> masjid,
+            'musholla' => $request -> musholla,
+            'gereja' => $request -> gereja,
+            'pura' => $request -> pura,
+            'vihara' => $request -> vihara,
+            'kelenteng' => $request -> kelenteng,
+            'olahraga' => $request -> olahraga,
+            'kesenian' => $request -> kesenian,
+            'balai' => $request -> balai,
+            'sumur_desa' => $request -> sumur_desa,
+            'pasar_desa' => $request -> pasar_desa,
+            'lainnya' => $request -> lainnya
+        ]);
+        Alert::success('Selamat', 'Data Sarana Prasarana berhasil diupdate');
         return redirect()->back();
     }
 

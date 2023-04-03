@@ -8,13 +8,13 @@
                     <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
                         data-bs-target="#navs-justified-struktur" aria-controls="navs-justified-struktur"
                         aria-selected="true">
-                        <strong>Struktur Organisasi Desa</strong>
+                        <strong>Struktur Organisasi PKK</strong>
                     </button>
                 </li>
                 <li class="nav-item">
                     <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
                         data-bs-target="#navs-justified-data" aria-controls="navs-justified-data" aria-selected="false">
-                        <strong>Data Aparat Desa</strong>
+                        <strong>Data Aparat PKK</strong>
                     </button>
                 </li>
                 <li class="nav-item">
@@ -201,10 +201,6 @@
                 'allowHtml': true,
                 'allowCollapse': true
             });
-        }
-
-        function test() {
-            console.log("hanya test");
         }
     </script>
 @endsection

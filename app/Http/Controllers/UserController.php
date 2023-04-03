@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Data_Pekerjaan;
 use App\Models\Slide;
 use App\Models\Data_Penduduk;
 use App\Models\Profil_Desa;
 use App\Models\Data_Umum;
 use App\Models\Data_Pendidikan;
+use App\Models\Data_Sarpras;
 use App\Models\Galeri_Desa;
 use App\Models\Struktur_Desa;
 use App\Models\Proker_Desa;
@@ -80,6 +82,8 @@ class UserController extends Controller
         $umum = Data_Umum::where('id', '1')->first();
         $pendidikan = Data_Pendidikan::where('id', '1')->first();
         $penduduk = Data_Penduduk::where('id', '1')->first();
+        $pekerjaan = Data_Pekerjaan::where('id', '1')->first();
+        $sarpras = Data_Sarpras::where('id', '1')->first();
         $title = "Data Umum";
 
         // Fungsi chart 
@@ -97,13 +101,13 @@ class UserController extends Controller
         ->setDataset([$md, $dw, $tu])
         ->setLabels(['Usia 0-15', 'Usia 15-65', 'Usia 65 Tahun keatas']);
 
-        return view('user.umum', compact('umum', 'title' , 'pendidikan', 'penduduk', 'chart_jk', 'chart_usia'));
+        return view('user.umum', compact('umum', 'title' , 'pendidikan', 'penduduk', 'chart_jk', 'chart_usia', 'pekerjaan', 'sarpras'));
     }
 
     public function galeri()
     {
         $allGaleri = Galeri_Desa::all();
-        $galeri = Galeri_Desa::paginate(8);
+        $galeri = Galeri_Desa::orderBy('created_at', 'desc')->paginate(8);
         $title = "Galeri Desa";
         return view('user.galeri', compact('title', 'galeri', 'allGaleri'));
     }
@@ -124,15 +128,11 @@ class UserController extends Controller
             $image = "upload/profil/".$item1['file'];
             $header = array('v' =>  $item1['nama'], 
                             'f' =>
-                            '<figure class="fir-image-figure">
-                            <a class="fir-imageover" rel="noopener">
+                            '<a class="fir-imageover" rel="noopener">
                                 <img class="fir-author-image fir-clickcircle" src="'.$image.'">
                             </a>
-                            <figcaption>
-                                <div class="fig-author-figure-title"><strong>'.$item1['nama'].'</strong></div>
-                                <div class="fig-author-figure-desc"><em>'.$item1['jabatan'].'</em></div>
-                            </figcaption>
-                            </figure>'
+                                <div style="color:white"><strong>'.$item1['nama'].'</strong></div>
+                                <div style="color:white"><em>'.$item1['jabatan'].'</em></div>'
                         );
             array_push($jabatan, $item1['jabatan']);
             array_push($grafik, [$header, $atasan, $item1['link']]);

@@ -200,9 +200,5 @@
                 'allowCollapse': true
             });
         }
-
-        function test() {
-            console.log("hanya test");
-        }
     </script>
 @endsection
