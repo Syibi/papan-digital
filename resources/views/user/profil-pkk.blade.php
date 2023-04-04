@@ -6,19 +6,28 @@
             <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
                     <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
+                        data-bs-target="#navs-justified-profil" aria-controls="navs-justified-profil" aria-selected="true">
+                        <strong>Profil PKK</strong>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
                         data-bs-target="#navs-justified-struktur" aria-controls="navs-justified-struktur"
-                        aria-selected="true">
+                        aria-selected="false">
                         <strong>Struktur Organisasi PKK</strong>
                     </button>
                 </li>
                 <li class="nav-item">
                     <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
                         data-bs-target="#navs-justified-data" aria-controls="navs-justified-data" aria-selected="false">
-                        <strong>Data Aparat PKK</strong>
+                        <strong>Data Anggota PKK</strong>
                     </button>
                 </li>
             </ul>
             <div class="tab-content">
+                <div class="tab-pane fade active show" id="navs-justified-profil" role="tabpanel">
+                    <x-profilPkk :profil=$profil />
+                </div>
                 <div class="tab-pane fade active show" id="navs-justified-struktur" role="tabpanel">
                     <div id="chart_div"></div>
                 </div>

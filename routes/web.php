@@ -26,7 +26,7 @@ Route::get('/umum', [UserController:: class, 'umum']);
 Route::get('/galeri-desa', [UserController:: class, 'galeri']);
 Route::get('/struktur-desa', [UserController:: class, 'strukturDesa']);
 Route::get('/proker-desa', [UserController:: class, 'prokerDesa']);
-Route::get('/struktur-pkk', [UserController:: class, 'strukturPkk']);
+Route::get('/profil-pkk', [UserController:: class, 'profilPkk']);
 Route::get('/proker-pkk', [UserController:: class, 'prokerPkk']);
 
 // ==========================
@@ -74,8 +74,12 @@ Route::get('/admin/proker-desa/{kategori}/delete', [DesaController:: class, 'del
 Route::post('/admin/proker-desa/add-proker', [DesaController:: class, 'addProker']);
 Route::get('/admin/proker-desa/{proker}/delete-proker', [DesaController:: class, 'deleteProker']);
 
+// Route Profil PKK
+Route::get('/admin/profil-pkk', [PkkController:: class, 'profil']);
+Route::post('/admin/profil-pkk/add', [PkkController:: class, 'addProfil']);
+Route::put('/admin/profil-pkk/update', [PkkController:: class, 'updateProfil']);
+
 // Route Struktur Organisasi PKK
-Route::get('/admin/struktur-pkk', [PkkController:: class, 'struktur']);
 Route::post('/admin/struktur-pkk/add', [PkkController:: class, 'addStruktur']);
 Route::put('/admin/struktur-pkk/{profil}/update', [PkkController:: class, 'updateStruktur']);
 Route::get('/admin/struktur-pkk/{profil}/delete', [PkkController:: class, 'deleteStruktur']);

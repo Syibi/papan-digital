@@ -262,10 +262,10 @@
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Perangkat PKK</span>
                     </li>
                     <!-- Cards -->
-                    <li class="menu-item {{ $title === 'Struktur PKK' ? 'active' : '' }}">
-                        <a href="/struktur-pkk" class="menu-link">
+                    <li class="menu-item {{ $title === 'Profil PKK' ? 'active' : '' }}">
+                        <a href="/profil-pkk" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-network-chart"></i>
-                            <div data-i18n="Basic">Struktur Organisasi</div>
+                            <div data-i18n="Basic">Profil PKK</div>
                         </a>
                     </li>
                     <!-- User interface -->

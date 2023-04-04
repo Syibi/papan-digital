@@ -6,14 +6,16 @@ use Illuminate\Http\Request;
 use App\Models\Struktur_Pkk;
 use App\Models\Proker_Pkk;
 use App\Models\Kategori_Pkk;
+use App\Models\Data_Pkk;
 use Illuminate\Support\Facades\File;
-
+use RealRashid\SweetAlert\Facades\Alert;
 class PkkController extends Controller
 {
     // Function Struktur Desa
-    public function struktur()
+    public function profil()
     {
         $data = Struktur_Pkk::all();
+        $profil = Data_Pkk::where('id', '1')->first();
         $jabatan = [];
         $sorted = [];
         $grafik = array();
@@ -43,9 +45,45 @@ class PkkController extends Controller
             $sorted = array_values($sorted);
 
         }
-        $title = "Struktur PKK";
-        return view('admin.struktur-pkk', compact('title', 'data', 'sorted' , 'grafik'));
+        $title = "Profil PKK";
+        return view('admin.profil-pkk', compact('title', 'data', 'sorted' , 'grafik' , 'profil'));
     }
+
+    public function addProfil(Request $request)
+    {
+
+        Data_Pkk::create([
+            'pkk_dusun' => $request->pkk_dusun,
+            'pkk_rw' => $request->pkk_rw,
+            'pkk_rt' => $request->pkk_rt,
+            'dasa_wisma' => $request->dasa_wisma,
+            'jml_kk' => $request->jml_kk,
+            'jml_jiwa' => $request->jml_jiwa,
+            'tp_pkk' => $request->tp_pkk,
+            'umum' => $request->umum,
+            'khusus' => $request->khusus,
+        ]);
+
+        Alert::success('Selamat', 'Data berhasil ditambah');
+        return redirect()->back();
+    }
+    public function updateProfil(Request $request, Data_Pkk $profil)
+    {
+        $profil->update([
+            'pkk_dusun' => $request->pkk_dusun,
+            'pkk_rw' => $request->pkk_rw,
+            'pkk_rt' => $request->pkk_rt,
+            'dasa_wisma' => $request->dasa_wisma,
+            'jml_kk' => $request->jml_kk,
+            'jml_jiwa' => $request->jml_jiwa,
+            'tp_pkk' => $request->tp_pkk,
+            'umum' => $request->umum,
+            'khusus' => $request->khusus,
+        ]);
+        Alert::success('Selamat', 'Data Berhasil diupdate');
+        return redirect()->back();
+    }
+
     public function addStruktur(Request $request)
     {
         if ($request->hasFile('file')) {
@@ -62,7 +100,8 @@ class PkkController extends Controller
             'file' => $request->file
         ]);
 
-        return redirect()->back()->with('status', 'Slide Berhasil ditambah');
+        Alert::success('Selamat', 'Data berhasil ditambah');
+        return redirect()->back();
     }
     public function updateStruktur(Request $request, Struktur_Pkk $profil)
     {
@@ -85,7 +124,8 @@ class PkkController extends Controller
             'atasan' => $request->atasan,
             'link' => $request->link,
         ]);
-        return redirect()->back()->with('status', 'Slide Berhasil diupdate');
+        Alert::success('Selamat', 'Data Berhasil diupdate');
+        return redirect()->back();
     }
     public function deleteStruktur(Struktur_Pkk $profil)
     {
@@ -95,9 +135,11 @@ class PkkController extends Controller
                 File::delete($destination);
             }
             $profil->delete();
-            return redirect()->back()->with('status', 'Slide Berhasil dihapus');
+            Alert::success('Selamat', 'Data berhasil dihapus');
+            return redirect()->back();
         }
-        return redirect()->back()->with('status', 'Maaf, data gagal dihapus');
+        Alert::error('Maaf', 'Data gagal dihapus, silahkan coba lagi');
+        return redirect()->back();
     }
 
     // Function Proker Desa
@@ -116,15 +158,18 @@ class PkkController extends Controller
         Kategori_Pkk::create([
             'kategori' => $request->kategori,
         ]);
-        return redirect()->back()->with('status', 'Slide Berhasil ditambah');
+        Alert::success('Selamat', 'Data berhasil ditambah');
+        return redirect()->back();
     }
     public function deleteKategori(Kategori_Pkk $kategori)
     {
         if ($kategori->count() > 0) {
             $kategori->delete();
-            return redirect()->back()->with('status', 'Slide Berhasil dihapus');
+            Alert::success('Selamat', 'Data berhasil dihapus');
+            return redirect()->back();
         }
-        return redirect()->back()->with('status', 'Maaf, data gagal dihapus');
+        Alert::error('Maaf', 'Data gagal dihapus, silahkan coba lagi');
+        return redirect()->back();
     }
     public function addProker(Request $request)
     {
@@ -154,12 +199,13 @@ class PkkController extends Controller
             'file' => $filename
 
         ]);
-
-        return redirect()->back()->with('status', 'Slide Berhasil ditambah');
+        Alert::success('Selamat', 'Data berhasil ditambah');
+        return redirect()->back();
     }
     public function deleteProker(Proker_Pkk $proker)
     {
         $proker->delete();
-        return redirect()->back()->with('status', 'Slide Berhasil dihapus');
+        Alert::success('Selamat', 'Data berhasil dihapus');
+        return redirect()->back();
     }
 }

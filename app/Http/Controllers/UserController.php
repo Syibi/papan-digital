@@ -16,6 +16,7 @@ use App\Models\Kategori_Desa;
 use App\Models\Struktur_Pkk;
 use App\Models\Proker_Pkk;
 use App\Models\Kategori_Pkk;
+use App\Models\Data_Pkk;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -152,8 +153,9 @@ class UserController extends Controller
         return view('user.proker-desa', compact('title', 'kategori', 'proker'));
     }
 
-    public function strukturPkk()
+    public function profilPkk()
     {
+        $profil = Data_pkk::where('id', '1')->first();
         $data = Struktur_Pkk::all();
         $jabatan = [];
         $sorted = [];
@@ -184,8 +186,8 @@ class UserController extends Controller
             $sorted = array_values($sorted);
 
         }
-        $title = "Struktur PKK";
-        return view('user.struktur-pkk', compact('title', 'data', 'sorted' , 'grafik'));
+        $title = "Profil PKK";
+        return view('user.profil-pkk', compact('title', 'data', 'sorted' , 'grafik' , 'profil'));
     }
 
     public function prokerPkk()

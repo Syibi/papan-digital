@@ -6,26 +6,48 @@
             <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
                     <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
+                        data-bs-target="#navs-justified-profil" aria-controls="navs-justified-profil" aria-selected="true">
+                        <strong>Profil PKK</strong>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
                         data-bs-target="#navs-justified-struktur" aria-controls="navs-justified-struktur"
-                        aria-selected="true">
+                        aria-selected="false">
                         <strong>Struktur Organisasi PKK</strong>
                     </button>
                 </li>
                 <li class="nav-item">
                     <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
                         data-bs-target="#navs-justified-data" aria-controls="navs-justified-data" aria-selected="false">
-                        <strong>Data Aparat PKK</strong>
+                        <strong>Data Anggota PKK</strong>
                     </button>
                 </li>
                 <li class="nav-item">
                     <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
                         data-bs-target="#navs-justified-tambah" aria-controls="navs-justified-tambah" aria-selected="false">
-                        <strong>Tambah Aparat Desa</strong>
+                        <strong>Tambah Anggota PKK</strong>
                     </button>
                 </li>
             </ul>
             <div class="tab-content">
-                <div class="tab-pane fade active show" id="navs-justified-struktur" role="tabpanel">
+                <div class="tab-pane fade active show" id="navs-justified-profil" role="tabpanel">
+                    <form action="{{ url('/admin/profil-pkk/add') }}" method="post" enctype="multipart/form-data"
+                        name="form_pkk">
+                        @csrf
+                        {{-- @method('PUT') --}}
+                        <x-profilPkk :profil=$profil />
+                        <div class="mt-4 mx-4 float-end">
+                            <button type="button" form="form_pkk" class="btn btn-primary me-2" value="edit"
+                                id="edit-pkk" onclick="active('[id=data_pkk]')">Edit</button>
+                            <button type="button" class="btn btn-outline-secondary" value="cancel"
+                                onclick="nonactive('[id=data_pkk]')" id="cancel-pkk">Cancel</button>
+                            <button type="submit" class="btn btn-primary me-2" value="save"
+                                onclick="nonactive('[id=data_pkk]')" id="save-pkk">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="navs-justified-struktur" role="tabpanel">
                     <div id="chart_div"></div>
                 </div>
                 <div class="tab-pane fade" id="navs-justified-data" role="tabpanel">
@@ -181,7 +203,42 @@
             </div>
         </div>
     @endforeach
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
+        function active(idInput) {
+            var a = document.querySelectorAll(idInput);
+            a.forEach(element => {
+                element.removeAttribute("readonly");
+            });
+        }
+
+        function nonactive(idInput) {
+            var a = document.querySelectorAll(idInput);
+            a.forEach(element => {
+                element.setAttribute("readonly", true)
+            });
+        }
+        $("#cancel-pkk, #save-pkk")
+            .hide();
+
+        //  Button Pkk
+        $('#edit-pkk').click(function() {
+            $(this).hide();
+            $('#save-pkk, #cancel-pkk').show();
+        });
+
+        $('#cancel-pkk').click(function() {
+            $('#edit-pkk').show();
+            $('#save-pkk, #cancel-pkk').hide();
+        });
+
+        $('#save-pkk').click(function() {
+            $(this).hide();
+            $('#cancel-pkk').hide();
+            $('#edit-pkk').show();
+        });
+
+        // Function organizational chart Google API
         google.charts.load('current', {
             packages: ["orgchart"]
         });
