@@ -126,7 +126,7 @@ class UserController extends Controller
                     $atasan = $item2['nama'];
                 }
             }
-            $image = "upload/profil/".$item1['file'];
+            $image = "../upload/profil/".$item1['file'];
             $header = array('v' =>  $item1['nama'], 
                             'f' =>
                             '<a class="fir-imageover" rel="noopener">
@@ -149,8 +149,9 @@ class UserController extends Controller
     {
         $kategori = Kategori_Desa::all();
         $proker = Proker_Desa::all();
+        $tipe = "proker-desa";
         $title = "Proker Desa";
-        return view('user.proker-desa', compact('title', 'kategori', 'proker'));
+        return view('user.proker-desa', compact('title', 'kategori', 'proker' , 'tipe'));
     }
 
     public function profilPkk()
@@ -167,18 +168,14 @@ class UserController extends Controller
                     $atasan = $item2['nama'];
                 }
             }
-            $image = "upload/profil/".$item1['file'];
+            $image = "../upload/profil/".$item1['file'];
             $header = array('v' =>  $item1['nama'], 
                             'f' =>
-                            '<figure class="fir-image-figure">
-                            <a class="fir-imageover" rel="noopener">
+                            '<a class="fir-imageover" rel="noopener">
                                 <img class="fir-author-image fir-clickcircle" src="'.$image.'">
                             </a>
-                            <figcaption>
-                                <div class="fig-author-figure-title"><strong>'.$item1['nama'].'</strong></div>
-                                <div class="fig-author-figure-desc"><em>'.$item1['jabatan'].'</em></div>
-                            </figcaption>
-                            </figure>'
+                                <div style="color:white"><strong>'.$item1['nama'].'</strong></div>
+                                <div style="color:white"><em>'.$item1['jabatan'].'</em></div>'
                         );
             array_push($jabatan, $item1['jabatan']);
             array_push($grafik, [$header, $atasan, $item1['link']]);
@@ -194,7 +191,8 @@ class UserController extends Controller
     {
         $kategori = Kategori_Pkk::all();
         $proker = Proker_Pkk::all();
+        $tipe = "proker-pkk";
         $title = "Proker PKK";
-        return view('user.proker-pkk', compact('title', 'kategori', 'proker'));
+        return view('user.proker-pkk', compact('title', 'kategori', 'proker' , 'tipe'));
     }
 }

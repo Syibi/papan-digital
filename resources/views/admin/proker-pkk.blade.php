@@ -21,13 +21,13 @@
                 </li>
             </ul>
             <div class="tab-content" id="tabContent">
-                <x-proker :kategori=$kategori :proker=$proker />
-
+                <x-proker :kategori=$kategori :proker=$proker :tipe=$tipe />
                 {{-- Tambah Kategori --}}
                 <div class="tab-pane fade" id="navs-tambah-kategori" role="tabpanel">
                     <h5>Tambah Kategori Proker</h5>
                     <div>
-                        <form action="{{ url('proker-pkk/add-kategori') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('admin/proker-pkk/add-kategori') }}" method="post"
+                            enctype="multipart/form-data">
                             @csrf
                             <label for="kategori" class="form-label">Nama Kategori</label>
                             <div class="row">
@@ -63,8 +63,9 @@
                                         <td>{{ $item->kategori }}</td>
                                         <td>
                                             <div class="demo-inline-spacing">
-                                                <a href="{{ url('proker-pkk/' . $item->id . '/delete') }}" type="button"
-                                                    class="btn btn-icon btn-danger" style="margin-top: 0 !important">
+                                                <a href="{{ url('admin/proker-pkk/' . $item->id . '/delete-proker') }}"
+                                                    type="button" class="btn btn-icon btn-danger"
+                                                    style="margin-top: 0 !important">
                                                     <span class="bx bx-trash"></span>
                                                 </a>
                                             </div>
@@ -93,7 +94,7 @@
         <div class="modal fade" id="modal" tabindex="-1" style="display: none;" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
-                    <form action="{{ url('proker-pkk/add-proker') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ url('admin/proker-pkk/add-proker') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalCenterTitle">Tambah Program Kerja</h5>

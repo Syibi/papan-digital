@@ -13,11 +13,13 @@ class Proker extends Component
      */
     public $kategori = "";
     public $proker = "";
+    public $tipe = "";
 
-    public function __construct($kategori, $proker)
+    public function __construct($kategori, $proker, $tipe)
     {
         $this->kategori = $kategori;
         $this->proker = $proker;
+        $this->tipe = $tipe;
     }
 
     /**

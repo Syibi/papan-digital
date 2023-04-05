@@ -15,7 +15,7 @@
                 @endforeach
             </ul>
             <div class="tab-content" id="tabContent">
-                <x-proker :kategori=$kategori :proker=$proker />
+                <x-proker :kategori=$kategori :proker=$proker :tipe=$tipe />
             </div>
         </div>
 

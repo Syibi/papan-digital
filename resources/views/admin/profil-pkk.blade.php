@@ -78,8 +78,8 @@
                                                     class="btn btn-icon btn-warning">
                                                     <span class="bx bx-edit-alt"></span>
                                                 </button>
-                                                <a href="{{ url('/struktur-pkk/' . $item->id . '/delete') }}" type="button"
-                                                    class="btn btn-icon btn-danger">
+                                                <a href="{{ url('admin/struktur-pkk/' . $item->id . '/delete') }}"
+                                                    type="button" class="btn btn-icon btn-danger">
                                                     <span class="bx bx-trash"></span>
                                                 </a>
                                             </div>
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="navs-justified-tambah" role="tabpanel">
-                <form action="{{ url('/struktur-pkk/add') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ url('admin/struktur-pkk/add') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row mt-1">
                         <div class="col">
@@ -132,7 +132,7 @@
                                     <button type="reset" class="btn btn-outline-secondary">
                                         Batal
                                     </button>
-                                    <button type="submit" class="btn btn-primary">Tambah Slide</button>
+                                    <button type="submit" class="btn btn-primary">Tambah Data</button>
                                 </div>
                             </div>
                         </div>
@@ -148,13 +148,13 @@
         <div class="modal fade" id="edit-profil{{ $item->id }}" tabindex="-1" style="display: none;"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
-                <form action="{{ url('struktur-pkk/' . $item->id . '/update') }}" method="post"
+                <form action="{{ url('admin/struktur-pkk/' . $item->id . '/update') }}" method="post"
                     enctype="multipart/form-data" id="editModal_{{ $item->id }}">
                     @csrf
                     @method('PUT');
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title" id="modalCenterTitle">Slide ke-{{ $no++ }}</h4>
+                            <h4 class="modal-title" id="modalCenterTitle">Profil ke-{{ $no++ }}</h4>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                         </div>

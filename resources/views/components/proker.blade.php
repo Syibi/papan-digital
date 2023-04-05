@@ -59,7 +59,7 @@
                                             <div class="modal-footer mt-3"
                                                 style="
                                                 padding: 0.25rem 0rem 0.25rem">
-                                                <a href="{{ url('admin/proker-desa/' . $itemProker->id . '/delete-proker') }}"
+                                                <a href="{{ url('admin/' . $tipe . '/' . $itemProker->id . '/delete-proker') }}"
                                                     type="button" class="btn btn-sm btn-outline-danger">
                                                     <span class="bx bx-trash"></span> Hapus Proker
                                                 </a>

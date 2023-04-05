@@ -20,7 +20,7 @@
                     <div class="carousel-inner" style="box-shadow: none; border-radius:0; ">
                         @foreach ($slide as $key => $item)
                             <div class="carousel-item {{ $key == 1 ? 'active' : '' }}" style="width: 100%;"
-                                data-bs-interval="20000">
+                                data-bs-interval="8000">
                                 @if ($item->tipe == 0)
                                     {{-- Slide Gambar --}}
                                     <img src="{{ asset('upload/slide/' . $item->file) }}" class="d-block w-100"
@@ -76,11 +76,11 @@
                 <div class="row px-2">
                     <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" style="padding-right:22px">
                         <div class="carousel-inner" style="height: 62vh; border:none; box-shadow:none; border-radius:0">
-                            <div class="carousel-item active" style="object-fit: contain">
+                            <div class="carousel-item active" style="object-fit: contain" data-bs-interval="60000">
                                 <img src="../assets/img/backgrounds/selamat datang.png" class="d-block w-100"
                                     alt="...">
                             </div>
-                            <div class="carousel-item" style="object-fit: contain">
+                            <div class="carousel-item" style="object-fit: contain" data-bs-interval="60000">
                                 <h3 style="color: #566a7f"><strong>Data Penduduk</strong></h3>
                                 <span>Berdasarkan Jenis Kelamin</span>
                                 <div class="row" style="padding-left:25px;padding-right:25px">

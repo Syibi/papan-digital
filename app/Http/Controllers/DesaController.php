@@ -107,7 +107,8 @@ class DesaController extends Controller
         $kategori = Kategori_Desa::all();
         $proker = Proker_Desa::all();
         $title = "Proker Desa";
-        return view('admin.proker-desa', compact('title', 'kategori', 'proker'));
+        $tipe = "proker-desa";
+        return view('admin.proker-desa', compact('title', 'kategori', 'proker', 'tipe'));
     }
     public function addKategori(Request $request)
     {

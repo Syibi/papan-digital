@@ -21,7 +21,7 @@
                 </li>
             </ul>
             <div class="tab-content" id="tabContent">
-                <x-proker :kategori=$kategori :proker=$proker />
+                <x-proker :kategori=$kategori :proker=$proker :tipe=$tipe />
 
                 <div class="tab-pane fade" id="navs-tambah-kategori" role="tabpanel">
                     <h5>Tambah Kategori Proker</h5>
