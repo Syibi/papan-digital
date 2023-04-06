@@ -17,6 +17,7 @@ use App\Models\Struktur_Pkk;
 use App\Models\Proker_Pkk;
 use App\Models\Kategori_Pkk;
 use App\Models\Data_Pkk;
+use App\Models\File_Musik;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -53,6 +54,7 @@ class UserController extends Controller
     {
         $slide = Slide::where('status', '1')->get();
         $title = "Beranda";
+        $musik = File_Musik::latest()->first();
         // Grafik Penduduk
         $penduduk = Data_Penduduk::where('id', '1')->first();
         $lk = (int)$penduduk['laki-laki'];
@@ -68,14 +70,15 @@ class UserController extends Controller
         ->setDataset([$md, $dw, $tu])
         ->setLabels(['Usia 0-15', 'Usia 15-65', 'Usia 65 Tahun keatas']);
 
-        return view('user.beranda', compact('slide', 'title', 'chart_jk', 'chart_usia'));
+        return view('user.beranda', compact('slide', 'title', 'chart_jk', 'chart_usia', 'musik'));
     }
 
     public function profil()
     {
         $profil = Profil_Desa::where('id', '1')->first();
         $title = "Profil Desa";
-        return view('user.profil', compact('profil', 'title'));
+        $musik = File_Musik::latest()->first();
+        return view('user.profil', compact('profil', 'title', 'musik'));
     }
 
     public function umum()
@@ -85,6 +88,7 @@ class UserController extends Controller
         $penduduk = Data_Penduduk::where('id', '1')->first();
         $pekerjaan = Data_Pekerjaan::where('id', '1')->first();
         $sarpras = Data_Sarpras::where('id', '1')->first();
+        $musik = File_Musik::latest()->first();
         $title = "Data Umum";
 
         // Fungsi chart 
@@ -102,15 +106,16 @@ class UserController extends Controller
         ->setDataset([$md, $dw, $tu])
         ->setLabels(['Usia 0-15', 'Usia 15-65', 'Usia 65 Tahun keatas']);
 
-        return view('user.umum', compact('umum', 'title' , 'pendidikan', 'penduduk', 'chart_jk', 'chart_usia', 'pekerjaan', 'sarpras'));
+        return view('user.umum', compact('umum', 'title' , 'pendidikan', 'penduduk', 'chart_jk', 'chart_usia', 'pekerjaan', 'sarpras', 'musik'));
     }
 
     public function galeri()
     {
         $allGaleri = Galeri_Desa::all();
         $galeri = Galeri_Desa::orderBy('created_at', 'desc')->paginate(8);
+        $musik = File_Musik::latest()->first();
         $title = "Galeri Desa";
-        return view('user.galeri', compact('title', 'galeri', 'allGaleri'));
+        return view('user.galeri', compact('title', 'galeri', 'allGaleri', 'musik'));
     }
 
     public function strukturDesa()
@@ -142,7 +147,8 @@ class UserController extends Controller
 
         }
         $title = "Struktur Desa";
-        return view('user.struktur-desa', compact('title', 'data', 'sorted' , 'grafik'));
+        $musik = File_Musik::latest()->first();
+        return view('user.struktur-desa', compact('title', 'data', 'sorted' , 'grafik', 'musik'));
     }
 
     public function prokerDesa()
@@ -150,14 +156,16 @@ class UserController extends Controller
         $kategori = Kategori_Desa::all();
         $proker = Proker_Desa::all();
         $tipe = "proker-desa";
+        $musik = File_Musik::latest()->first();
         $title = "Proker Desa";
-        return view('user.proker-desa', compact('title', 'kategori', 'proker' , 'tipe'));
+        return view('user.proker-desa', compact('title', 'kategori', 'proker' , 'tipe', 'musik'));
     }
 
     public function profilPkk()
     {
         $profil = Data_pkk::where('id', '1')->first();
         $data = Struktur_Pkk::all();
+        $musik = File_Musik::latest()->first();
         $jabatan = [];
         $sorted = [];
         $grafik = array();
@@ -184,7 +192,7 @@ class UserController extends Controller
 
         }
         $title = "Profil PKK";
-        return view('user.profil-pkk', compact('title', 'data', 'sorted' , 'grafik' , 'profil'));
+        return view('user.profil-pkk', compact('title', 'data', 'sorted' , 'grafik' , 'profil', 'musik'));
     }
 
     public function prokerPkk()
@@ -193,6 +201,7 @@ class UserController extends Controller
         $proker = Proker_Pkk::all();
         $tipe = "proker-pkk";
         $title = "Proker PKK";
-        return view('user.proker-pkk', compact('title', 'kategori', 'proker' , 'tipe'));
+        $musik = File_Musik::latest()->first();
+        return view('user.proker-pkk', compact('title', 'kategori', 'proker' , 'tipe', 'musik'));
     }
 }

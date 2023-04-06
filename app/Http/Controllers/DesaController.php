@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Struktur_Desa;
 use App\Models\Proker_Desa;
+use App\Models\File_Musik;
 use App\Models\Kategori_Desa;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -41,8 +42,9 @@ class DesaController extends Controller
             $sorted = array_values($sorted);
 
         }
+        $musik = File_Musik::latest()->first();
         $title = "Struktur Desa";
-        return view('admin.struktur-desa', compact('title', 'data', 'sorted' , 'grafik'));
+        return view('admin.struktur-desa', compact('title', 'data', 'sorted' , 'grafik', 'musik'));
     }
     public function addStruktur(Request $request)
     {
@@ -106,9 +108,10 @@ class DesaController extends Controller
     {
         $kategori = Kategori_Desa::all();
         $proker = Proker_Desa::all();
+        $musik = File_Musik::latest()->first();
         $title = "Proker Desa";
         $tipe = "proker-desa";
-        return view('admin.proker-desa', compact('title', 'kategori', 'proker', 'tipe'));
+        return view('admin.proker-desa', compact('title', 'kategori', 'proker', 'tipe' , 'musik'));
     }
     public function addKategori(Request $request)
     {

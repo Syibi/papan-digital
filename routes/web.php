@@ -39,6 +39,8 @@ Route::get('/admin/edit-beranda', [SlideController:: class, 'edit']);
 Route::post('/admin/edit-beranda/add', [SlideController:: class, 'add']);
 Route::put('/admin/edit-beranda/{slide}/update', [SlideController:: class, 'update']);
 Route::get('/admin/edit-beranda/{slide}/delete', [SlideController:: class, 'delete']);
+Route::post('/admin/edit-musik/add', [SlideController:: class, 'addMusik']);
+// Route::post('/admin/edit-musik/update', [SlideController:: class, 'updateMusik']);
 
 // Route Informasi Desa
 Route::get('/admin/profil', [InfoController:: class, 'profil']);
@@ -90,4 +92,3 @@ Route::post('/admin/proker-pkk/add-kategori', [PkkController:: class, 'addKatego
 Route::get('/admin/proker-pkk/{kategori}/delete', [PkkController:: class, 'deleteKategori']);
 Route::post('/admin/proker-pkk/add-proker', [PkkController:: class, 'addProker']);
 Route::get('/admin/proker-pkk/{proker}/delete-proker', [PkkController:: class, 'deleteProker']);
-

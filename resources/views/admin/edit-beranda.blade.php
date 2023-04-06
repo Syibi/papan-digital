@@ -21,6 +21,12 @@
                         <strong>Tambah Slide</strong>
                     </button>
                 </li>
+                <li class="nav-item">
+                    <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                        data-bs-target="#navs-top-musik" aria-controls="navs-top-musik" aria-selected="false">
+                        <strong>Ganti Musik</strong>
+                    </button>
+                </li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="navs-top-home" role="tabpanel">
@@ -125,6 +131,23 @@
                                         <button type="submit" class="btn btn-primary">Tambah Slide</button>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="navs-top-musik" role="tabpanel">
+                    <form action="{{ url('/admin/edit-musik/add') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <label for="kategori" class="form-label">Upload File</label>
+                        <div class="row">
+                            <div class="col-6">
+                                <input class="form-control" name="file" type="file" id="file">
+                                <div id="defaultFormControlHelp" class="form-text">
+                                    Upload file musik.
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <button type="submit" class="btn btn-primary">Update Musik</button>
                             </div>
                         </div>
                     </form>

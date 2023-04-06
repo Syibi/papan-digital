@@ -277,7 +277,8 @@
                     </li>
                 </ul>
                 <div class="col-sm-3" style="margin-left: 2vw; margin-bottom:4vh">
-                    <audio id="myAudio" src="http://papan_digital.test/../assets/music/music1.mp3" autoplay loop>
+                    <audio id="myAudio" src="{{ url('') }}/../upload/musik/{{ $musik['file'] }}" autoplay
+                        loop>
                     </audio>
                     <button id="menu-sound" type="button" class="btn btn-primary" data-bs-toggle="button"
                         autocomplete="off" aria-pressed="false" onClick="togglePlay()">
@@ -361,7 +362,8 @@
                 <footer class="content-footer footer bg-footer-theme">
                     <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                         <div class="mb-2 mb-md-0">
-                            <a href="" target="_blank" class="footer-link fw-bolder">Pemerintah Desa Tikusan</a>
+                            <a href="" target="_blank" class="footer-link fw-bolder">Pemerintah Desa
+                                Tikusan</a>
                             ©
                             <script>
                                 document.write(new Date().getFullYear());

@@ -7,6 +7,7 @@ use App\Models\Struktur_Pkk;
 use App\Models\Proker_Pkk;
 use App\Models\Kategori_Pkk;
 use App\Models\Data_Pkk;
+use App\Models\File_Musik;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 class PkkController extends Controller
@@ -42,7 +43,8 @@ class PkkController extends Controller
 
         }
         $title = "Profil PKK";
-        return view('admin.profil-pkk', compact('title', 'data', 'sorted' , 'grafik' , 'profil'));
+        $musik = File_Musik::latest()->first();
+        return view('admin.profil-pkk', compact('title', 'data', 'sorted' , 'grafik' , 'profil' , 'musik'));
     }
 
     public function addProfil(Request $request)
@@ -143,9 +145,10 @@ class PkkController extends Controller
     {
         $kategori = Kategori_Pkk::all();
         $proker = Proker_Pkk::all();
+        $musik = File_Musik::latest()->first();
         $title = "Proker PKK";
         $tipe = "proker-pkk";
-        return view('admin.proker-pkk', compact('title', 'kategori', 'proker', 'tipe'));
+        return view('admin.proker-pkk', compact('title', 'kategori', 'proker', 'tipe' , 'musik'));
     }
     public function addKategori(Request $request)
     {

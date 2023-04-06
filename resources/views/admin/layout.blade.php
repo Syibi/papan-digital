@@ -277,7 +277,8 @@
                     </li>
                 </ul>
                 <div class="col-sm-3" style="margin-left: 2vw; margin-bottom:4vh">
-                    <audio id="myAudio" src="http://papan_digital.test/../assets/music/music1.mp3" autoplay loop>
+                    <audio id="myAudio" src="http://papan_digital.test/../upload/musik/{{ $musik['file'] }}"
+                        autoplay loop>
                     </audio>
                     <button id="menu-sound" type="button" class="btn btn-primary" data-bs-toggle="button"
                         autocomplete="off" aria-pressed="false" onClick="togglePlay()">
@@ -377,6 +378,7 @@
             <!-- Content wrapper -->
         </div>
     </div>
+
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->

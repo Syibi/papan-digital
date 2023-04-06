@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Galeri_Desa;
+use App\Models\File_Musik;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -12,8 +13,9 @@ class GaleriController extends Controller
     {
         $allGaleri = Galeri_Desa::all();
         $galeri = Galeri_Desa::orderBy('created_at', 'desc')->paginate(8);
+        $musik = File_Musik::latest()->first();
         $title = "Galeri Desa";
-        return view('admin.galeri', compact('title', 'galeri', 'allGaleri'));
+        return view('admin.galeri', compact('title', 'galeri', 'allGaleri' , 'musik'));
     }
     public function add(Request $request)
     {

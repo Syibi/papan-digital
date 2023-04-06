@@ -8,6 +8,7 @@ use App\Models\Data_Umum;
 use App\Models\Data_Pendidikan;
 use App\Models\Data_Penduduk;
 use App\Models\Data_Sarpras;
+use App\Models\File_Musik;
 use Illuminate\Http\Request;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Symfony\Component\HttpKernel\Profiler\Profile;
@@ -19,8 +20,9 @@ class InfoController extends Controller
     public function profil()
     {
         $profil = Profil_Desa::where('id', '1')->first();
+        $musik = File_Musik::latest()->first();
         $title = "Profil Desa";
-        return view('admin.profil', compact('profil', 'title'));
+        return view('admin.profil', compact('profil', 'title', 'musik'));
     }
     public function addProfil(Request $request)
     {
@@ -61,6 +63,7 @@ class InfoController extends Controller
         $penduduk = Data_Penduduk::where('id', '1')->first();
         $pekerjaan = Data_Pekerjaan::where('id', '1')->first();
         $sarpras = Data_Sarpras::where('id', '1')->first();
+        $musik = File_Musik::latest()->first();
         $title = "Data Umum";
 
         // Fungsi chart 
@@ -78,7 +81,7 @@ class InfoController extends Controller
         ->setDataset([$md, $dw, $tu])
         ->setLabels(['Usia 0-15', 'Usia 15-65', 'Usia 65 Tahun keatas']);
 
-        return view('admin.umum', compact('umum', 'title' , 'pendidikan', 'penduduk', 'chart_jk', 'chart_usia', 'pekerjaan', 'sarpras'));
+        return view('admin.umum', compact('umum', 'title' , 'pendidikan', 'penduduk', 'chart_jk', 'chart_usia', 'pekerjaan', 'sarpras' , 'musik'));
     }
     
     // fungsi add
