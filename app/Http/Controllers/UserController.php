@@ -18,6 +18,7 @@ use App\Models\Proker_Pkk;
 use App\Models\Kategori_Pkk;
 use App\Models\Data_Pkk;
 use App\Models\File_Musik;
+use App\Models\Data_Running_Text;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -55,6 +56,34 @@ class UserController extends Controller
         $slide = Slide::where('status', '1')->get();
         $title = "Beranda";
         $musik = File_Musik::latest()->first();
+        $data = Struktur_Desa::all();
+        $teks = Data_Running_Text::all();
+        $profil = Profil_Desa::where('id', '1')->first();
+
+        $jabatan = [];
+        $sorted = [];
+        $grafik = array();
+        foreach ($data as $item1) {
+            $atasan = ""; 
+            foreach ($data as $item2) {
+                if ($item2['jabatan'] == $item1['atasan'])  {
+                    $atasan = $item2['nama'];
+                }
+            }
+            $image = "../upload/profil/".$item1['file'];
+            $header = array('v' =>  $item1['nama'], 
+                            'f' =>
+                            '<a class="fir-imageover" rel="noopener">
+                                <img class="fir-author-image fir-clickcircle" src="'.$image.'">
+                            </a>
+                                <div style="color:white"><strong>'.$item1['nama'].'</strong></div>
+                                <div style="color:white"><em>'.$item1['jabatan'].'</em></div>'
+                        );
+            array_push($jabatan, $item1['jabatan']);
+            array_push($grafik, [$header, $atasan, $item1['link']]);
+            $sorted = array_unique($jabatan);
+            $sorted = array_values($sorted);
+        }
         // Grafik Penduduk
         $penduduk = Data_Penduduk::where('id', '1')->first();
         $lk = (int)$penduduk['laki-laki'];
@@ -70,7 +99,7 @@ class UserController extends Controller
         ->setDataset([$md, $dw, $tu])
         ->setLabels(['Usia 0-15', 'Usia 15-65', 'Usia 65 Tahun keatas']);
 
-        return view('user.beranda', compact('slide', 'title', 'chart_jk', 'chart_usia', 'musik'));
+        return view('user.beranda', compact('slide', 'title', 'chart_jk', 'chart_usia', 'musik', 'grafik', 'teks', 'profil'));
     }
 
     public function profil()

@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Slide;
 use Illuminate\Http\Request;
 use App\Models\Data_Penduduk;
+use App\Models\Data_Running_Text;
 use App\Models\File_Musik;
+use App\Models\Struktur_Desa;
+use App\Models\Profil_Desa;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -14,11 +17,37 @@ class SlideController extends Controller
 {
     public function index()
     {
-
         $slide = Slide::where('status', '1')->get();
         $title = "Beranda";
         $musik = File_Musik::latest()->first();
+        $data = Struktur_Desa::all();
+        $teks = Data_Running_Text::all();
+        $profil = Profil_Desa::where('id', '1')->first();
 
+        $jabatan = [];
+        $sorted = [];
+        $grafik = array();
+        foreach ($data as $item1) {
+            $atasan = ""; 
+            foreach ($data as $item2) {
+                if ($item2['jabatan'] == $item1['atasan'])  {
+                    $atasan = $item2['nama'];
+                }
+            }
+            $image = "../upload/profil/".$item1['file'];
+            $header = array('v' =>  $item1['nama'], 
+                            'f' =>
+                            '<a class="fir-imageover" rel="noopener">
+                                <img class="fir-author-image fir-clickcircle" src="'.$image.'">
+                            </a>
+                                <div style="color:white"><strong>'.$item1['nama'].'</strong></div>
+                                <div style="color:white"><em>'.$item1['jabatan'].'</em></div>'
+                        );
+            array_push($jabatan, $item1['jabatan']);
+            array_push($grafik, [$header, $atasan, $item1['link']]);
+            $sorted = array_unique($jabatan);
+            $sorted = array_values($sorted);
+        }
         // Grafik Penduduk
         $penduduk = Data_Penduduk::where('id', '1')->first();
         $lk = (int)$penduduk['laki-laki'];
@@ -34,14 +63,15 @@ class SlideController extends Controller
         ->setDataset([$md, $dw, $tu])
         ->setLabels(['Usia 0-15', 'Usia 15-65', 'Usia 65 Tahun keatas']);
 
-        return view('admin.beranda', compact('slide', 'title', 'chart_jk', 'chart_usia', 'musik'));
+        return view('admin.beranda', compact('slide', 'title', 'chart_jk', 'chart_usia', 'musik' , 'grafik', 'teks'));
     }
     public function edit()
     {
         $slide = Slide::paginate(5);
         $title = "Beranda";
         $musik = File_Musik::latest()->first();
-        return view('admin.edit-beranda', compact('slide', 'title' , 'musik'));
+        $teks = Data_Running_Text::all();
+        return view('admin.edit-beranda', compact('slide', 'title' , 'musik', 'teks'));
     }
     public function add(Request $request)
     {
@@ -117,21 +147,23 @@ class SlideController extends Controller
         Alert::success('Selamat', 'Musik Sudah Update');
         return redirect()->back();
     }
-    // public function updateMusik(Request $request, File_Musik $musik)
-    // {
-    //     if ($request->hasFile('file')) {
-    //         $destination = public_path('\upload\musik\\') .$musik->file;
-    //         if (File::exists($destination)) {
-    //             File::delete($destination);
-    //         }
-    //         $file = $request->file('file');
-    //         $filename = $file->getClientOriginalName();
-    //         $file->move('upload/musik', $filename);
-    //         $musik->update([
-    //             'file' => $filename
-    //         ]);
-    //         Alert::success('Selamat', 'Slide Berhasil diupdate');
-    //         return redirect()->back();
-    //     }
-    // }
+    public function addText(Request $request)
+    {
+        Data_Running_Text::create([
+            'teks' => $request->running_text
+        ]);
+        
+        Alert::success('Selamat', 'Teks sudah ditambah');
+        return redirect()->back();
+    }
+    public function deleteText(Data_Running_Text $teks)
+    {
+        if ($teks->count() > 0) {
+            $teks->delete();
+            Alert::success('Selamat', 'Teks berhasil dihapus');
+            return redirect()->back();
+        }
+        Alert::error('Maaf', 'Teks gagal dihapus, silahkan coba lagi');
+        return redirect()->back();
+    }
 }

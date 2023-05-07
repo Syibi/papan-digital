@@ -1,3 +1,7 @@
+<img src="../assets/img/avatars/logo-desa.png" width="9%" class="mt-2 mx-auto d-block" />
+<div class="divider" style="margin-left:5%; margin-right:5%">
+    <div class="divider-text">Profil Desa</div>
+</div>
 <div>
     <div class="row mx-3 justify-content-evenly">
         <div class="mb-1 col-5">

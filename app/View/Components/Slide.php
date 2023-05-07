@@ -10,12 +10,19 @@ class Slide extends Component
     public $slide = "";
     public $chartusia = "";
     public $chartjk = "";
+    public $grafik = "";
+    public $teks = "";
+    public $profil = "";
 
-    public function __construct($slide, $chartjk, $chartusia)
+    public function __construct($slide, $chartjk, $chartusia, $grafik, $teks, $profil)
     {
         $this->slide = $slide;
         $this->chartjk = $chartjk;
         $this->chartusia = $chartusia;
+        $this->grafik = $grafik;
+        $this->teks = $teks;
+        $this->profil = $profil;
+
     }
 
     /**

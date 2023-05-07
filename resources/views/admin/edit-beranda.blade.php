@@ -23,6 +23,12 @@
                 </li>
                 <li class="nav-item">
                     <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                        data-bs-target="#navs-top-text" aria-controls="navs-top-text" aria-selected="false">
+                        <strong>Edit Running Text</strong>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
                         data-bs-target="#navs-top-musik" aria-controls="navs-top-musik" aria-selected="false">
                         <strong>Ganti Musik</strong>
                     </button>
@@ -108,8 +114,8 @@
                                             <label class="form-check-label" for="inlineRadio1">Gambar</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="tipe" id="inlineRadio2"
-                                                value="video">
+                                            <input class="form-check-input" type="radio" name="tipe"
+                                                id="inlineRadio2" value="video">
                                             <label class="form-check-label" for="inlineRadio2">Video</label>
                                         </div>
                                     </div>
@@ -134,6 +140,56 @@
                             </div>
                         </div>
                     </form>
+                </div>
+                <div class="tab-pane fade" id="navs-top-text" role="tabpanel">
+                    <h5>Tambah Running Text</h5>
+                    <div>
+                        <form action="{{ url('admin/edit-teks/add') }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <label for="running_text" class="form-label">Teks</label>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="text" class="form-control" id="running_text"
+                                        aria-describedby="kategori" name="running_text">
+                                    <div id="defaultFormControlHelp" class="form-text">
+                                        Masukkan Isi Running Text.
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <button type="submit" class="btn btn-primary">Tambah Teks</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="table-responsive text-nowrap mt-3">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Teks</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-border-bottom-0">
+                                @php($no = 1)
+                                @foreach ($teks as $item)
+                                    <tr>
+                                        <td>{{ $no++ }}</td>
+                                        <td>{{ $item->teks }}</td>
+                                        <td>
+                                            <div class="demo-inline-spacing">
+                                                <a href="{{ url('admin/edit-teks/' . $item->id . '/delete') }}"
+                                                    type="button" class="btn btn-icon btn-danger"
+                                                    style="margin-top: 0 !important">
+                                                    <span class="bx bx-trash"></span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="navs-top-musik" role="tabpanel">
                     <form action="{{ url('/admin/edit-musik/add') }}" method="post" enctype="multipart/form-data">

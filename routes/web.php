@@ -40,7 +40,8 @@ Route::post('/admin/edit-beranda/add', [SlideController:: class, 'add']);
 Route::put('/admin/edit-beranda/{slide}/update', [SlideController:: class, 'update']);
 Route::get('/admin/edit-beranda/{slide}/delete', [SlideController:: class, 'delete']);
 Route::post('/admin/edit-musik/add', [SlideController:: class, 'addMusik']);
-// Route::post('/admin/edit-musik/update', [SlideController:: class, 'updateMusik']);
+Route::post('/admin/edit-teks/add', [SlideController:: class, 'addText']);
+Route::get('/admin/edit-teks/{teks}/delete', [SlideController:: class, 'deleteText']);
 
 // Route Informasi Desa
 Route::get('/admin/profil', [InfoController:: class, 'profil']);

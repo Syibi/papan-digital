@@ -40,7 +40,6 @@ class DesaController extends Controller
             array_push($grafik, [$header, $atasan, $item1['link']]);
             $sorted = array_unique($jabatan);
             $sorted = array_values($sorted);
-
         }
         $musik = File_Musik::latest()->first();
         $title = "Struktur Desa";

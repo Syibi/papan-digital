@@ -40,146 +40,6 @@
     <script src="../assets/vendor/js/helpers.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="../assets/js/config.js"></script>
-
-    <style>
-        .bg-menu-theme .menu-inner>.menu-item.active>.menu-link {
-            color: white;
-            background-color: #f77223 !important;
-        }
-
-        .google-visualization-orgchart-node {
-            width: 0;
-            border: none !important;
-            background: #f77223 !important;
-            -webkit-border-radius: 10px !important;
-            -webkit-box-shadow: rgb(0 0 0 / 14%) 3px 3px 3px !important;
-        }
-
-        .google-visualization-orgchart-lineleft {
-            border-left: 2px solid #696cff !important;
-        }
-
-        .google-visualization-orgchart-lineright {
-            border-right: 2px solid #696cff !important;
-        }
-
-        .google-visualization-orgchart-linebottom {
-            border-bottom: 2px solid #696cff !important;
-        }
-
-        .fir-clickcircle {
-            height: 80px;
-            width: 80px;
-            border-radius: 100px;
-            cursor: pointer;
-        }
-
-        .fir-image-figure {
-            margin: 0;
-            display: flex;
-            padding: 0 !important;
-            align-items: center;
-            margin-bottom: 40px;
-            position: relative;
-            text-decoration: none;
-        }
-
-        html.wf-active .fir-image-figure .fig-author-figure-title {
-            font-family: var(--fir-font-header);
-            font-size: 16px;
-        }
-
-        .fir-image-figure .fig-author-figure-title {
-            color: white;
-            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-            font-weight: 400;
-            font-size: 18px;
-            white-space: nowrap;
-        }
-
-        .fig-author-figure-desc {
-            color: white;
-            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-            font-weight: 300;
-            font-size: 12px;
-        }
-
-        .fir-imageover {
-            position: relative;
-            display: flex;
-        }
-
-        .fir-imageover-color {
-            height: 80px;
-            width: 80px;
-            position: absolute;
-            background-image: none;
-            border-radius: 100px;
-            cursor: pointer;
-            transition: background .3s ease-in-out;
-            animation: fadeInFadeOut 2s infinite;
-            top: 0;
-            left: 0;
-        }
-
-        .fir-imageover-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            animation: fadeInFadeOut 2s infinite;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        @keyframes fadeInFadeOut {
-            0% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        #loading {
-            position: fixed;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            opacity: 0.7;
-            background-color: #fff;
-            z-index: 1200;
-        }
-
-        #loading-image {
-            z-index: 1300;
-        }
-
-        .menu .app-brand.demo {
-            height: 90px;
-            margin-top: 15px;
-        }
-
-        .img-thumbnail {
-            transition: 0.25s;
-            transition-timing-function: ease-out;
-            box-shadow: 5px 10px #88888815;
-        }
-
-        .img-thumbnail:hover {
-            transform: scale(1.05);
-        }
-    </style>
 </head>
 
 <body onload=display_ct();>
@@ -277,14 +137,22 @@
                     </li>
                 </ul>
                 <div class="col-sm-3" style="margin-left: 2vw; margin-bottom:4vh">
-                    <audio id="myAudio" src="http://papan_digital.test/../upload/musik/{{ $musik['file'] }}"
-                        autoplay loop>
+                    <audio id="myAudio" src="{{ url('') }}/../upload/musik/{{ $musik['file'] }}" autoplay
+                        loop>
                     </audio>
                     <button id="menu-sound" type="button" class="btn btn-primary" data-bs-toggle="button"
                         autocomplete="off" aria-pressed="false" onClick="togglePlay()">
                         <i class='bx bxs-volume-full'></i>
                     </button>
                 </div>
+                <footer class="col-sm-8" style="margin-left: 2vw; margin-bottom:1vh">
+                    <div class="mb-2">
+                        <a href="" target="_blank" class="footer-link fw-bolder">Desa Tikusan</a> ©
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                    </div>
+                </footer>
             </aside>
             <!-- / Menu -->
 
@@ -304,9 +172,11 @@
                         <!-- Search -->
                         <div class="navbar-nav align-items-center">
                             <div class="nav-item d-flex align-items-center">
-                                <i class='bx bx-time-five'></i>
-                                <h5 class="me-2 my-auto" style="margin-left: 15px"><strong><span
-                                            id='ct'></span></strong></h5>
+                                <strong>
+                                    {{ \Carbon\Carbon::now()->isoFormat('dddd,') }}
+                                    <span
+                                        style="color: #f77223">{{ \Carbon\Carbon::now()->isoFormat('D MMMM Y') }}</span>
+                                </strong>
                             </div>
                         </div>
                         <!-- /Search -->
@@ -356,23 +226,6 @@
                 <div class="content-wrapper">
                     @yield('container')
                 </div>
-
-                <!-- Footer -->
-                <!-- Footer -->
-                <footer class="content-footer footer bg-footer-theme">
-                    <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                        <div class="mb-2 mb-md-0">
-                            <a href="" target="_blank" class="footer-link fw-bolder">Pemerintah Desa
-                                Tikusan</a>
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>
-                        </div>
-                    </div>
-                </footer>
-                <!-- / Footer -->
-
                 <div class="content-backdrop fade"></div>
             </div>
             <!-- Content wrapper -->

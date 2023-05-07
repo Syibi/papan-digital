@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="container-xxl flex-grow-1 my-3">
-        <x-slide :slide=$slide :chartjk=$chart_jk :chartusia=$chart_usia />
+        <x-slide :slide=$slide :chartjk=$chart_jk :chartusia=$chart_usia :grafik=$grafik :teks=$teks :profil=$profil />
 
         {{-- Button Edit Beranda --}}
         <a href="/admin/edit-beranda" type="button" class="btn btn-lg rounded-pill btn-icon btn-primary"
