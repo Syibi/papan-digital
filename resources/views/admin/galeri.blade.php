@@ -149,7 +149,6 @@
     <script>
         let a = document.querySelectorAll('[id = delete-btn]');
         let isEditing = false;
-        console.log(a);
 
         function deleteBtn() {
             a.forEach(element => {

@@ -59,6 +59,10 @@ class UserController extends Controller
         $data = Struktur_Desa::all();
         $teks = Data_Running_Text::all();
         $profil = Profil_Desa::where('id', '1')->first();
+        $umum = Data_Umum::where('id', '1')->first();
+        $pendidikan = Data_Pendidikan::where('id', '1')->first();
+        $penduduk = Data_Penduduk::where('id', '1')->first();
+        $pekerjaan = Data_Pekerjaan::where('id', '1')->first();
 
         $jabatan = [];
         $sorted = [];
@@ -99,7 +103,7 @@ class UserController extends Controller
         ->setDataset([$md, $dw, $tu])
         ->setLabels(['Usia 0-15', 'Usia 15-65', 'Usia 65 Tahun keatas']);
 
-        return view('user.beranda', compact('slide', 'title', 'chart_jk', 'chart_usia', 'musik', 'grafik', 'teks', 'profil'));
+        return view('user.beranda', compact('slide', 'title', 'chart_jk', 'chart_usia', 'musik', 'grafik', 'teks', 'profil' , 'umum', 'penduduk', 'pendidikan' ));
     }
 
     public function profil()

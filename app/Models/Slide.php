@@ -14,6 +14,7 @@ class Slide extends Model
         'deskripsi',
         'status',
         'file',
-        'tipe'
+        'tipe',
+        'durasi'
     ];
 }

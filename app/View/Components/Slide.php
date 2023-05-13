@@ -13,8 +13,11 @@ class Slide extends Component
     public $grafik = "";
     public $teks = "";
     public $profil = "";
+    public $umum = "";
+    public $penduduk = "";
+    public $pendidikan = "";
 
-    public function __construct($slide, $chartjk, $chartusia, $grafik, $teks, $profil)
+    public function __construct($slide, $chartjk, $chartusia, $grafik, $teks, $profil, $umum, $penduduk, $pendidikan)
     {
         $this->slide = $slide;
         $this->chartjk = $chartjk;
@@ -22,6 +25,9 @@ class Slide extends Component
         $this->grafik = $grafik;
         $this->teks = $teks;
         $this->profil = $profil;
+        $this->umum = $umum;
+        $this->penduduk = $penduduk;
+        $this->pendidikan = $pendidikan;
 
     }
 

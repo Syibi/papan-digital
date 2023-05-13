@@ -44,6 +44,7 @@
                                         <th>No</th>
                                         <th>Judul</th>
                                         <th>Deskripsi</th>
+                                        <th>Durasi</th>
                                         <th>Status</th>
                                         <th>Tipe</th>
                                         <th>File</th>
@@ -57,8 +58,10 @@
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $item->judul }}</td>
                                             <td>{{ $item->deskripsi }}</td>
+                                            <td>{{ $item->durasi }}</td>
                                             <td>{{ $item->status == '1' ? 'Aktif' : 'Non Aktif' }}</td>
-                                            <td>{{ $item->tipe == '0' ? 'Gambar' : 'Video' }}</td>
+                                            <td>{{ $item->tipe == '0' ? 'Gambar' : ($item->tipe == '1' ? 'Video' : 'Tab') }}
+                                            </td>
                                             <td>
                                                 <img src="{{ asset('upload/slide/' . $item->file) }}" width="120px"
                                                     height="70px" alt="image">
@@ -103,33 +106,62 @@
                                         Masukkan Deskripsi Slide, jika tidak ada isi "-".
                                     </div>
                                 </div>
+                                <div class="form-group mt-3">
+                                    <label for="durasi" class="form-label">Durasi</label>
+                                    <input type="text" class="form-control" name="durasi" id="durasi"
+                                        placeholder="Masukkan Durasi Slide (milisecond)" aria-describedby="durasi">
+                                </div>
                             </div>
                             <div class="col">
                                 <div class="form-group mt-3">
                                     <label for="gambar" class="form-label">Tipe File</label>
                                     <div class="col-md">
                                         <div class="form-check form-check-inline mt-3">
-                                            <input class="form-check-input" type="radio" name="tipe" id="inlineRadio1"
-                                                value="gambar">
+                                            <input class="form-check-input" type="radio" name="tipe"
+                                                id="inlineRadio1" value="gambar" onchange="active()">
                                             <label class="form-check-label" for="inlineRadio1">Gambar</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="tipe"
-                                                id="inlineRadio2" value="video">
+                                                id="inlineRadio2" value="video" onchange="active()">
                                             <label class="form-check-label" for="inlineRadio2">Video</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="tipe"
+                                                id="inlineRadio3" value="tab" onchange="disable()">
+                                            <label class="form-check-label" for="inlineRadio2">Tab</label>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group mt-3">
-                                    <label for="gambar" class="form-label">Upload File</label>
-                                    <input class="form-control" name="file" type="file" id="file">
+                                <div class="form-group mt-4">
+                                    <label for="tab" class="form-label">Pilihan Tab</label>
+                                    <select id="tab" class="form-select" aria-label="tab" name="tab" disabled>
+                                        <option> - </option>
+                                        <option value="profil_desa">Profil Desa</option>
+                                        <option value="bidang_umum">Bidang Umum</option>
+                                        <option value="data_pendidikan">Data Pendidikan</option>
+                                        <option value="data_penduduk">Data Penduduk</option>
+                                        <option value="data_pekerjaan">Data Pekerjaan</option>
+                                        <option value="data_sarpras">Data Sarana Prasarana</option>
+                                        <option value="struktur_desa">Struktur Desa</option>
+                                        <option value="data_aparat_desa">Data Aparat Desa</option> {{-- paralel --}}
+                                        <option value="proker_desa">Program Kerja Desa</option> {{-- paralel --}}
+                                        <option value="profil_pkk">Profil PKK</option> {{-- paralel --}}
+                                        <option value="struktur_pkk">Struktur PKK</option> {{-- paralel --}}
+                                        <option value="data_anggota_pkk">Data Anggota PKK</option> {{-- paralel --}}
+                                        <option value="proker_pkk">Program Kerja PKK</option> {{-- paralel --}}
+                                    </select>
                                 </div>
-                                <div class="form-check form-switch mt-3">
+                                <div class="form-group mt-4">
+                                    <label for="gambar" class="form-label">Upload File</label>
+                                    <input class="form-control" name="file" type="file" id="file" disabled>
+                                </div>
+                                <div class="form-check form-switch mt-4">
                                     <label class="form-check-label">Aktifkan Slide</label>
                                     <input class="form-check-input" type="checkbox" id="status" checked=""
                                         name="status">
                                 </div>
-                                <div class="form-group mt-3 pt-4">
+                                <div class="form-group mt-4 pt-4">
                                     <div class="modal-footer">
                                         <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                             Batal
@@ -238,7 +270,12 @@
                             </div>
                             <div class="form-group mt-2">
                                 <label for="deskripsi" class="form-label">Deskripsi</label>
-                                <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3">{{ $item->deskripsi }}</textarea>
+                                <textarea class="form-control" name="deskripsi" id="deskripsi" rows="2">{{ $item->deskripsi }}</textarea>
+                            </div>
+                            <div class="form-group mt-2">
+                                <label for="durasi" class="form-label">Durasi</label>
+                                <input type="text" class="form-control" name="durasi" id="durasi"
+                                    aria-describedby="durasi" value="{{ $item->durasi }}">
                             </div>
                             <div class="row g-3">
                                 <div class="col-7 mb-0">
@@ -306,3 +343,18 @@
         </a>
     @endforeach
 @endsection
+<script type="text/javascript">
+    function active() {
+        var a = document.getElementById('file');
+        a.removeAttribute("disabled");
+        var b = document.getElementById('tab');
+        b.setAttribute("disabled", true)
+    }
+
+    function disable() {
+        var a = document.getElementById('tab')
+        a.removeAttribute("disabled");
+        var b = document.getElementById('file');
+        b.setAttribute("disabled", true)
+    }
+</script>

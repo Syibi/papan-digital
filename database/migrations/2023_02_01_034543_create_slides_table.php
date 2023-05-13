@@ -18,7 +18,8 @@ class CreateSlidesTable extends Migration
             $table->string("judul");
             $table->mediumText("deskripsi");
             $table->string("file");
-            $table->tinyInteger("tipe")->default('0')->comment('1=video, 0=gambar');
+            $table->tinyInteger("tipe")->default('0')->comment('1=video, 0=gambar, 2=tab');
+            $table->Integer("durasi")->default('5000');
             $table->tinyInteger("status")->default('0')->comment('1=hidden, 0=visible');
             $table->timestamps();
         });

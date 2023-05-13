@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Slide;
 use Illuminate\Http\Request;
 use App\Models\Data_Penduduk;
+use App\Models\Data_Umum;
+use App\Models\Data_Pendidikan;
+use App\Models\Data_Pekerjaan;
 use App\Models\Data_Running_Text;
 use App\Models\File_Musik;
 use App\Models\Struktur_Desa;
@@ -23,6 +26,10 @@ class SlideController extends Controller
         $data = Struktur_Desa::all();
         $teks = Data_Running_Text::all();
         $profil = Profil_Desa::where('id', '1')->first();
+        $umum = Data_Umum::where('id', '1')->first();
+        $pendidikan = Data_Pendidikan::where('id', '1')->first();
+        $penduduk = Data_Penduduk::where('id', '1')->first();
+        $pekerjaan = Data_Pekerjaan::where('id', '1')->first();
 
         $jabatan = [];
         $sorted = [];
@@ -63,7 +70,7 @@ class SlideController extends Controller
         ->setDataset([$md, $dw, $tu])
         ->setLabels(['Usia 0-15', 'Usia 15-65', 'Usia 65 Tahun keatas']);
 
-        return view('admin.beranda', compact('slide', 'title', 'chart_jk', 'chart_usia', 'musik' , 'grafik', 'teks'));
+        return view('admin.beranda', compact('slide', 'title', 'chart_jk', 'chart_usia', 'musik' , 'grafik', 'teks', 'profil', 'umum', 'penduduk', 'pendidikan' ));
     }
     public function edit()
     {
@@ -89,8 +96,9 @@ class SlideController extends Controller
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
             'status' => $request->input('status')==true? '1' : '0',
-            'tipe' => $request->input('tipe')=="video"? '1' : '0',
-            'file' => $filename
+            'tipe' => $request->input('tipe')=="video"? '1' : ($request->input('tipe')=="gambar" ? '0' : '2'),
+            'file' => $request->input('tipe')=="tab"? $request->input('tab') : $filename,
+            'durasi' => $request->durasi
         ]);
         
         Alert::success('Selamat', 'Slide berhasil ditambah');
@@ -107,14 +115,15 @@ class SlideController extends Controller
             $filename = $file->getClientOriginalName();
             $file->move('upload/slide', $filename);
             $slide->update([
-                'file' => $filename
+                'file' => $request->input('tipe')=="tab"? $request->input('tab') : $filename,
             ]);
         }
         $slide->update([
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
             'status' => $request->input('status')==true? '1' : '0',
-            'tipe' => $request->input('tipe')=="video"? '1' : '0',
+            'tipe' => $request->input('tipe')=="video"? '1' : ($request->input('tipe')=="gambar" ? '0' : '2'),
+            'durasi' => $request->durasi
         ]);
         Alert::success('Selamat', 'Slide Berhasil diupdate');
         return redirect()->back();

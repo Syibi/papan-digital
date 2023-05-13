@@ -1,39 +1,39 @@
 <div>
     <div class="card px-2" style=" height: 86vh;">
         <div class="row px-1" style="height: 100%;">
-            <div id="carouselExample" class="carousel slide" data-bs-slide="caraousel" style="height: 94%;padding:0">
-                <div class="carousel-inner" style="height: 100%; border-radius: 0.5rem 0.5rem 0 0">
-                    <div class="carousel-item active" style="height: 100%">
-                        <div class="row" style="height: 100%">
-                            <div class="col-5"
-                                style="padding-left:0; background-image:url({{ asset('assets/img/backgrounds/deco.png') }});      background-repeat:no-repeat; background-size: cover; background-position-x: right; overflow:hidden">
-                                <div class="content"
-                                    style="background-image: url({{ asset('assets/img/backgrounds/home.jpg') }})">
-                                </div>
-                            </div>
-                            <div class="col-7" style="background-color:green">
+            <div id="tabContent" class="tab-content" style="height: 94%; overflow:hidden">
+                @foreach ($slide as $key => $item)
+                    {{-- Tab Data --}}
+                    @if ($item->tipe == 2)
+                        <div class="tab-pane fade" id="tab_{{ $item->file }}" role="tabpanel">
+                            @switch($item->file)
+                                @case('data_pendidikan')
+                                    <x-tabPendidikan :pendidikan=$pendidikan />
+                                @break
 
-                            </div>
+                                @case('data_penduduk')
+                                    <x-tabPenduduk :penduduk=$penduduk :chartjk=$chart_jk :chartusia=$chart_usia />
+                                @break
+
+                                @default
+                            @endswitch
                         </div>
-                    </div>
-                    <div class="carousel-item" style="height: 100%">
-                        <div class="row" style="height: 100%">
-                            <div class="col-12" style="background-color: red">
-                                <x-Profil :profil=$profil />
-                            </div>
-                        </div>
-                    </div>
+                    @endif
+                @endforeach
+                {{-- Tab Video --}}
+                <div class="tab-pane fade" id="video" role="tabpanel">
+                    <video class="img-fluid" id="videoSrc" autoplay loop muted
+                        style="border-radius: 0 0.5rem 0.5rem 0; box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45);">
+                    </video>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                {{-- Tab Gambar --}}
+                <div class="tab-pane fade" id="gambar" role="tabpanel">
+                    <img id="gambarSrc" class="d-block w-100" alt="..."
+                        style="object-fit: fill;
+                                height:80vh;
+                                border-radius: 0 0.5rem 0.5rem 0;
+                                box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45);">
+                </div>
             </div>
             <div class="col-12 my-auto" style="height:6%">
                 <div class="row h-100">
@@ -57,16 +57,12 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
 
 <script type="text/javascript">
-    // $('.carousel').carousel({
-    //     interval: 2000
-    // })
     google.charts.load('current', {
         packages: ["orgchart"]
     });
@@ -111,4 +107,63 @@
         document.getElementById('ct').innerHTML = x3;
         display_c();
     }
+
+    // tab carousel
+    let allTab = Array.from(document.getElementById('tabContent').children);
+    var gambarSrc = document.getElementById('gambarSrc');
+    var videoSrc = document.getElementById('videoSrc');
+    let slide = {!! json_encode($slide) !!};
+    let currentNumber = 0;
+    let currentTab = "";
+    let delay = 5000;
+
+    function Loop() {
+        setTimeout(function() {
+            if (currentNumber < slide.length) {
+                // assign current number and delay
+                delay = slide[currentNumber].durasi;
+
+                // check tipe and looping tabs
+                allTab.forEach(element => {
+                    var activeTab = element.classList;
+                    if (slide[currentNumber].status == 1) {
+                        if (slide[currentNumber].tipe == 0) {
+                            var Src = "{{ url('') }}" + "/upload/slide/" + (slide[currentNumber]
+                                .file);
+                            if (element.id == "gambar") {
+                                gambarSrc.setAttribute("src", Src)
+                                activeTab.add('active', 'show');
+                            } else {
+                                activeTab.remove('active', 'show');
+                            }
+                        } else if (slide[currentNumber].tipe == 1) {
+                            var Src = "{{ url('') }}" + "/upload/slide/" + (slide[currentNumber]
+                                .file);
+                            if (element.id == "video") {
+                                videoSrc.setAttribute("src", Src)
+                                activeTab.add('active', 'show');
+                            } else {
+                                activeTab.remove('active', 'show');
+                            }
+                        } else if (slide[currentNumber].tipe == 2) {
+                            currentTab = "tab_" + slide[currentNumber].file;
+                            if (element.id == currentTab) {
+                                console.log("masuk pak eko");
+                                activeTab.add('active', 'show');
+                            } else {
+                                activeTab.remove('active', 'show');
+                            }
+                        }
+                    }
+                });
+                // add number for looping 
+                currentNumber++;
+            } else {
+                // reset current number
+                currentNumber = 0;
+            }
+            Loop();
+        }, delay)
+    }
+    Loop();
 </script>
