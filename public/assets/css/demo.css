@@ -108,7 +108,7 @@
     margin-top: 1rem;
 }
 .bg-menu-theme .menu-inner > .menu-item.active > .menu-link {
-    color: white;
+    color: rgb(3, 3, 3);
     background-color: #f77223 !important;
 }
 
@@ -305,33 +305,3 @@ html.wf-active .fir-image-figure .fig-author-figure-title {
         transform: translateX(-100%);
     }
 }
-
-.content {
-    left: 0px;
-    position: relative;
-    width: 58vh;
-    height: 58vh;
-    top: 10vh;
-    /* background-color: burlywood; */
-    clip-path: inset(0% 0% 0% 0% round 5%);
-    /* transform: rotate(45deg); */
-}
-
-/* .content img {
-    width: 100%;
-    transform: rotate(-45deg);
-}
-
-.deco {
-    z-index: 1;
-    display: inline-block;
-    overflow: hidden;
-    top: -50px;
-    left: -50px;
-    position: relative;
-    width: 20vh;
-    height: 20vh;
-    background-color: red;
-    clip-path: inset(0% 0% 0% 0% round 10%);
-    transform: rotate(45deg);
-} */

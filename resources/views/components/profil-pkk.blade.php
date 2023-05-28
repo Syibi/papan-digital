@@ -16,7 +16,7 @@
                             <div class="user-progress">
                                 <div class="input-group">
                                     <input class="form-control" name="pkk_dusun" type="text" id="data_pkk" readonly
-                                        value="{{ $profil['pkk_dusun'] }}">
+                                        value="{{ $profilPkk['pkk_dusun'] }}">
                                     <span class="input-group-text">kelompok</span>
                                 </div>
                             </div>
@@ -30,7 +30,7 @@
                             <div class="user-progress">
                                 <div class="input-group">
                                     <input class="form-control" name="pkk_rw" type="text" id="data_pkk" readonly
-                                        value="{{ $profil['pkk_rw'] }}">
+                                        value="{{ $profilPkk['pkk_rw'] }}">
                                     <span class="input-group-text">kelompok</span>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
                             <div class="user-progress">
                                 <div class="input-group">
                                     <input class="form-control" name="pkk_rt" type="text" id="data_pkk" readonly
-                                        value="{{ $profil['pkk_rt'] }}">
+                                        value="{{ $profilPkk['pkk_rt'] }}">
                                     <span class="input-group-text">kelompok</span>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                             <div class="user-progress">
                                 <div class="input-group">
                                     <input class="form-control" name="dasa_wisma" type="text" id="data_pkk" readonly
-                                        value="{{ $profil['dasa_wisma'] }}">
+                                        value="{{ $profilPkk['dasa_wisma'] }}">
                                     <span class="input-group-text">kelompok</span>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
             <div class="user-progress">
                 <div class="input-group">
                     <input class="form-control" name="jml_kk" type="text" id="data_pkk" readonly
-                        value="{{ $profil['jml_kk'] }}">
+                        value="{{ $profilPkk['jml_kk'] }}">
                     <span class="input-group-text">KK</span>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                 <div class="user-progress">
                     <div class="input-group">
                         <input class="form-control" name="jml_jiwa" type="text" id="data_pkk"
-                            value="{{ $profil['jml_jiwa'] }}" readonly>
+                            value="{{ $profilPkk['jml_jiwa'] }}" readonly>
                         <span class="input-group-text">Jiwa</span>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                             <div class="user-progress">
                                 <div class="input-group">
                                     <input class="form-control" name="tp_pkk" type="text" id="data_pkk" readonly
-                                        value="{{ $profil['tp_pkk'] }}">
+                                        value="{{ $profilPkk['tp_pkk'] }}">
                                     <span class="input-group-text">Jiwa</span>
                                 </div>
                             </div>
@@ -121,7 +121,7 @@
                             <div class="user-progress">
                                 <div class="input-group">
                                     <input class="form-control" name="umum" type="text" id="data_pkk"
-                                        readonly value="{{ $profil['umum'] }}">
+                                        readonly value="{{ $profilPkk['umum'] }}">
                                     <span class="input-group-text">jiwa</span>
                                 </div>
                             </div>
@@ -137,7 +137,7 @@
                             <div class="user-progress">
                                 <div class="input-group">
                                     <input class="form-control" name="khusus" type="text" id="data_pkk"
-                                        readonly value="{{ $profil['khusus'] }}">
+                                        readonly value="{{ $profilPkk['khusus'] }}">
                                     <span class="input-group-text">jiwa</span>
                                 </div>
                             </div>

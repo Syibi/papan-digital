@@ -36,7 +36,7 @@
                         name="form_pkk">
                         @csrf
                         {{-- @method('PUT') --}}
-                        <x-profilPkk :profil=$profil />
+                        <x-profilPkk :profilPkk=$profilPkk />
                         <div class="mt-4 mx-4 float-end">
                             <button type="button" form="form_pkk" class="btn btn-primary me-2" value="edit"
                                 id="edit-pkk" onclick="active('[id=data_pkk]')">Edit</button>

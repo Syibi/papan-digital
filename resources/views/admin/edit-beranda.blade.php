@@ -52,19 +52,24 @@
                                     </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
-                                    @php($no = 1)
+                                    @php($no = ($slide->currentpage() - 1) * $slide->perpage() + 1)
                                     @foreach ($slide as $item)
                                         <tr>
                                             <td>{{ $no++ }}</td>
-                                            <td>{{ $item->judul }}</td>
-                                            <td>{{ $item->deskripsi }}</td>
+                                            <td style="padding-left:0;">{{ $item->judul }}</td>
+                                            <td style="padding-left:0; padding-right:0">{{ $item->deskripsi }}</td>
                                             <td>{{ $item->durasi }}</td>
-                                            <td>{{ $item->status == '1' ? 'Aktif' : 'Non Aktif' }}</td>
-                                            <td>{{ $item->tipe == '0' ? 'Gambar' : ($item->tipe == '1' ? 'Video' : 'Tab') }}
+                                            @if ($item->status == '1')
+                                                <td class="text-success">Aktif</td>
+                                            @else
+                                                <td class="text-danger">Non Aktif</td>
+                                            @endif
+                                            <td style="padding-left:0; padding-right:0">
+                                                {{ $item->tipe == '0' ? 'Gambar' : ($item->tipe == '1' ? 'Video' : 'Tab') }}
                                             </td>
                                             <td>
-                                                <img src="{{ asset('upload/slide/' . $item->file) }}" width="120px"
-                                                    height="70px" alt="image">
+                                                <img src="{{ asset('upload/slide/' . $item->file) }}" width="80px"
+                                                    height="50px" alt="image">
                                             </td>
                                             <td>
                                                 <div class="demo-inline-spacing">

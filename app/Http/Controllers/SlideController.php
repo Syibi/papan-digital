@@ -8,10 +8,17 @@ use App\Models\Data_Penduduk;
 use App\Models\Data_Umum;
 use App\Models\Data_Pendidikan;
 use App\Models\Data_Pekerjaan;
+use App\Models\Data_Sarpras;
 use App\Models\Data_Running_Text;
 use App\Models\File_Musik;
 use App\Models\Struktur_Desa;
 use App\Models\Profil_Desa;
+use App\Models\Proker_Desa;
+use App\Models\Kategori_Desa;
+use App\Models\Data_Pkk;
+use App\Models\Proker_Pkk;
+use App\Models\Kategori_Pkk;
+use App\Models\Struktur_Pkk;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -23,20 +30,27 @@ class SlideController extends Controller
         $slide = Slide::where('status', '1')->get();
         $title = "Beranda";
         $musik = File_Musik::latest()->first();
-        $data = Struktur_Desa::all();
+        $datadesa = Struktur_Desa::all();
+        $datapkk = Struktur_Pkk::all();
         $teks = Data_Running_Text::all();
         $profil = Profil_Desa::where('id', '1')->first();
         $umum = Data_Umum::where('id', '1')->first();
         $pendidikan = Data_Pendidikan::where('id', '1')->first();
         $penduduk = Data_Penduduk::where('id', '1')->first();
         $pekerjaan = Data_Pekerjaan::where('id', '1')->first();
+        $sarpras = Data_Sarpras::where('id', '1')->first();
+        $kategoriDesa = Kategori_Desa::all();
+        $prokerDesa = Proker_Desa::all();
+        $profilPkk = Data_pkk::where('id', '1')->first();
+        $kategoriPkk = Kategori_Pkk::all();
+        $prokerPkk = Proker_Pkk::all();
 
-        $jabatan = [];
-        $sorted = [];
-        $grafik = array();
-        foreach ($data as $item1) {
+        $jabatandesa = [];
+        $sorteddesa = [];
+        $grafikdesa = array();
+        foreach ($datadesa as $item1) {
             $atasan = ""; 
-            foreach ($data as $item2) {
+            foreach ($datadesa as $item2) {
                 if ($item2['jabatan'] == $item1['atasan'])  {
                     $atasan = $item2['nama'];
                 }
@@ -44,16 +58,41 @@ class SlideController extends Controller
             $image = "../upload/profil/".$item1['file'];
             $header = array('v' =>  $item1['nama'], 
                             'f' =>
-                            '<a class="fir-imageover" rel="noopener">
+                            '<a class="fir-imageover"  rel="noopener" style="display:flex; justify-content:center; align-item:center">
                                 <img class="fir-author-image fir-clickcircle" src="'.$image.'">
                             </a>
-                                <div style="color:white"><strong>'.$item1['nama'].'</strong></div>
+                                <div style="color:white; width:120px"><strong>'.$item1['nama'].'</strong></div>
                                 <div style="color:white"><em>'.$item1['jabatan'].'</em></div>'
                         );
-            array_push($jabatan, $item1['jabatan']);
-            array_push($grafik, [$header, $atasan, $item1['link']]);
-            $sorted = array_unique($jabatan);
-            $sorted = array_values($sorted);
+            array_push($jabatandesa, $item1['jabatan']);
+            array_push($grafikdesa, [$header, $atasan, $item1['link']]);
+            $sorteddesa = array_unique($jabatandesa);
+            $sorteddesa = array_values($sorteddesa);
+        }
+
+        $jabatanpkk = [];
+        $sortedpkk = [];
+        $grafikpkk = array();
+        foreach ($datapkk as $item1) {
+            $atasan = ""; 
+            foreach ($datapkk as $item2) {
+                if ($item2['jabatan'] == $item1['atasan'])  {
+                    $atasan = $item2['nama'];
+                }
+            }
+            $image = "../upload/profil/".$item1['file'];
+            $header = array('v' =>  $item1['nama'], 
+                            'f' =>
+                            '<a class="fir-imageover"  rel="noopener" style="display:flex; justify-content:center; align-item:center">
+                                <img class="fir-author-image fir-clickcircle" src="'.$image.'">
+                            </a>
+                                <div style="color:white; width:120px"><strong>'.$item1['nama'].'</strong></div>
+                                <div style="color:white"><em>'.$item1['jabatan'].'</em></div>'
+                        );
+            array_push($jabatanpkk, $item1['jabatan']);
+            array_push($grafikpkk, [$header, $atasan, $item1['link']]);
+            $sortedpkk = array_unique($jabatanpkk);
+            $sortedpkk = array_values($sortedpkk);
         }
         // Grafik Penduduk
         $penduduk = Data_Penduduk::where('id', '1')->first();
@@ -70,11 +109,31 @@ class SlideController extends Controller
         ->setDataset([$md, $dw, $tu])
         ->setLabels(['Usia 0-15', 'Usia 15-65', 'Usia 65 Tahun keatas']);
 
-        return view('admin.beranda', compact('slide', 'title', 'chart_jk', 'chart_usia', 'musik' , 'grafik', 'teks', 'profil', 'umum', 'penduduk', 'pendidikan' ));
+        return view('admin.beranda', compact(
+            'slide', 
+            'title', 
+            'chart_jk', 
+            'chart_usia', 
+            'musik', 
+            'grafikdesa', 
+            'grafikpkk', 
+            'teks', 
+            'profil', 
+            'umum', 
+            'penduduk', 
+            'pendidikan', 
+            'pekerjaan', 
+            'sarpras', 
+            'kategoriDesa', 
+            'prokerDesa', 
+            'profilPkk',
+            'kategoriPkk', 
+            'prokerPkk'
+        ));
     }
     public function edit()
     {
-        $slide = Slide::paginate(5);
+        $slide = Slide::paginate(6);
         $title = "Beranda";
         $musik = File_Musik::latest()->first();
         $teks = Data_Running_Text::all();
@@ -84,7 +143,7 @@ class SlideController extends Controller
     {
         $this->validate($request, [
             'judul' => 'required|min:3',
-            'deskripsi' => 'required|min:5',
+            // 'deskripsi' => 'required|min:5',
         ]);
 
         if ($request->hasFile('file')) {

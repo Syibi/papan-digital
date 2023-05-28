@@ -16,7 +16,7 @@ class PkkController extends Controller
     public function profil()
     {
         $data = Struktur_Pkk::all();
-        $profil = Data_Pkk::where('id', '1')->first();
+        $profilPkk = Data_Pkk::where('id', '1')->first();
         $jabatan = [];
         $sorted = [];
         $grafik = array();
@@ -44,7 +44,7 @@ class PkkController extends Controller
         }
         $title = "Profil PKK";
         $musik = File_Musik::latest()->first();
-        return view('admin.profil-pkk', compact('title', 'data', 'sorted' , 'grafik' , 'profil' , 'musik'));
+        return view('admin.profil-pkk', compact('title', 'data', 'sorted' , 'grafik' , 'profilPkk' , 'musik'));
     }
 
     public function addProfil(Request $request)

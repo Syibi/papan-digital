@@ -4,12 +4,17 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class profilPkk extends Component
+class slideBidangUmum extends Component
 {
-    public $profilPkk = "";
-    public function __construct($profilPkk)
+    /**
+     * Create a new component instance.
+     *
+     * @return void
+     */
+    public $umum = "";
+    public function __construct($umum)
     {
-        $this->profilPkk=$profilPkk;
+        $this->umum=$umum;
     }
 
     /**
@@ -19,6 +24,6 @@ class profilPkk extends Component
      */
     public function render()
     {
-        return view('components.profil-pkk');
+        return view('components.slide-bidang-umum');
     }
 }

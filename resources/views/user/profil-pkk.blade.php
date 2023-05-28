@@ -26,7 +26,7 @@
             </ul>
             <div class="tab-content">
                 <div class="tab-pane fade active show" id="navs-justified-profil" role="tabpanel">
-                    <x-profilPkk :profil=$profil />
+                    <x-profilPkk :profilPkk=$profilPkk />
                 </div>
                 <div class="tab-pane fade active show" id="navs-justified-struktur" role="tabpanel">
                     <div id="chart_div"></div>
