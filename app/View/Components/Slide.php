@@ -11,7 +11,11 @@ class Slide extends Component
     public $chartusia = "";
     public $chartjk = "";
     public $grafikdesa = "";
-    public $grafikpkk = "";
+    public $grafikpkk1 = "";
+    public $grafikpkk2 = "";
+    public $grafikpkk3 = "";
+    public $grafikpkk4 = "";
+    public $grafikpkk5 = "";
     public $teks = "";
     public $profil = "";
     public $umum = "";
@@ -29,7 +33,11 @@ class Slide extends Component
                                 $chartjk, 
                                 $chartusia, 
                                 $grafikdesa, 
-                                $grafikpkk, 
+                                $grafikpkk1, 
+                                $grafikpkk2, 
+                                $grafikpkk3, 
+                                $grafikpkk4, 
+                                $grafikpkk5, 
                                 $teks, 
                                 $profil, 
                                 $umum, 
@@ -47,7 +55,11 @@ class Slide extends Component
         $this->chartjk = $chartjk;
         $this->chartusia = $chartusia;
         $this->grafikdesa = $grafikdesa;
-        $this->grafikpkk = $grafikpkk;
+        $this->grafikpkk1 = $grafikpkk1;
+        $this->grafikpkk2 = $grafikpkk2;
+        $this->grafikpkk3 = $grafikpkk3;
+        $this->grafikpkk4 = $grafikpkk4;
+        $this->grafikpkk5 = $grafikpkk5;
         $this->teks = $teks;
         $this->profil = $profil;
         $this->umum = $umum;

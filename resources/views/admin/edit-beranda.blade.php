@@ -249,7 +249,7 @@
         </div>
     </div>
 
-    @php($no = 1)
+    @php($no = ($slide->currentpage() - 1) * $slide->perpage() + 1)
     @foreach ($slide as $item)
         <!-- Modal Edit Slide -->
         <div class="modal fade" id="edit-slide{{ $item->id }}" tabindex="-1" style="display: none;"

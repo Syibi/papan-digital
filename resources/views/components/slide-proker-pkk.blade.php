@@ -1,3 +1,9 @@
+<div class="col-md-6 mb-5 mx-auto d-flex justify-content-center align-content-center"
+    style="background-color: #24293D; border-radius:10px">
+    <h4 style="margin-bottom: 10px; margin-top:10px; color:white"><strong>Program
+            Kerja
+            PKK Desa Tikusan</strong></h4>
+</div>
 <div id="carouselDesa" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner" style="box-shadow: none; border-radius:0; ">
         @php($first = true)
@@ -5,7 +11,7 @@
             @foreach ($prokerPkk as $itemProker)
                 @if ($itemProker->kategori == $item->kategori)
                     <div class="carousel-item {{ $first == true ? 'active' : '' }}" style="width: 100%;"
-                        data-bs-interval="5000">
+                        data-bs-interval="8000">
                         {{ $first = false }}
                         <div class="row g-0">
                             <div class="col-md-6">
@@ -17,6 +23,12 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="card-body mt-0" style="padding-top: 0; padding-bottom:0">
+                                    <h5 style="display:flex; justify-content:center; color:#24293D"><strong>PROKER
+                                            {{ $item->kategori }}</strong>
+                                    </h5>
+                                    <div class="divider divider-warning">
+                                        <div class="divider-text">Detail PROKER</div>
+                                    </div>
                                     <table class="table">
                                         <tbody>
                                             <tr>

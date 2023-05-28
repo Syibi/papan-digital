@@ -95,56 +95,54 @@
         </div>
     </div>
     <label class="form-label mt-4"><strong>Jumlah Kader</strong></label>
-    <div class="row gx-5">
-        <div class="col-sm-12">
-            <div class="row">
-                <div class="col">
-                    <li class="d-flex mt-1 mb-1 pb-1">
-                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                                <h6 class="mb-0">Anggota TP PKK</h6>
-                            </div>
-                            <div class="user-progress">
-                                <div class="input-group">
-                                    <input class="form-control" name="tp_pkk" type="text" id="data_pkk" readonly
-                                        value="{{ $profilPkk['tp_pkk'] }}">
-                                    <span class="input-group-text">Jiwa</span>
-                                </div>
-                            </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <li class="d-flex mt-1 mb-1 pb-1">
+                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                    <div class="me-2">
+                        <h6 class="mb-0">Anggota TP PKK</h6>
+                    </div>
+                    <div class="user-progress">
+                        <div class="input-group">
+                            <input class="form-control" name="tp_pkk" type="text" id="data_pkk" readonly
+                                value="{{ $profilPkk['tp_pkk'] }}">
+                            <span class="input-group-text">Jiwa</span>
                         </div>
-                    </li>
-                    <li class="d-flex mb-1 pb-1">
-                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                                <h6 class="mb-0">Anggota Umum</h6>
-                            </div>
-                            <div class="user-progress">
-                                <div class="input-group">
-                                    <input class="form-control" name="umum" type="text" id="data_pkk"
-                                        readonly value="{{ $profilPkk['umum'] }}">
-                                    <span class="input-group-text">jiwa</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    </div>
                 </div>
-                <div class="col">
-                    <li class="d-flex mb-1 pb-1">
-                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                                <h6 class="mb-0">Anggota Khusus</h6>
-                            </div>
-                            <div class="user-progress">
-                                <div class="input-group">
-                                    <input class="form-control" name="khusus" type="text" id="data_pkk"
-                                        readonly value="{{ $profilPkk['khusus'] }}">
-                                    <span class="input-group-text">jiwa</span>
-                                </div>
-                            </div>
+            </li>
+        </div>
+        <div class="col-sm-4">
+            <li class="d-flex mb-1 pb-1">
+                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                    <div class="me-2">
+                        <h6 class="mb-0">Anggota Umum</h6>
+                    </div>
+                    <div class="user-progress">
+                        <div class="input-group">
+                            <input class="form-control" name="umum" type="text" id="data_pkk" readonly
+                                value="{{ $profilPkk['umum'] }}">
+                            <span class="input-group-text">jiwa</span>
                         </div>
-                    </li>
+                    </div>
                 </div>
-            </div>
+            </li>
+        </div>
+        <div class="col-sm-4">
+            <li class="d-flex mb-1 pb-1">
+                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                    <div class="me-2">
+                        <h6 class="mb-0">Anggota Khusus</h6>
+                    </div>
+                    <div class="user-progress">
+                        <div class="input-group">
+                            <input class="form-control" name="khusus" type="text" id="data_pkk" readonly
+                                value="{{ $profilPkk['khusus'] }}">
+                            <span class="input-group-text">jiwa</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
         </div>
     </div>
 </div>

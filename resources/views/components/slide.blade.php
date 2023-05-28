@@ -36,7 +36,7 @@
                                     <div class="singleslide"
                                         style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding-top:20px">
                                         <div class="row mb-3">
-                                            <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
+                                            <div class="col-md-5 mx-auto d-flex justify-content-center align-content-center"
                                                 style="background-color: #24293D; border-radius:10px">
                                                 <h4 style="margin-bottom: 10px; margin-top:10px; color:white"><strong>Profil
                                                         Desa TIkusan</strong></h4>
@@ -48,8 +48,8 @@
 
                                 @case('bidang_umum')
                                     <div class="singleslide"
-                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 50px 50px 50px">
-                                        <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:30px 30px 30px 30px">
+                                        <div class="col-md-5 mb-5 mx-auto d-flex justify-content-center align-content-center"
                                             style="background-color: #24293D; border-radius:10px">
                                             <h4 style="margin-bottom: 10px; margin-top:10px; color:white"><strong>Data Bidang
                                                     Umum</strong></h4>
@@ -60,8 +60,8 @@
 
                                 @case('data_pendidikan')
                                     <div class="singleslide"
-                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
-                                        <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:30px 30px 30px 30px">
+                                        <div class="col-md-5 mb-4 mx-auto d-flex justify-content-center align-content-center"
                                             style="background-color: #24293D; border-radius:10px">
                                             <h4 style="margin-bottom: 10px; margin-top:10px; color:white"><strong>Data
                                                     Pendidikan</strong></h4>
@@ -72,37 +72,37 @@
 
                                 @case('data_penduduk')
                                     <div class="singleslide"
-                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
-                                        <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:30px 30px 30px 30px">
+                                        <div class="col-md-6 mb-4 mx-auto d-flex justify-content-center align-content-center"
                                             style="background-color: #24293D; border-radius:10px">
                                             <h4 style="margin-bottom: 10px; margin-top:10px; color:white"><strong>Data
                                                     Penduduk</strong></h4>
                                         </div>
-                                        <x-tabPenduduk :penduduk=$penduduk :chartjk=$chartjk :chartusia=$chartusia />
+                                        <x-slideDataPenduduk :penduduk=$penduduk :chartjk=$chartjk :chartusia=$chartusia />
                                     </div>
                                 @break
 
                                 @case('data_pekerjaan')
                                     <div class="singleslide"
-                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
-                                        <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:30px 30px 30px 30px">
+                                        <div class="col-md-5 mb-4 mx-auto d-flex justify-content-center align-content-center"
                                             style="background-color: #24293D; border-radius:10px">
                                             <h4 style="margin-bottom: 10px; margin-top:10px; color:white"><strong>Data
                                                     Pekerjaan</strong></h4>
                                         </div>
-                                        <x-tabPekerjaan :pekerjaan=$pekerjaan />
+                                        <x-slideDataPekerjaan :pekerjaan=$pekerjaan />
                                     </div>
                                 @break
 
                                 @case('data_sarpras')
                                     <div class="singleslide"
-                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
-                                        <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:30px 30px 30px 30px">
+                                        <div class="col-md-5 mx-auto d-flex justify-content-center align-content-center"
                                             style="background-color: #24293D; border-radius:10px">
                                             <h4 style="margin-bottom: 10px; margin-top:10px; color:white"><strong>Data Sarana
                                                     Prasarana</strong></h4>
                                         </div>
-                                        <x-tabSarpras :sarpras=$sarpras />
+                                        <x-slideDataSarpras :sarpras=$sarpras />
                                     </div>
                                 @break
 
@@ -123,7 +123,7 @@
                                 @case('proker_desa')
                                     <div class="singleslide"
                                         style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
-                                        <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
+                                        <div class="col-md-6 mb-5 mx-auto d-flex justify-content-center align-content-center"
                                             style="background-color: #24293D; border-radius:10px">
                                             <h4 style="margin-bottom: 10px; margin-top:10px; color:white"><strong>Program Kerja
                                                     Desa Tikusan</strong></h4>
@@ -134,7 +134,7 @@
 
                                 @case('profil_pkk')
                                     <div class="singleslide"
-                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding-top:20px">
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:30px 30px 30px 30px">
                                         <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
                                             style="background-color: #24293D; border-radius:10px">
                                             <h4 style="margin-bottom: 10px; margin-top:10px; color:white"><strong>Profil PKK
@@ -148,46 +148,130 @@
                                     <div class="singleslide"
                                         style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:20px 30px 30px 30px">
                                         <div class="row">
-                                            <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
-                                                style="background-color: #24293D; border-radius:10px">
-                                                <h4 style="margin-bottom: 10px; margin-top:10px; color:white"><strong>Struktur
-                                                        Organisasi PKK Desa Tikusan</strong></h4>
+                                            <div id="carouselDesa" class="carousel slide" data-bs-ride="carousel">
+                                                <div class="carousel-inner" style="box-shadow: none; border-radius:0; ">
+                                                    <div class="carousel-item active" style="width: 100%;"
+                                                        data-bs-interval="7000">
+                                                        <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
+                                                            style="background-color: #24293D; border-radius:10px">
+                                                            <h4 style="margin-bottom: 10px; margin-top:10px; color:white">
+                                                                <strong>Struktur Organisasi PKK Desa Tikusan</strong><br /><span
+                                                                    style="display:flex; justify-content:center"><small>Bidang
+                                                                        Umum</small></span>
+                                                            </h4>
+                                                        </div>
+                                                        <div class="mt-3" id="chart_div_pkk1"></div>
+                                                        < </div>
+                                                            <div class="carousel-item" style="width: 100%;"
+                                                                data-bs-interval="7000">
+                                                                <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
+                                                                    style="background-color: #24293D; border-radius:10px">
+                                                                    <h4
+                                                                        style="margin-bottom: 10px; margin-top:10px; color:white">
+                                                                        <strong>Struktur Organisasi PKK Desa
+                                                                            Tikusan</strong><br /><span
+                                                                            style="display:flex; justify-content:center"><small>POKJA
+                                                                                I</small></span>
+                                                                    </h4>
+                                                                </div>
+                                                                <div class="mt-3" id="chart_div_pkk2"></div>
+                                                            </div>
+                                                            <div class="carousel-item" style="width: 100%;"
+                                                                data-bs-interval="7000">
+                                                                <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
+                                                                    style="background-color: #24293D; border-radius:10px">
+                                                                    <h4
+                                                                        style="margin-bottom: 10px; margin-top:10px; color:white; justify-content:center">
+                                                                        <strong>Struktur Organisasi PKK Desa
+                                                                            Tikusan</strong><br /><span
+                                                                            style="display:flex; justify-content:center"><small>POKJA
+                                                                                II</small></span>
+                                                                    </h4>
+                                                                </div>
+                                                                <div class="mt-3" id="chart_div_pkk3"></div>
+                                                            </div>
+                                                            <div class="carousel-item" style="width: 100%;"
+                                                                data-bs-interval="7000">
+                                                                <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
+                                                                    style="background-color: #24293D; border-radius:10px">
+                                                                    <h4
+                                                                        style="margin-bottom: 10px; margin-top:10px; color:white">
+                                                                        <strong>Struktur Organisasi PKK Desa
+                                                                            Tikusan</strong><br /><span
+                                                                            style="display:flex; justify-content:center"><small>POKJA
+                                                                                III</small></span>
+                                                                    </h4>
+                                                                </div>
+                                                                <div class="mt-3" id="chart_div_pkk4"></div>
+                                                            </div>
+                                                            <div class="carousel-item" style="width: 100%;"
+                                                                data-bs-interval="7000">
+                                                                <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
+                                                                    style="background-color: #24293D; border-radius:10px">
+                                                                    <h4
+                                                                        style="margin-bottom: 10px; margin-top:10px; color:white">
+                                                                        <strong>Struktur Organisasi PKK Desa
+                                                                            Tikusan</strong><br /><span
+                                                                            style="display:flex; justify-content:center"><small>POKJA
+                                                                                IV</small></span>
+                                                                    </h4>
+                                                                </div>
+                                                                <div class="mt-3" id="chart_div_pkk5"></div>
+                                                            </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="mt-3" id="chart_div_pkk"></div>
-                                    </div>
-                                @break
+                                    @break
 
-                                @case('proker_pkk')
-                                    <div class="singleslide"
-                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
-                                        <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
-                                            style="background-color: #24293D; border-radius:10px">
-                                            <h4 style="margin-bottom: 10px; margin-top:10px; color:white"><strong>Program Kerja
-                                                    PKK Desa Tikusan</strong></h4>
+                                    @case('proker_pkk')
+                                        <div class="singleslide"
+                                            style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
+
+                                            <x-slideProkerPkk :kategoriPkk=$kategoriPkk :prokerPkk=$prokerPkk />
                                         </div>
-                                        <x-slideProkerPkk :kategoriPkk=$kategoriPkk :prokerPkk=$prokerPkk />
-                                    </div>
-                                @break
+                                    @break
 
-                                @default
-                            @endswitch
-                        </div>
+                                    @default
+                                @endswitch
+                            </div>
                     @endif
                 @endforeach
                 {{-- Tab Video --}}
                 <div class="tab-pane fade" id="video" role="tabpanel">
-                    <video class="img-fluid" id="videoSrc" autoplay loop muted
-                        style="border-radius: 0 0.5rem 0.5rem 0; box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45);">
-                    </video>
+                    <div class="singleslide"
+                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:30px 30px 30px 30px">
+                        <div class="col-sm-6 mx-auto d-flex justify-content-center align-content-center"
+                            style="background-color: #24293D; border-radius:10px">
+                            <h4 id="videoTitle" style="margin-top:10px; margin-bottom:10px; color:white">
+                            </h4>
+                        </div>
+                        <p class="d-flex justify-content-center align-content-center mt-2 mb-4" id="videoDesc"
+                            style="color: #24293D; font-weight:700"></p>
+                        <video class="img-fluid d-flex justify-content-center align-content-center" id="videoSrc"
+                            autoplay loop muted
+                            style="border-radius: 0.5rem 0.5rem 0.5rem 0.5rem; box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45); height:60vh; margin:auto">
+                        </video>
+                    </div>
+
                 </div>
                 {{-- Tab Gambar --}}
                 <div class="tab-pane fade" id="gambar" role="tabpanel">
-                    <img id="gambarSrc" class="d-block w-100" alt="..."
-                        style="object-fit: fill;
-                                height:80vh;
-                                border-radius: 0 0.5rem 0.5rem 0;
-                                box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45);">
+                    <div class="singleslide"
+                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:30px 30px 30px 30px">
+                        <div class="col-sm-6 mx-auto d-flex justify-content-center align-content-center"
+                            style="background-color: #24293D; border-radius:10px">
+                            <h4 id="imgTitle" style="margin-top:10px; margin-bottom:10px; color:white">
+                            </h4>
+                        </div>
+                        <p class="d-flex justify-content-center align-content-center mt-2 mb-4" id="imgDesc"
+                            style="color: #24293D; font-weight:700"></p>
+                        <img id="gambarSrc" class="d-block w-100" alt="..."
+                            style="object-fit: fill;
+                            height:60vh;
+                            border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+                            box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45);">
+                    </div>
                 </div>
             </div>
             <div class="col-12 my-auto" style="height:6%">
@@ -222,7 +306,11 @@
         packages: ["orgchart"]
     });
     google.charts.setOnLoadCallback(drawChartDesa);
-    google.charts.setOnLoadCallback(drawChartPkk);
+    google.charts.setOnLoadCallback(drawChartPkk1);
+    google.charts.setOnLoadCallback(drawChartPkk2);
+    google.charts.setOnLoadCallback(drawChartPkk3);
+    google.charts.setOnLoadCallback(drawChartPkk4);
+    google.charts.setOnLoadCallback(drawChartPkk5);
 
     // Gambar struktur desa
     function drawChartDesa() {
@@ -242,22 +330,101 @@
     }
 
     // Gambar struktur pkk
-    function drawChartPkk() {
+    function drawChartPkk1() {
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Nama');
         data.addColumn('string', 'Atasan');
         data.addColumn('string', 'ToolTip');
-        let pkk = {!! json_encode($grafikpkk) !!};
+        let pkk = {!! json_encode($grafikpkk1) !!};
         data.addRows(pkk);
         // Create the chart.
-        var chart = new google.visualization.OrgChart(document.getElementById('chart_div_pkk'));
+        var chart = new google.visualization.OrgChart(document.getElementById('chart_div_pkk1'));
         // Draw the chart, setting the allowHtml option to true for the tooltips.
         chart.draw(data, {
             'allowHtml': true,
             'allowCollapse': true
         });
     }
-
+    // Gambar struktur pkk
+    function drawChartPkk1() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Nama');
+        data.addColumn('string', 'Atasan');
+        data.addColumn('string', 'ToolTip');
+        let pkk = {!! json_encode($grafikpkk1) !!};
+        data.addRows(pkk);
+        // Create the chart.
+        var chart = new google.visualization.OrgChart(document.getElementById('chart_div_pkk1'));
+        // Draw the chart, setting the allowHtml option to true for the tooltips.
+        chart.draw(data, {
+            'allowHtml': true,
+            'allowCollapse': true
+        });
+    }
+    // Gambar struktur pkk
+    function drawChartPkk2() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Nama');
+        data.addColumn('string', 'Atasan');
+        data.addColumn('string', 'ToolTip');
+        let pkk = {!! json_encode($grafikpkk2) !!};
+        data.addRows(pkk);
+        // Create the chart.
+        var chart = new google.visualization.OrgChart(document.getElementById('chart_div_pkk2'));
+        // Draw the chart, setting the allowHtml option to true for the tooltips.
+        chart.draw(data, {
+            'allowHtml': true,
+            'allowCollapse': true
+        });
+    }
+    // Gambar struktur pkk
+    function drawChartPkk3() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Nama');
+        data.addColumn('string', 'Atasan');
+        data.addColumn('string', 'ToolTip');
+        let pkk = {!! json_encode($grafikpkk3) !!};
+        data.addRows(pkk);
+        // Create the chart.
+        var chart = new google.visualization.OrgChart(document.getElementById('chart_div_pkk3'));
+        // Draw the chart, setting the allowHtml option to true for the tooltips.
+        chart.draw(data, {
+            'allowHtml': true,
+            'allowCollapse': true
+        });
+    }
+    // Gambar struktur pkk
+    function drawChartPkk4() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Nama');
+        data.addColumn('string', 'Atasan');
+        data.addColumn('string', 'ToolTip');
+        let pkk = {!! json_encode($grafikpkk4) !!};
+        data.addRows(pkk);
+        // Create the chart.
+        var chart = new google.visualization.OrgChart(document.getElementById('chart_div_pkk4'));
+        // Draw the chart, setting the allowHtml option to true for the tooltips.
+        chart.draw(data, {
+            'allowHtml': true,
+            'allowCollapse': true
+        });
+    }
+    // Gambar struktur pkk
+    function drawChartPkk5() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Nama');
+        data.addColumn('string', 'Atasan');
+        data.addColumn('string', 'ToolTip');
+        let pkk = {!! json_encode($grafikpkk5) !!};
+        data.addRows(pkk);
+        // Create the chart.
+        var chart = new google.visualization.OrgChart(document.getElementById('chart_div_pkk5'));
+        // Draw the chart, setting the allowHtml option to true for the tooltips.
+        chart.draw(data, {
+            'allowHtml': true,
+            'allowCollapse': true
+        });
+    }
     // Time Script
     function display_c() {
         var refresh = 1000; // Refresh rate in milli seconds
@@ -286,6 +453,10 @@
     // tab carousel
     let allTab = Array.from(document.getElementById('tabContent').children);
     var gambarSrc = document.getElementById('gambarSrc');
+    var judulGambar = document.getElementById('imgTitle');
+    var deskGambar = document.getElementById('imgDesc');
+    var judulVideo = document.getElementById('videoTitle');
+    var deskVideo = document.getElementById('videoDesc');
     var videoSrc = document.getElementById('videoSrc');
     var welcome = document.getElementById('welcome').classList;
     let slide = {!! json_encode($slide) !!};
@@ -307,7 +478,9 @@
                             var Src = "{{ url('') }}" + "/upload/slide/" + (slide[currentNumber]
                                 .file);
                             if (element.id == "gambar") {
-                                gambarSrc.setAttribute("src", Src)
+                                gambarSrc.setAttribute("src", Src);
+                                judulGambar.innerText = (slide[currentNumber].judul);
+                                deskGambar.innerText = (slide[currentNumber].deskripsi);
                                 activeTab.add('active', 'show');
                             } else {
                                 activeTab.remove('active', 'show');
@@ -316,7 +489,9 @@
                             var Src = "{{ url('') }}" + "/upload/slide/" + (slide[currentNumber]
                                 .file);
                             if (element.id == "video") {
-                                videoSrc.setAttribute("src", Src)
+                                videoSrc.setAttribute("src", Src);
+                                judulVideo.innerText = (slide[currentNumber].judul);
+                                deskVideo.innerText = (slide[currentNumber].deskripsi);
                                 activeTab.add('active', 'show');
                             } else {
                                 activeTab.remove('active', 'show');

@@ -31,7 +31,11 @@ class SlideController extends Controller
         $title = "Beranda";
         $musik = File_Musik::latest()->first();
         $datadesa = Struktur_Desa::all();
-        $datapkk = Struktur_Pkk::all();
+        $datapkk1 = Struktur_Pkk::whereIn('jabatan', ['Ketua', 'Wakil Ketua', 'Bendahara', 'Wakil Bendahara', 'Sekretaris', 'Wakil Sekretaris'])->get();
+        $datapkk2 = Struktur_Pkk::whereIn('jabatan', ['Ketua POKJA I', 'Wakil Ketua POKJA I', 'Sekretaris POKJA I', 'Wakil Sekretaris POKJA I', 'Bendahara POKJA I', 'Anggota POKJA I'])->get();
+        $datapkk3 = Struktur_Pkk::whereIn('jabatan', ['Ketua POKJA II', 'Wakil Ketua POKJA II', 'Sekretaris POKJA II', 'Wakil Sekretaris POKJA II', 'Bendahara POKJA II', 'Anggota POKJA II'])->get();
+        $datapkk4 = Struktur_Pkk::whereIn('jabatan', ['Ketua POKJA III', 'Wakil Ketua POKJA III', 'Sekretaris POKJA III', 'Wakil Sekretaris POKJA III', 'Bendahara POKJA III', 'Anggota POKJA III'])->get();
+        $datapkk5 = Struktur_Pkk::whereIn('jabatan', ['Ketua POKJA IV', 'Wakil Ketua POKJA IV', 'Sekretaris POKJA IV', 'Wakil Sekretaris POKJA IV', 'Bendahara POKJA IV', 'Anggota POKJA IV'])->get();
         $teks = Data_Running_Text::all();
         $profil = Profil_Desa::where('id', '1')->first();
         $umum = Data_Umum::where('id', '1')->first();
@@ -70,12 +74,13 @@ class SlideController extends Controller
             $sorteddesa = array_values($sorteddesa);
         }
 
-        $jabatanpkk = [];
-        $sortedpkk = [];
-        $grafikpkk = array();
-        foreach ($datapkk as $item1) {
+        // grafik PKK 1
+        $jabatanpkk1 = [];
+        $sortedpkk1 = [];
+        $grafikpkk1 = array();
+        foreach ($datapkk1 as $item1) {
             $atasan = ""; 
-            foreach ($datapkk as $item2) {
+            foreach ($datapkk1 as $item2) {
                 if ($item2['jabatan'] == $item1['atasan'])  {
                     $atasan = $item2['nama'];
                 }
@@ -86,14 +91,120 @@ class SlideController extends Controller
                             '<a class="fir-imageover"  rel="noopener" style="display:flex; justify-content:center; align-item:center">
                                 <img class="fir-author-image fir-clickcircle" src="'.$image.'">
                             </a>
-                                <div style="color:white; width:120px"><strong>'.$item1['nama'].'</strong></div>
+                                <div style="color:white; width:150px"><strong>'.$item1['nama'].'</strong></div>
                                 <div style="color:white"><em>'.$item1['jabatan'].'</em></div>'
                         );
-            array_push($jabatanpkk, $item1['jabatan']);
-            array_push($grafikpkk, [$header, $atasan, $item1['link']]);
-            $sortedpkk = array_unique($jabatanpkk);
-            $sortedpkk = array_values($sortedpkk);
+            array_push($jabatanpkk1, $item1['jabatan']);
+            array_push($grafikpkk1, [$header, $atasan, $item1['link']]);
+            $sortedpkk1 = array_unique($jabatanpkk1);
+            $sortedpkk1 = array_values($sortedpkk1);
         }
+
+        // grafik PKK 2
+        $jabatanpkk2 = [];
+        $sortedpkk2 = [];
+        $grafikpkk2 = array();
+        foreach ($datapkk2 as $item1) {
+            $atasan = ""; 
+            foreach ($datapkk2 as $item2) {
+                if ($item2['jabatan'] == $item1['atasan'])  {
+                    $atasan = $item2['nama'];
+                }
+            }
+            $image = "../upload/profil/".$item1['file'];
+            $header = array('v' =>  $item1['nama'], 
+                            'f' =>
+                            '<a class="fir-imageover"  rel="noopener" style="display:flex; justify-content:center; align-item:center">
+                                <img class="fir-author-image fir-clickcircle" src="'.$image.'">
+                            </a>
+                                <div style="color:white; width:150px"><strong>'.$item1['nama'].'</strong></div>
+                                <div style="color:white"><em>'.$item1['jabatan'].'</em></div>'
+                        );
+            array_push($jabatanpkk2, $item1['jabatan']);
+            array_push($grafikpkk2, [$header, $atasan, $item1['link']]);
+            $sortedpkk2 = array_unique($jabatanpkk2);
+            $sortedpkk2 = array_values($sortedpkk2);
+        }
+
+        // grafik PKK 3
+        $jabatanpkk3 = [];
+        $sortedpkk3 = [];
+        $grafikpkk3 = array();
+        foreach ($datapkk3 as $item1) {
+            $atasan = ""; 
+            foreach ($datapkk3 as $item2) {
+                if ($item2['jabatan'] == $item1['atasan'])  {
+                    $atasan = $item2['nama'];
+                }
+            }
+            $image = "../upload/profil/".$item1['file'];
+            $header = array('v' =>  $item1['nama'], 
+                            'f' =>
+                            '<a class="fir-imageover"  rel="noopener" style="display:flex; justify-content:center; align-item:center">
+                                <img class="fir-author-image fir-clickcircle" src="'.$image.'">
+                            </a>
+                                <div style="color:white; width:150px"><strong>'.$item1['nama'].'</strong></div>
+                                <div style="color:white"><em>'.$item1['jabatan'].'</em></div>'
+                        );
+            array_push($jabatanpkk3, $item1['jabatan']);
+            array_push($grafikpkk3, [$header, $atasan, $item1['link']]);
+            $sortedpkk3 = array_unique($jabatanpkk3);
+            $sortedpkk3 = array_values($sortedpkk3);
+        }
+
+        // grafik PKK 4
+        $jabatanpkk4 = [];
+        $sortedpkk4 = [];
+        $grafikpkk4 = array();
+        foreach ($datapkk4 as $item1) {
+            $atasan = ""; 
+            foreach ($datapkk4 as $item2) {
+                if ($item2['jabatan'] == $item1['atasan'])  {
+                    $atasan = $item2['nama'];
+                }
+            }
+            $image = "../upload/profil/".$item1['file'];
+            $header = array('v' =>  $item1['nama'], 
+                            'f' =>
+                            '<a class="fir-imageover"  rel="noopener" style="display:flex; justify-content:center; align-item:center">
+                                <img class="fir-author-image fir-clickcircle" src="'.$image.'">
+                            </a>
+                                <div style="color:white; width:150px"><strong>'.$item1['nama'].'</strong></div>
+                                <div style="color:white"><em>'.$item1['jabatan'].'</em></div>'
+                        );
+            array_push($jabatanpkk4, $item1['jabatan']);
+            array_push($grafikpkk4, [$header, $atasan, $item1['link']]);
+            $sortedpkk4 = array_unique($jabatanpkk4);
+            $sortedpkk4 = array_values($sortedpkk4);
+        }
+
+        // grafik PKK 5
+        $jabatanpkk5 = [];
+        $sortedpkk5 = [];
+        $grafikpkk5 = array();
+        foreach ($datapkk5 as $item1) {
+            $atasan = ""; 
+            foreach ($datapkk5 as $item2) {
+                if ($item2['jabatan'] == $item1['atasan'])  {
+                    $atasan = $item2['nama'];
+                }
+            }
+            $image = "../upload/profil/".$item1['file'];
+            $header = array('v' =>  $item1['nama'], 
+                            'f' =>
+                            '<a class="fir-imageover"  rel="noopener" style="display:flex; justify-content:center; align-item:center">
+                                <img class="fir-author-image fir-clickcircle" src="'.$image.'">
+                            </a>
+                                <div style="color:white; width:150px"><strong>'.$item1['nama'].'</strong></div>
+                                <div style="color:white"><em>'.$item1['jabatan'].'</em></div>'
+                        );
+            array_push($jabatanpkk5, $item1['jabatan']);
+            array_push($grafikpkk5, [$header, $atasan, $item1['link']]);
+            $sortedpkk5 = array_unique($jabatanpkk5);
+            $sortedpkk5 = array_values($sortedpkk5);
+        }
+
+
         // Grafik Penduduk
         $penduduk = Data_Penduduk::where('id', '1')->first();
         $lk = (int)$penduduk['laki-laki'];
@@ -116,7 +227,11 @@ class SlideController extends Controller
             'chart_usia', 
             'musik', 
             'grafikdesa', 
-            'grafikpkk', 
+            'grafikpkk1', 
+            'grafikpkk2', 
+            'grafikpkk3', 
+            'grafikpkk4', 
+            'grafikpkk5', 
             'teks', 
             'profil', 
             'umum', 

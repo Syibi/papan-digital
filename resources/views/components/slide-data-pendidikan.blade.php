@@ -165,7 +165,7 @@
                     <li class="d-flex mb-1 pb-1">
                         <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
-                                <h6 class="mb-0">Pendidikan Keagamaan</h6>
+                                <h6 class="mb-0">Pend. Keagamaan</h6>
                             </div>
                             <div class="user-progress">
                                 <div class="input-group">
