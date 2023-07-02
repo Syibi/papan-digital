@@ -60,7 +60,6 @@
                     activeTab.remove('active', 'show');
                 }
             });
-            // var activeTab = document.getElementById(tabName)
         }
 
         function checkAccordion(accordionid) {

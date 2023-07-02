@@ -149,12 +149,18 @@
                                         <option value="data_pekerjaan">Data Pekerjaan</option>
                                         <option value="data_sarpras">Data Sarana Prasarana</option>
                                         <option value="struktur_desa">Struktur Desa</option>
-                                        <option value="data_aparat_desa">Data Aparat Desa</option> {{-- paralel --}}
-                                        <option value="proker_desa">Program Kerja Desa</option> {{-- paralel --}}
-                                        <option value="profil_pkk">Profil PKK</option> {{-- paralel --}}
-                                        <option value="struktur_pkk">Struktur PKK</option> {{-- paralel --}}
-                                        <option value="data_anggota_pkk">Data Anggota PKK</option> {{-- paralel --}}
-                                        <option value="proker_pkk">Program Kerja PKK</option> {{-- paralel --}}
+                                        <option value="data_aparat_desa">Data Aparat Desa</option>
+                                        <option value="proker_desa">Program Kerja Desa</option>
+                                        <option value="profil_pkk">Profil PKK</option>
+                                        <option value="struktur_pkk">Struktur PKK</option>
+                                        <option value="data_anggota_pkk">Data Anggota PKK</option>
+                                        <option value="proker_pkk">Program Kerja PKK</option>
+                                        <option value="papan_data_sekretaris">Papan Data Sekretaris PKK</option>
+                                        <option value="papan_data_bendahara">Papan Data Bendahara PKK</option>
+                                        <option value="papan_data_pokja1">Papan Data POKJA 1 PKK</option>
+                                        <option value="papan_data_pokja2">Papan Data POKJA 2 PKK</option>
+                                        <option value="papan_data_pokja3">Papan Data POKJA 3 PKK</option>
+                                        <option value="papan_data_pokja4">Papan Data POKJA 4 PKK</option>
                                     </select>
                                 </div>
                                 <div class="form-group mt-4">

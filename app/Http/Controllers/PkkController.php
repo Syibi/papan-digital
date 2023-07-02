@@ -8,6 +8,7 @@ use App\Models\Proker_Pkk;
 use App\Models\Kategori_Pkk;
 use App\Models\Data_Pkk;
 use App\Models\File_Musik;
+use App\Models\Papan_Data;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 class PkkController extends Controller
@@ -206,6 +207,74 @@ class PkkController extends Controller
     {
         $proker->delete();
         Alert::success('Selamat', 'Data berhasil dihapus');
+        return redirect()->back();
+    }
+
+    public function papanData()
+    {
+        $title = "Papan Data";
+        $papan_data = Papan_Data::all();
+        $musik = File_Musik::latest()->first();
+        return view('admin.edit-papan', compact('title', 'musik', 'papan_data'));
+    }
+
+    public function addPapan(Request $request)
+    {
+        $this->validate($request, [
+            'nama_papan' => 'required|min:5',
+            'kategori' => 'required|min:5',
+        ]);
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $filename = $file->getClientOriginalName();
+            $file->move('upload/papan_data', $filename);
+        }
+
+        Papan_Data::create([
+            'nama_papan' => $request->nama_papan,
+            'kategori' => $request->kategori,
+            'file' => $filename
+        ]);
+
+        Alert::success('Selamat', 'Data berhasil ditambah');
+        return redirect()->back();
+    }
+    public function updatePapan(Request $request, $id)
+    {
+        $papan = Papan_Data::find($id);
+        if ($request->hasFile('file')) {
+            $destination = public_path('\upload\papan_data\\') .$papan->file;
+            if (File::exists($destination)) {
+                File::delete($destination);
+            }
+            $file = $request->file('file');
+            $filename = $file->getClientOriginalName();
+            $file->move('upload/papan_data', $filename);
+            $papan->update([
+                'file' => $filename
+            ]);
+        }
+        $papan->update([
+            'nama_papan' => $request->nama_papan,
+            'kategori' => $request->kategori,
+        ]);
+        Alert::success('Selamat', 'Data Berhasil diupdate');
+        return redirect()->back();
+    }
+    public function deletePapan($id)
+    {
+        $papan = Papan_Data::find($id);
+        if ($papan->count() > 0) {
+            $destination = public_path('\upload\papan_data\\') .$papan->file;
+            if (File::exists($destination)) {
+                File::delete($destination);
+            }
+            $papan->delete();
+            Alert::success('Selamat', 'Data berhasil dihapus');
+            return redirect()->back();
+        }
+        Alert::error('Maaf', 'Data gagal dihapus, silahkan coba lagi');
         return redirect()->back();
     }
 }

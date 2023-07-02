@@ -128,7 +128,14 @@
                             <div data-i18n="Basic">Profil PKK</div>
                         </a>
                     </li>
-                    <!-- User interface -->
+                    <!-- Papan Digital -->
+                    <li class="menu-item {{ $title === 'Papan Data' ? 'active' : '' }}">
+                        <a href="/admin/papan-data" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <div data-i18n="User interface">Papan Data</div>
+                        </a>
+                    </li>
+                    <!-- Proker PKK -->
                     <li class="menu-item {{ $title === 'Proker PKK' ? 'active' : '' }}">
                         <a href="/admin/proker-pkk" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-collection"></i>

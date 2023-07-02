@@ -28,6 +28,7 @@ class Slide extends Component
     public $profilPkk = "";
     public $kategoriPkk = "";
     public $prokerPkk = "";
+    public $papandata = "";
 
     public function __construct($slide, 
                                 $chartjk, 
@@ -49,7 +50,8 @@ class Slide extends Component
                                 $prokerDesa,
                                 $profilPkk,
                                 $kategoriPkk,
-                                $prokerPkk)
+                                $prokerPkk,
+                                $papandata)
     {
         $this->slide = $slide;
         $this->chartjk = $chartjk;
@@ -72,6 +74,7 @@ class Slide extends Component
         $this->profilPkk = $profilPkk;
         $this->kategoriPkk = $kategoriPkk;
         $this->prokerPkk = $prokerPkk;
+        $this->papandata = $papandata;
 
     }
 

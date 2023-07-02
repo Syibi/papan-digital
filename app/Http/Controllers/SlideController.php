@@ -18,6 +18,7 @@ use App\Models\Kategori_Desa;
 use App\Models\Data_Pkk;
 use App\Models\Proker_Pkk;
 use App\Models\Kategori_Pkk;
+use App\Models\Papan_Data;
 use App\Models\Struktur_Pkk;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Illuminate\Support\Facades\File;
@@ -48,6 +49,7 @@ class SlideController extends Controller
         $profilPkk = Data_pkk::where('id', '1')->first();
         $kategoriPkk = Kategori_Pkk::all();
         $prokerPkk = Proker_Pkk::all();
+        $papandata = Papan_Data::all();
 
         $jabatandesa = [];
         $sorteddesa = [];
@@ -243,7 +245,8 @@ class SlideController extends Controller
             'prokerDesa', 
             'profilPkk',
             'kategoriPkk', 
-            'prokerPkk'
+            'prokerPkk',
+            'papandata'
         ));
     }
     public function edit()

@@ -394,6 +394,12 @@ class UserController extends Controller
         return view('user.profil-pkk', compact('title', 'data', 'sorted' , 'grafik' , 'profilPkk', 'musik'));
     }
 
+    public function papanData()
+    {
+        $title = "Papan Data";
+        return view('user.proker-pkk', compact('title'));
+    }
+    
     public function prokerPkk()
     {
         $kategori = Kategori_Pkk::all();

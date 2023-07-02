@@ -2,6 +2,7 @@
     <div class="card px-2" style=" height: 86vh; overflow:hidden">
         <div class="row px-1" style="height: 100%;">
             <div id="tabContent" class="tab-content" style="height: 94%; overflow:hidden; padding:0; border-radius: 0">
+                {{-- Tab HomePage --}}
                 <div class="tab-pane fade active show" id="welcome" role="tabpanel" style="height:100%;">
                     <video id="videoBg" autoplay loop muted
                         style="  
@@ -28,6 +29,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- Tab Data --}}
                 @foreach ($slide as $key => $item)
                     @if ($item->tipe == 2)
                         <div class="tab-pane fade" id="tab_{{ $item->file }}" role="tabpanel">
@@ -222,19 +224,73 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    @break
+                                    </div>
+                                @break
 
-                                    @case('proker_pkk')
-                                        <div class="singleslide"
-                                            style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
+                                @case('proker_pkk')
+                                    <div class="singleslide"
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
+                                        <x-slideProkerPkk :kategoriPkk=$kategoriPkk :prokerPkk=$prokerPkk />
+                                    </div>
+                                @break
 
-                                            <x-slideProkerPkk :kategoriPkk=$kategoriPkk :prokerPkk=$prokerPkk />
-                                        </div>
-                                    @break
+                                @case('papan_data_sekretaris')
+                                    <div class="singleslide"
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
+                                        @php($title = 'Sekretaris')
+                                        @php($id = 'Sekretaris')
+                                        <x-papanData :title=$title :papandata=$papandata :id=$id />
+                                    </div>
+                                @break
 
-                                    @default
-                                @endswitch
-                            </div>
+                                @case('papan_data_bendahara')
+                                    <div class="singleslide"
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
+                                        @php($title = 'Bendahara')
+                                        @php($id = 'Bendahara')
+                                        <x-papanData :title=$title :papandata=$papandata :id=$id />
+                                    </div>
+                                @break
+
+                                @case('papan_data_pokja1')
+                                    <div class="singleslide"
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
+                                        @php($title = 'POKJA 1')
+                                        @php($id = 'pokja1')
+                                        <x-papanData :title=$title :papandata=$papandata :id=$id />
+                                    </div>
+                                @break
+
+                                @case('papan_data_pokja2')
+                                    <div class="singleslide"
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
+                                        @php($title = 'POKJA 2')
+                                        @php($id = 'pokja2')
+                                        <x-papanData :title=$title :papandata=$papandata :id=$id />
+                                    </div>
+                                @break
+
+                                @case('papan_data_pokja3')
+                                    <div class="singleslide"
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
+                                        @php($title = 'POKJA 3')
+                                        @php($id = 'pokja3')
+                                        <x-papanData :title=$title :papandata=$papandata :id=$id />
+                                    </div>
+                                @break
+
+                                @case('papan_data_pokja4')
+                                    <div class="singleslide"
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
+                                        @php($title = 'POKJA 4')
+                                        @php($id = 'pokja4')
+                                        <x-papanData :title=$title :papandata=$papandata :id=$id />
+                                    </div>
+                                @break
+
+                                @default
+                            @endswitch
+                        </div>
                     @endif
                 @endforeach
                 {{-- Tab Video --}}
@@ -253,7 +309,6 @@
                             style="border-radius: 0.5rem 0.5rem 0.5rem 0.5rem; box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45); height:60vh; margin:auto">
                         </video>
                     </div>
-
                 </div>
                 {{-- Tab Gambar --}}
                 <div class="tab-pane fade" id="gambar" role="tabpanel">
@@ -274,6 +329,7 @@
                     </div>
                 </div>
             </div>
+            {{-- Running Teks --}}
             <div class="col-12 my-auto" style="height:6%">
                 <div class="row h-100">
                     <div class="col-1 d-flex justify-content-center align-item-center"
@@ -328,7 +384,6 @@
             'allowCollapse': true
         });
     }
-
     // Gambar struktur pkk
     function drawChartPkk1() {
         var data = new google.visualization.DataTable();
@@ -425,6 +480,7 @@
             'allowCollapse': true
         });
     }
+
     // Time Script
     function display_c() {
         var refresh = 1000; // Refresh rate in milli seconds

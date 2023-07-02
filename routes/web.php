@@ -27,6 +27,7 @@ Route::get('/galeri-desa', [UserController:: class, 'galeri']);
 Route::get('/struktur-desa', [UserController:: class, 'strukturDesa']);
 Route::get('/proker-desa', [UserController:: class, 'prokerDesa']);
 Route::get('/profil-pkk', [UserController:: class, 'profilPkk']);
+Route::get('/papan-data', [UserController:: class, 'papanData']);
 Route::get('/proker-pkk', [UserController:: class, 'prokerPkk']);
 
 // ==========================
@@ -86,6 +87,12 @@ Route::put('/admin/profil-pkk/update', [PkkController:: class, 'updateProfil']);
 Route::post('/admin/struktur-pkk/add', [PkkController:: class, 'addStruktur']);
 Route::put('/admin/struktur-pkk/{profil}/update', [PkkController:: class, 'updateStruktur']);
 Route::get('/admin/struktur-pkk/{profil}/delete', [PkkController:: class, 'deleteStruktur']);
+
+// Route Papan Data
+Route::get('/admin/papan-data', [PkkController:: class, 'papanData']);
+Route::post('/admin/papan-data/add-papan', [PkkController:: class, 'addPapan']);
+Route::put('/admin/papan-data/{profil}/update', [PkkController:: class, 'updatePapan']);
+Route::get('/admin/papan-data/{profil}/delete', [PkkController:: class, 'deletePapan']);
 
 // Route Proker PKK
 Route::get('/admin/proker-pkk', [PkkController:: class, 'proker']);
