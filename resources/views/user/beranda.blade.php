@@ -6,7 +6,7 @@
             :grafikpkk2=$grafikpkk2 :grafikpkk3=$grafikpkk3 :grafikpkk4=$grafikpkk4 :grafikpkk5=$grafikpkk5 :teks=$teks
             :profil=$profil :umum=$umum :penduduk=$penduduk :pendidikan=$pendidikan :pekerjaan=$pekerjaan :sarpras=$sarpras
             :kategoriDesa=$kategoriDesa :prokerDesa=$prokerDesa :profilPkk=$profilPkk :kategoriPkk=$kategoriPkk
-            :prokerPkk=$prokerPkk />
+            :prokerPkk=$prokerPkk :papandata=$papandata/>
     </div>
     <script src="{{ $chart_jk->cdn() }}"></script>
     <script src="{{ $chart_usia->cdn() }}"></script>

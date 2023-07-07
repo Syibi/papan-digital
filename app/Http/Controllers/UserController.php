@@ -17,6 +17,7 @@ use App\Models\Struktur_Pkk;
 use App\Models\Proker_Pkk;
 use App\Models\Kategori_Pkk;
 use App\Models\Data_Pkk;
+use App\Models\Papan_Data;
 use App\Models\File_Musik;
 use App\Models\Data_Running_Text;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
@@ -74,6 +75,7 @@ class UserController extends Controller
         $profilPkk = Data_pkk::where('id', '1')->first();
         $kategoriPkk = Kategori_Pkk::all();
         $prokerPkk = Proker_Pkk::all();
+        $papandata = Papan_Data::all();
 
         $jabatandesa = [];
         $sorteddesa = [];
@@ -268,7 +270,8 @@ class UserController extends Controller
             'prokerDesa', 
             'profilPkk', 
             'kategoriPkk', 
-            'prokerPkk'
+            'prokerPkk',
+            'papandata'
         ));
     }
 
@@ -397,7 +400,9 @@ class UserController extends Controller
     public function papanData()
     {
         $title = "Papan Data";
-        return view('user.proker-pkk', compact('title'));
+        $papan_data = Papan_Data::all();
+        $musik = File_Musik::latest()->first();
+        return view('user.papan-data', compact('title', 'musik', 'papan_data'));
     }
     
     public function prokerPkk()
