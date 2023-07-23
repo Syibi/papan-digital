@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('user.layout')
 
 @section('container')
     <div class="container-xxl flex-grow-1 my-3">

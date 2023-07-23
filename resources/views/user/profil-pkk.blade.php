@@ -28,7 +28,7 @@
                 <div class="tab-pane fade active show" id="navs-justified-profil" role="tabpanel">
                     <x-profilPkk :profilPkk=$profilPkk />
                 </div>
-                <div class="tab-pane fade active show" id="navs-justified-struktur" role="tabpanel">
+                <div class="tab-pane fade" id="navs-justified-struktur" role="tabpanel">
                     <div id="chart_div"></div>
                 </div>
                 <div class="tab-pane fade" id="navs-justified-data" role="tabpanel">
@@ -53,8 +53,8 @@
                                     </tr>
                                 @endforeach
                             </tbody>
+                        </table>
                     </div>
-                    </table>
                 </div>
             </div>
         </div>
