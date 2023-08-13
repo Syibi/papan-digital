@@ -48,18 +48,19 @@
                 </li>
             </ul>
             <div class="tab-content">
-                <div class="tab-pane fade active show" style="height:72vh" id="sekretaris" role="tabpanel">
-                    <div class="nav-align-bottom mb-2">
+                <div class="tab-pane fade active show" style="height:74vh" id="sekretaris" role="tabpanel">
+                    <div class="nav-align-bottom mb-4">
                         @php($id = 'Sekretaris')
-                        <ul class="nav nav-pills mb-3" role="tablist">
+                        <ul class="nav nav-pills mb-2" role="tablist">
                             @php($firstlink = true)
                             @foreach ($papan_data as $key => $item)
+                            @php($idPapan = str_replace(' ', '', $item->nama_papan))
                                 @if ($item->kategori == $id)
-                                    <li class="nav-item">
-                                        <button onclick="tabsclicked('{{ $item->nama_papan }}')" type="button"
+                                    <li class="nav-item" style="font-size: 12px">
+                                        <button onclick="tabsclicked('{{ $idPapan }}')" type="button"
                                             class="nav-link {{ $firstlink == true ? 'active' : '' }}" role="tab"
-                                            data-bs-toggle="tab" data-bs-target="#navs-{{ $item->nama_papan }}"
-                                            aria-controls="navs-{{ $item->nama_papan }}"
+                                            data-bs-toggle="tab" data-bs-target="#navs-{{ $idPapan }}"
+                                            aria-controls="navs-{{ $idPapan }}"
                                             aria-selected="{{ $firstlink == true ? 'true' : '' }}">
                                             <strong>{{ $item->nama_papan }}</strong>
                                             {{ $firstlink = false }}
@@ -74,10 +75,10 @@
                                 @php($idPapan = str_replace(' ', '', $item->nama_papan))
                                 @if ($item->kategori == $id)
                                     <div class="tab-pane fade {{ $first == true ? 'active show' : '' }}"
-                                        id="navs-{{ $item->nama_papan }}" role="tabpanel" style="height:65vh">
+                                        id="navs-{{ $idPapan }}" role="tabpanel" style="height:65vh">
                                         {{ $first = false }}
                                         <img class="card-img" src="{{ asset('upload/papan_data/' . $item->file) }}"
-                                            alt="Card image" style="height: 65vh">
+                                            alt="Card image" style="height: 65vh; object-fit:contain">
                                         <button type="button" data-bs-toggle="modal"
                                             data-bs-target="#modal-{{ $idPapan }}"
                                             class="btn btn-lg rounded-pill btn-icon btn-primary"
@@ -96,18 +97,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" style="height:72vh" id="bendahara" role="tabpanel">
-                    <div class="nav-align-bottom mb-2">
+                <div class="tab-pane fade" style="height:74vh" id="bendahara" role="tabpanel">
+                    <div class="nav-align-bottom mb-4">
                         @php($id = 'Bendahara')
                         <ul class="nav nav-pills mb-3" role="tablist">
                             @php($firstlink = true)
                             @foreach ($papan_data as $key => $item)
+                            @php($idPapan = str_replace(' ', '', $item->nama_papan))
                                 @if ($item->kategori == $id)
-                                    <li class="nav-item">
-                                        <button onclick="tabsclicked('{{ $item->nama_papan }}')" type="button"
+                                    <li class="nav-item" style="font-size: 12px">
+                                        <button onclick="tabsclicked('{{ $idPapan }}')" type="button"
                                             class="nav-link {{ $firstlink == true ? 'active' : '' }}" role="tab"
-                                            data-bs-toggle="tab" data-bs-target="#navs-{{ $item->nama_papan }}"
-                                            aria-controls="navs-{{ $item->nama_papan }}"
+                                            data-bs-toggle="tab" data-bs-target="#navs-{{ $idPapan }}"
+                                            aria-controls="navs-{{ $idPapan }}"
                                             aria-selected="{{ $firstlink == true ? 'true' : '' }}">
                                             <strong>{{ $item->nama_papan }}</strong>
                                             {{ $firstlink = false }}
@@ -122,10 +124,10 @@
                                 @php($idPapan = str_replace(' ', '', $item->nama_papan))
                                 @if ($item->kategori == $id)
                                     <div class="tab-pane fade {{ $first == true ? 'active show' : '' }}"
-                                        id="navs-{{ $item->nama_papan }}" role="tabpanel" style="height:65vh">
+                                        id="navs-{{ $idPapan }}" role="tabpanel" style="height:65vh">
                                         {{ $first = false }}
                                         <img class="card-img" src="{{ asset('upload/papan_data/' . $item->file) }}"
-                                            alt="Card image" style="height: 65vh">
+                                            alt="Card image" style="height: 65vh; object-fit:contain">
                                         <button type="button" data-bs-toggle="modal"
                                             data-bs-target="#modal-{{ $idPapan }}"
                                             class="btn btn-lg rounded-pill btn-icon btn-primary"
@@ -144,18 +146,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="pokja1" style="height:72vh" role="tabpanel">
-                    <div class="nav-align-bottom mb-2">
+                <div class="tab-pane fade" id="pokja1" style="height:74vh" role="tabpanel">
+                    <div class="nav-align-bottom mb-4">
                         @php($id = 'pokja1')
                         <ul class="nav nav-pills mb-3" role="tablist">
                             @php($firstlink = true)
                             @foreach ($papan_data as $key => $item)
+                            @php($idPapan = str_replace(' ', '', $item->nama_papan))
                                 @if ($item->kategori == $id)
-                                    <li class="nav-item">
-                                        <button onclick="tabsclicked('{{ $item->nama_papan }}')" type="button"
+                                    <li class="nav-item" style="font-size: 12px">
+                                        <button onclick="tabsclicked('{{ $idPapan }}')" type="button"
                                             class="nav-link {{ $firstlink == true ? 'active' : '' }}" role="tab"
-                                            data-bs-toggle="tab" data-bs-target="#navs-{{ $item->nama_papan }}"
-                                            aria-controls="navs-{{ $item->nama_papan }}"
+                                            data-bs-toggle="tab" data-bs-target="#navs-{{ $idPapan }}"
+                                            aria-controls="navs-{{ $idPapan }}"
                                             aria-selected="{{ $firstlink == true ? 'true' : '' }}">
                                             <strong>{{ $item->nama_papan }}</strong>
                                             {{ $firstlink = false }}
@@ -170,10 +173,10 @@
                                 @php($idPapan = str_replace(' ', '', $item->nama_papan))
                                 @if ($item->kategori == $id)
                                     <div class="tab-pane fade {{ $first == true ? 'active show' : '' }}"
-                                        id="navs-{{ $item->nama_papan }}" role="tabpanel" style="height:65vh">
+                                        id="navs-{{ $idPapan }}" role="tabpanel" style="height:65vh">
                                         {{ $first = false }}
                                         <img class="card-img" src="{{ asset('upload/papan_data/' . $item->file) }}"
-                                            alt="Card image" style="height: 65vh">
+                                            alt="Card image" style="height: 65vh; object-fit:contain">
                                         <button type="button" data-bs-toggle="modal"
                                             data-bs-target="#modal-{{ $idPapan }}"
                                             class="btn btn-lg rounded-pill btn-icon btn-primary"
@@ -192,18 +195,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="pokja2" style="height:72vh" role="tabpanel">
-                    <div class="nav-align-bottom mb-2">
+                <div class="tab-pane fade" id="pokja2" style="height:74vh" role="tabpanel">
+                    <div class="nav-align-bottom mb-4">
                         @php($id = 'pokja2')
                         <ul class="nav nav-pills mb-3" role="tablist">
                             @php($firstlink = true)
                             @foreach ($papan_data as $key => $item)
+                            @php($idPapan = str_replace(' ', '', $item->nama_papan))
                                 @if ($item->kategori == $id)
-                                    <li class="nav-item">
-                                        <button onclick="tabsclicked('{{ $item->nama_papan }}')" type="button"
+                                    <li class="nav-item" style="font-size: 12px">
+                                        <button onclick="tabsclicked('{{ $idPapan }}')" type="button"
                                             class="nav-link {{ $firstlink == true ? 'active' : '' }}" role="tab"
-                                            data-bs-toggle="tab" data-bs-target="#navs-{{ $item->nama_papan }}"
-                                            aria-controls="navs-{{ $item->nama_papan }}"
+                                            data-bs-toggle="tab" data-bs-target="#navs-{{ $idPapan }}"
+                                            aria-controls="navs-{{ $idPapan }}"
                                             aria-selected="{{ $firstlink == true ? 'true' : '' }}">
                                             <strong>{{ $item->nama_papan }}</strong>
                                             {{ $firstlink = false }}
@@ -218,10 +222,10 @@
                                 @php($idPapan = str_replace(' ', '', $item->nama_papan))
                                 @if ($item->kategori == $id)
                                     <div class="tab-pane fade {{ $first == true ? 'active show' : '' }}"
-                                        id="navs-{{ $item->nama_papan }}" role="tabpanel" style="height:65vh">
+                                        id="navs-{{ $idPapan }}" role="tabpanel" style="height:65vh">
                                         {{ $first = false }}
                                         <img class="card-img" src="{{ asset('upload/papan_data/' . $item->file) }}"
-                                            alt="Card image" style="height: 65vh">
+                                            alt="Card image" style="height: 65vh; object-fit:contain">
                                         <button type="button" data-bs-toggle="modal"
                                             data-bs-target="#modal-{{ $idPapan }}"
                                             class="btn btn-lg rounded-pill btn-icon btn-primary"
@@ -240,18 +244,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="pokja3" style="height:72vh" role="tabpanel">
-                    <div class="nav-align-bottom mb-2">
+                <div class="tab-pane fade" id="pokja3" style="height:74vh" role="tabpanel">
+                    <div class="nav-align-bottom mb-4">
                         @php($id = 'pokja3')
                         <ul class="nav nav-pills mb-3" role="tablist">
                             @php($firstlink = true)
                             @foreach ($papan_data as $key => $item)
+                            @php($idPapan = str_replace(' ', '', $item->nama_papan))
                                 @if ($item->kategori == $id)
-                                    <li class="nav-item">
-                                        <button onclick="tabsclicked('{{ $item->nama_papan }}')" type="button"
+                                    <li class="nav-item" style="font-size: 12px">
+                                        <button onclick="tabsclicked('{{ $idPapan }}')" type="button"
                                             class="nav-link {{ $firstlink == true ? 'active' : '' }}" role="tab"
-                                            data-bs-toggle="tab" data-bs-target="#navs-{{ $item->nama_papan }}"
-                                            aria-controls="navs-{{ $item->nama_papan }}"
+                                            data-bs-toggle="tab" data-bs-target="#navs-{{ $idPapan }}"
+                                            aria-controls="navs-{{ $idPapan }}"
                                             aria-selected="{{ $firstlink == true ? 'true' : '' }}">
                                             <strong>{{ $item->nama_papan }}</strong>
                                             {{ $firstlink = false }}
@@ -266,10 +271,10 @@
                                 @php($idPapan = str_replace(' ', '', $item->nama_papan))
                                 @if ($item->kategori == $id)
                                     <div class="tab-pane fade {{ $first == true ? 'active show' : '' }}"
-                                        id="navs-{{ $item->nama_papan }}" role="tabpanel" style="height:65vh">
+                                        id="navs-{{ $idPapan }}" role="tabpanel" style="height:65vh">
                                         {{ $first = false }}
                                         <img class="card-img" src="{{ asset('upload/papan_data/' . $item->file) }}"
-                                            alt="Card image" style="height: 65vh">
+                                            alt="Card image" style="height: 65vh; object-fit:contain">
                                         <button type="button" data-bs-toggle="modal"
                                             data-bs-target="#modal-{{ $idPapan }}"
                                             class="btn btn-lg rounded-pill btn-icon btn-primary"
@@ -288,18 +293,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="pokja4" style="height:72vh" role="tabpanel">
-                    <div class="nav-align-bottom mb-2">
+                <div class="tab-pane fade" id="pokja4" style="height:74vh" role="tabpanel">
+                    <div class="nav-align-bottom mb-4">
                         @php($id = 'pokja4')
                         <ul class="nav nav-pills mb-3" role="tablist">
                             @php($firstlink = true)
                             @foreach ($papan_data as $key => $item)
+                            @php($idPapan = str_replace(' ', '', $item->nama_papan))
                                 @if ($item->kategori == $id)
-                                    <li class="nav-item">
-                                        <button onclick="tabsclicked('{{ $item->nama_papan }}')" type="button"
+                                    <li class="nav-item" style="font-size: 12px">
+                                        <button onclick="tabsclicked('{{ $idPapan }}')" type="button"
                                             class="nav-link {{ $firstlink == true ? 'active' : '' }}" role="tab"
-                                            data-bs-toggle="tab" data-bs-target="#navs-{{ $item->nama_papan }}"
-                                            aria-controls="navs-{{ $item->nama_papan }}"
+                                            data-bs-toggle="tab" data-bs-target="#navs-{{ $idPapan }}"
+                                            aria-controls="navs-{{ $idPapan }}"
                                             aria-selected="{{ $firstlink == true ? 'true' : '' }}">
                                             <strong>{{ $item->nama_papan }}</strong>
                                             {{ $firstlink = false }}
@@ -314,10 +320,10 @@
                                 @php($idPapan = str_replace(' ', '', $item->nama_papan))
                                 @if ($item->kategori == $id)
                                     <div class="tab-pane fade {{ $first == true ? 'active show' : '' }}"
-                                        id="navs-{{ $item->nama_papan }}" role="tabpanel" style="height:65vh">
+                                        id="navs-{{ $idPapan }}" role="tabpanel" style="height:65vh">
                                         {{ $first = false }}
                                         <img class="card-img" src="{{ asset('upload/papan_data/' . $item->file) }}"
-                                            alt="Card image" style="height: 65vh">
+                                            alt="Card image" style="height: 65vh; object-fit:contain">
                                         <button type="button" data-bs-toggle="modal"
                                             data-bs-target="#modal-{{ $idPapan }}"
                                             class="btn btn-lg rounded-pill btn-icon btn-primary"
@@ -459,8 +465,9 @@
 
     <script type="text/javascript">
         let allTab = Array.from(document.getElementById('tabContent').children);
-
+        console.log(allTab);
         function tabsclicked(tabs) {
+            console.log(tabs);
             var tabName = 'navs-' + tabs
             allTab.forEach(element => {
                 var activeTab = element.classList;

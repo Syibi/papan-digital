@@ -1,4 +1,4 @@
-<div class="col-md-6 mb-5 mx-auto d-flex justify-content-center align-content-center"
+<div class="col-md-6 mb-2 mx-auto d-flex justify-content-center align-content-center"
     style="background-color: #24293D; border-radius:10px">
     <h4 style="margin-bottom: 10px; margin-top:10px; color:white"><strong>Papan Data {{ $title }}</strong></h4>
 </div>
@@ -8,15 +8,15 @@
         @foreach ($papandata as $key => $item)
             @if ($item->kategori == $id)
                 <div class="carousel-item {{ $first == true ? 'active' : '' }}" style="width: 100%;"
-                    data-bs-interval="8000">
+                    data-bs-interval="5000">
                     {{ $first = false }}
                     <p class="d-flex justify-content-center align-content-center mt-2 mb-4"
                         style="color: #24293D; font-weight:700">{{ $item->nama_papan }}</p>
                     <img class="d-block w-100" alt="..."
-                        style="object-fit: fill;
+                        style="object-fit: contain;
                             height:60vh;
                             border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
-                            box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45);"
+                            background-color:white"
                         src="{{ asset('upload/papan_data/' . $item->file) }}">
                 </div>
             @endif

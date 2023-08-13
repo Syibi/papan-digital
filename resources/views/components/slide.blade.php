@@ -236,7 +236,7 @@
 
                                 @case('papan_data_sekretaris')
                                     <div class="singleslide"
-                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:30px">
                                         @php($title = 'Sekretaris')
                                         @php($id = 'Sekretaris')
                                         <x-papanData :title=$title :papandata=$papandata :id=$id />
@@ -245,7 +245,7 @@
 
                                 @case('papan_data_bendahara')
                                     <div class="singleslide"
-                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:30px">
                                         @php($title = 'Bendahara')
                                         @php($id = 'Bendahara')
                                         <x-papanData :title=$title :papandata=$papandata :id=$id />
@@ -254,7 +254,7 @@
 
                                 @case('papan_data_pokja1')
                                     <div class="singleslide"
-                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:30px">
                                         @php($title = 'POKJA 1')
                                         @php($id = 'pokja1')
                                         <x-papanData :title=$title :papandata=$papandata :id=$id />
@@ -263,7 +263,7 @@
 
                                 @case('papan_data_pokja2')
                                     <div class="singleslide"
-                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:30px">
                                         @php($title = 'POKJA 2')
                                         @php($id = 'pokja2')
                                         <x-papanData :title=$title :papandata=$papandata :id=$id />
@@ -272,7 +272,7 @@
 
                                 @case('papan_data_pokja3')
                                     <div class="singleslide"
-                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:30px">
                                         @php($title = 'POKJA 3')
                                         @php($id = 'pokja3')
                                         <x-papanData :title=$title :papandata=$papandata :id=$id />
@@ -281,7 +281,7 @@
 
                                 @case('papan_data_pokja4')
                                     <div class="singleslide"
-                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:30px">
                                         @php($title = 'POKJA 4')
                                         @php($id = 'pokja4')
                                         <x-papanData :title=$title :papandata=$papandata :id=$id />

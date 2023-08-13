@@ -1,5 +1,6 @@
 @foreach ($kategori as $item)
-    <div class="tab-pane fade" id="navs-{{ $item->kategori }}" role="tabpanel">
+@php ($idTab = str_replace(' ', '', $item->kategori))
+    <div class="tab-pane fade" id="navs-{{ $idTab }}" role="tabpanel">
         <h5 class="mb-3">{{ $item->kategori }}</h5>
         <div class="accordion mt-3" id="accordion{{ $item->id }}">
             @php($no = 1)

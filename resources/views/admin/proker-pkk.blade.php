@@ -5,10 +5,11 @@
         <div class="nav-align-top mb-4">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 @foreach ($kategori as $item)
+                @php ($idTab = str_replace(' ', '', $item->kategori))
                     <li class="nav-item">
-                        <button onclick="tabsclicked('{{ $item->kategori }}')" type="button" class="nav-link" role="tab"
-                            data-bs-toggle="tab" data-bs-target="#navs-{{ $item->kategori }}"
-                            aria-controls="navs-{{ $item->kategori }}" aria-selected="false">
+                        <button onclick="tabsclicked('{{ $idTab }}')" type="button" class="nav-link" role="tab"
+                            data-bs-toggle="tab" data-bs-target="#navs-{{ $idTab }}"
+                            aria-controls="navs-{{ $idTab }}" aria-selected="false">
                             <strong>{{ $item->kategori }}</strong>
                         </button>
                     </li>
@@ -63,7 +64,7 @@
                                         <td>{{ $item->kategori }}</td>
                                         <td>
                                             <div class="demo-inline-spacing">
-                                                <a href="{{ url('admin/proker-pkk/' . $item->id . '/delete-proker') }}"
+                                                <a href="{{ url('admin/proker-pkk/' . $item->id . '/delete') }}"
                                                     type="button" class="btn btn-icon btn-danger"
                                                     style="margin-top: 0 !important">
                                                     <span class="bx bx-trash"></span>

@@ -5,10 +5,11 @@
         <div class="nav-align-top mb-4">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 @foreach ($kategori as $item)
+                @php ($idTab = str_replace(' ', '', $item->kategori))
                     <li class="nav-item">
-                        <button onclick="tabsclicked('{{ $item->kategori }}')" type="button" class="nav-link" role="tab"
-                            data-bs-toggle="tab" data-bs-target="#navs-{{ $item->kategori }}"
-                            aria-controls="navs-{{ $item->kategori }}" aria-selected="false">
+                        <button onclick="tabsclicked('{{ $idTab }}')" type="button" class="nav-link" role="tab"
+                            data-bs-toggle="tab" data-bs-target="#navs-{{ $idTab }}"
+                            aria-controls="navs-{{ $idTab }}" aria-selected="false">
                             <strong>{{ $item->kategori }}</strong>
                         </button>
                     </li>
