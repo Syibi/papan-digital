@@ -124,7 +124,7 @@
 
                                 @case('proker_desa')
                                     <div class="singleslide"
-                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:30px 30px 30px 30px">
                                         <div class="col-md-6 mb-5 mx-auto d-flex justify-content-center align-content-center"
                                             style="background-color: #24293D; border-radius:10px">
                                             <h4 style="margin-bottom: 10px; margin-top:10px; color:white"><strong>Program Kerja
@@ -163,63 +163,62 @@
                                                             </h4>
                                                         </div>
                                                         <div class="mt-3" id="chart_div_pkk1"></div>
-                                                        < </div>
-                                                            <div class="carousel-item" style="width: 100%;"
-                                                                data-bs-interval="7000">
-                                                                <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
-                                                                    style="background-color: #24293D; border-radius:10px">
-                                                                    <h4
-                                                                        style="margin-bottom: 10px; margin-top:10px; color:white">
-                                                                        <strong>Struktur Organisasi PKK Desa
-                                                                            Tikusan</strong><br /><span
-                                                                            style="display:flex; justify-content:center"><small>POKJA
-                                                                                I</small></span>
-                                                                    </h4>
-                                                                </div>
-                                                                <div class="mt-3" id="chart_div_pkk2"></div>
-                                                            </div>
-                                                            <div class="carousel-item" style="width: 100%;"
-                                                                data-bs-interval="7000">
-                                                                <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
-                                                                    style="background-color: #24293D; border-radius:10px">
-                                                                    <h4
-                                                                        style="margin-bottom: 10px; margin-top:10px; color:white; justify-content:center">
-                                                                        <strong>Struktur Organisasi PKK Desa
-                                                                            Tikusan</strong><br /><span
-                                                                            style="display:flex; justify-content:center"><small>POKJA
-                                                                                II</small></span>
-                                                                    </h4>
-                                                                </div>
-                                                                <div class="mt-3" id="chart_div_pkk3"></div>
-                                                            </div>
-                                                            <div class="carousel-item" style="width: 100%;"
-                                                                data-bs-interval="7000">
-                                                                <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
-                                                                    style="background-color: #24293D; border-radius:10px">
-                                                                    <h4
-                                                                        style="margin-bottom: 10px; margin-top:10px; color:white">
-                                                                        <strong>Struktur Organisasi PKK Desa
-                                                                            Tikusan</strong><br /><span
-                                                                            style="display:flex; justify-content:center"><small>POKJA
-                                                                                III</small></span>
-                                                                    </h4>
-                                                                </div>
-                                                                <div class="mt-3" id="chart_div_pkk4"></div>
-                                                            </div>
-                                                            <div class="carousel-item" style="width: 100%;"
-                                                                data-bs-interval="7000">
-                                                                <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
-                                                                    style="background-color: #24293D; border-radius:10px">
-                                                                    <h4
-                                                                        style="margin-bottom: 10px; margin-top:10px; color:white">
-                                                                        <strong>Struktur Organisasi PKK Desa
-                                                                            Tikusan</strong><br /><span
-                                                                            style="display:flex; justify-content:center"><small>POKJA
-                                                                                IV</small></span>
-                                                                    </h4>
-                                                                </div>
-                                                                <div class="mt-3" id="chart_div_pkk5"></div>
-                                                            </div>
+                                                    </div>
+                                                    <div class="carousel-item" style="width: 100%;"
+                                                        data-bs-interval="7000">
+                                                        <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
+                                                            style="background-color: #24293D; border-radius:10px">
+                                                            <h4
+                                                                style="margin-bottom: 10px; margin-top:10px; color:white">
+                                                                <strong>Struktur Organisasi PKK Desa
+                                                                    Tikusan</strong><br /><span
+                                                                    style="display:flex; justify-content:center"><small>POKJA
+                                                                        I</small></span>
+                                                            </h4>
+                                                        </div>
+                                                        <div class="mt-3" id="chart_div_pkk2"></div>
+                                                    </div>
+                                                    <div class="carousel-item" style="width: 100%;"
+                                                        data-bs-interval="7000">
+                                                        <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
+                                                            style="background-color: #24293D; border-radius:10px">
+                                                            <h4
+                                                                style="margin-bottom: 10px; margin-top:10px; color:white; justify-content:center">
+                                                                <strong>Struktur Organisasi PKK Desa
+                                                                    Tikusan</strong><br /><span
+                                                                    style="display:flex; justify-content:center"><small>POKJA
+                                                                        II</small></span>
+                                                            </h4>
+                                                        </div>
+                                                        <div class="mt-3" id="chart_div_pkk3"></div>
+                                                    </div>
+                                                    <div class="carousel-item" style="width: 100%;"
+                                                        data-bs-interval="7000">
+                                                        <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
+                                                            style="background-color: #24293D; border-radius:10px">
+                                                            <h4
+                                                                style="margin-bottom: 10px; margin-top:10px; color:white">
+                                                                <strong>Struktur Organisasi PKK Desa
+                                                                    Tikusan</strong><br /><span
+                                                                    style="display:flex; justify-content:center"><small>POKJA
+                                                                        III</small></span>
+                                                            </h4>
+                                                        </div>
+                                                        <div class="mt-3" id="chart_div_pkk4"></div>
+                                                    </div>
+                                                    <div class="carousel-item" style="width: 100%;"
+                                                        data-bs-interval="7000">
+                                                        <div class="col-md-6 mx-auto d-flex justify-content-center align-content-center"
+                                                            style="background-color: #24293D; border-radius:10px">
+                                                            <h4
+                                                                style="margin-bottom: 10px; margin-top:10px; color:white">
+                                                                <strong>Struktur Organisasi PKK Desa
+                                                                    Tikusan</strong><br /><span
+                                                                    style="display:flex; justify-content:center"><small>POKJA
+                                                                        IV</small></span>
+                                                            </h4>
+                                                        </div>
+                                                        <div class="mt-3" id="chart_div_pkk5"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -229,7 +228,7 @@
 
                                 @case('proker_pkk')
                                     <div class="singleslide"
-                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:50px 30px 30px 30px">
+                                        style="background-image: url({{ asset('assets/img/backgrounds/bg-singleslide.png') }});height:94%; width:100%; background-size:cover; position:absolute; top:0; padding:30px 30px 30px 30px">
                                         <x-slideProkerPkk :kategoriPkk=$kategoriPkk :prokerPkk=$prokerPkk />
                                     </div>
                                 @break

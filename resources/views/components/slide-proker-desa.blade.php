@@ -10,7 +10,7 @@
                         <div class="row g-0">
                             <div class="col-md-6">
                                 <img class="card-img" src="{{ asset('upload/proker/' . $itemProker->file) }}"
-                                    alt="Card image">
+                                    alt="Card image" style="object-fit: contain;  max-height:55vh">
                                 <p class="card-text mt-2"><small class="text-muted">Update :
                                         {{ $itemProker->updated_at }}</small>
                                 </p>
